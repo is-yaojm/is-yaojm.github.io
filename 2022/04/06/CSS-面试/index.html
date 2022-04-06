@@ -5,17 +5,17 @@
   
 
   
-  <title>高频手写代码 | Hexo</title>
+  <title>CSS_面试 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="七 高频手写代码1 什么是防抖和节流？他们的应用场景有哪些？">
+  <meta name="description" content="二 : CSS-前端面试总结1 CSS元素隐藏的方式1.1 display:none 这种方式是我们最常用的隐藏页面元素的方式，它使元素完全不占控件，任何基于该元素的用户交互操作不会起任何作用，该元素的子孙元素也都会被隐藏。但是我们可以通过常用的dom操作方法访问到该元素。  1.2 visibility: hidden 这种方式区别于none的地方在于该元素依然在页面布局中起作用，它仍然占据着它">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高频手写代码">
-<meta property="og:url" content="http://example.com/2022/04/05/%E9%AB%98%E9%A2%91%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/index.html">
+<meta property="og:title" content="CSS_面试">
+<meta property="og:url" content="http://example.com/2022/04/06/CSS-%E9%9D%A2%E8%AF%95/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="七 高频手写代码1 什么是防抖和节流？他们的应用场景有哪些？">
+<meta property="og:description" content="二 : CSS-前端面试总结1 CSS元素隐藏的方式1.1 display:none 这种方式是我们最常用的隐藏页面元素的方式，它使元素完全不占控件，任何基于该元素的用户交互操作不会起任何作用，该元素的子孙元素也都会被隐藏。但是我们可以通过常用的dom操作方法访问到该元素。  1.2 visibility: hidden 这种方式区别于none的地方在于该元素依然在页面布局中起作用，它仍然占据着它">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-05T00:31:40.000Z">
-<meta property="article:modified_time" content="2022-04-05T00:32:40.376Z">
+<meta property="article:published_time" content="2022-04-06T14:25:32.000Z">
+<meta property="article:modified_time" content="2022-04-06T14:38:32.253Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -66,10 +66,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-高频手写代码" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-CSS-面试" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/04/05/%E9%AB%98%E9%A2%91%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/" class="article-date">
-  <time datetime="2022-04-05T00:31:40.000Z" itemprop="datePublished">2022-04-05</time>
+    <a href="/2022/04/06/CSS-%E9%9D%A2%E8%AF%95/" class="article-date">
+  <time datetime="2022-04-06T14:25:32.000Z" itemprop="datePublished">2022-04-06</time>
 </a>
     
   </div>
@@ -80,7 +80,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      高频手写代码
+      CSS_面试
     </h1>
   
 
@@ -88,11 +88,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="七-高频手写代码"><a href="#七-高频手写代码" class="headerlink" title="七 高频手写代码"></a>七 高频手写代码</h2><h3 id="1-什么是防抖和节流？他们的应用场景有哪些？"><a href="#1-什么是防抖和节流？他们的应用场景有哪些？" class="headerlink" title="1 什么是防抖和节流？他们的应用场景有哪些？"></a>1 什么是防抖和节流？他们的应用场景有哪些？</h3>
+        <h2 id="二-CSS-前端面试总结"><a href="#二-CSS-前端面试总结" class="headerlink" title="二 : CSS-前端面试总结"></a>二 : CSS-前端面试总结</h2><h3 id="1-CSS元素隐藏的方式"><a href="#1-CSS元素隐藏的方式" class="headerlink" title="1 CSS元素隐藏的方式"></a>1 CSS元素隐藏的方式</h3><h4 id="1-1-display-none"><a href="#1-1-display-none" class="headerlink" title="1.1 display:none"></a>1.1 display:none</h4><blockquote>
+<p>这种方式是我们最常用的隐藏页面元素的方式，它使元素完全不占控件，任何基于该元素的用户交互操作不会起任何作用，该元素的子孙元素也都会被隐藏。但是我们可以通过常用的dom操作方法访问到该元素。</p>
+</blockquote>
+<h4 id="1-2-visibility-hidden"><a href="#1-2-visibility-hidden" class="headerlink" title="1.2 visibility: hidden"></a>1.2 visibility: hidden</h4><blockquote>
+<p>这种方式区别于none的地方在于该元素依然在页面布局中起作用，它仍然占据着它原来的空间，该元素的子孙元素是可见的。不过它并不影响任何交互操作。</p>
+</blockquote>
+<h4 id="1-3-opacity-0"><a href="#1-3-opacity-0" class="headerlink" title="1.3 opacity: 0;"></a>1.3 opacity: 0;</h4><blockquote>
+<p>opacity属性是用于设置元素的透明度的，当值为0时，该元素被隐藏，但它仍然在页面布局中起作用，但是它会影响部分页面交互操作，读屏软件能够读到该元素。</p>
+</blockquote>
+<h4 id="1-4-position-absolute-left-9999px"><a href="#1-4-position-absolute-left-9999px" class="headerlink" title="1.4 position: absolute; left: -9999px"></a>1.4 position: absolute; left: -9999px</h4><blockquote>
+<p>position属性可以将该元素移除可视区域，不会影响布局，又可以让元素进行操作。</p>
+</blockquote>
+<h3 id="2-opacity的兼容性处理"><a href="#2-opacity的兼容性处理" class="headerlink" title="2 opacity的兼容性处理"></a>2 opacity的兼容性处理</h3><h3 id="3-flex布局"><a href="#3-flex布局" class="headerlink" title="3 flex布局"></a>3 flex布局</h3><h3 id="4-元素的居中方式"><a href="#4-元素的居中方式" class="headerlink" title="4 元素的居中方式"></a>4 元素的居中方式</h3>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/04/05/%E9%AB%98%E9%A2%91%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/" data-id="cl1lhm1av0001f0uvd8o1gz9v" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/04/06/CSS-%E9%9D%A2%E8%AF%95/" data-id="cl1noejlc00000wuvhvtg4um1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -101,19 +113,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/04/06/CSS-%E9%9D%A2%E8%AF%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          CSS_面试
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/04/05/HTML-%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/04/05/%E9%AB%98%E9%A2%91%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">HTML_前端面试基础</div>
+      <div class="article-nav-title">高频手写代码</div>
     </a>
   
 </nav>

@@ -15,7 +15,7 @@
 <meta property="og:description" content="一 : HTML-前端面试基础总结1 HTML状态码 当用户浏览一个网页时，浏览器会向网页所在的服务器发出请求。当浏览器接收并显示王爷前，此网页所在的服务器会返回一个包含HTTP状态码的信息头用以响应浏览器的请求。  HTTP状态码 - 菜鸟教程 常见状态码分类: 1** ： 信息，服务器收到请求，需要请求者继续执行操作； 2** ： 成功； 3** ： 重定向，需要进一步的操作完成请求； 4**">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-04-05T00:14:42.000Z">
-<meta property="article:modified_time" content="2022-04-05T01:53:04.802Z">
+<meta property="article:modified_time" content="2022-04-06T14:29:04.663Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -145,6 +145,48 @@
 </ul>
 </li>
 </ul>
+<blockquote>
+<p>什么是标签语义化？</p>
+</blockquote>
+<p>答：语义化变迁就是具有语义的标签，它可以清晰地向我们展示它的作用和用途。</p>
+<blockquote>
+<p>常见的标签有哪些？都有什么含义？</p>
+</blockquote>
+<p>答：HTML将标签可分为三类：行内元素，块级元素和行内块元素。这三者可以使用dispaly属性进行转化。</p>
+<p>行内元素：可以在一行中显示的元素，无法对它设置宽和高，常见的行内块元素有<code>&lt;a&gt;</code>,<code>&lt;span&gt;</code>,<code>&lt;input&gt;</code>等。行内元素的设置方式：<code>display:inline</code>。</p>
+<p>块级元素：可以自动换行，多个块级元素写在一起时默认排列方式为从上至下。常见的块级元素有：<code>&lt;h1&gt;-&lt;h5&gt;</code>,<code>&lt;p&gt;</code>,<code>&lt;div&gt;</code>,<code>&lt;nav&gt;</code>,<code>&lt;header&gt;</code>,<code>&lt;footer&gt;</code>等。块级元素的设置方式：<code>display:block</code>。</p>
+<p>行内块元素：它综合了行内元素和块级元素的特性，不自动换行，可以设置宽高，默认排列方式为从左向右。行内块级元素的设置方式：<code>display:inline-block</code>。</p>
+<blockquote>
+<p>display除<code>inline</code>，<code>block</code>和<code>inline-block</code>以外，还有什么值？有什么含义？</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>该元素不会被显示</td>
+</tr>
+<tr>
+<td>list-item</td>
+<td>该元素会被作为列表显示</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承display属性的值</td>
+</tr>
+<tr>
+<td>flex</td>
+<td>CSS3引入的新的布局模式，弹性盒模型</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>让元素隐藏的方式，除了display:none外，还有什么方式？</p>
+</blockquote>
+<p>答：还有visibility，opacity和position。</p>
 <h3 id="4-关于URL编码-（URL-Encode）"><a href="#4-关于URL编码-（URL-Encode）" class="headerlink" title="4 关于URL编码 （URL Encode）"></a>4 关于URL编码 （URL Encode）</h3><blockquote>
 <p>URL就是网址，URL只能由字母、数字、一些特殊符号组成<code>$-_.+!*&#39;(),</code>、以及某些保留字来组成。</p>
 </blockquote>
@@ -338,6 +380,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/04/06/CSS-%E9%9D%A2%E8%AF%95/">CSS_面试</a>
+          </li>
         
           <li>
             <a href="/2022/04/05/%E9%AB%98%E9%A2%91%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/">高频手写代码</a>

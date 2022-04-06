@@ -64,6 +64,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS-面试" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/04/06/CSS-%E9%9D%A2%E8%AF%95/" class="article-date">
+  <time datetime="2022-04-06T14:25:32.000Z" itemprop="datePublished">2022-04-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/06/CSS-%E9%9D%A2%E8%AF%95/">CSS_面试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="二-CSS-前端面试总结"><a href="#二-CSS-前端面试总结" class="headerlink" title="二 : CSS-前端面试总结"></a>二 : CSS-前端面试总结</h2><h3 id="1-CSS元素隐藏的方式"><a href="#1-CSS元素隐藏的方式" class="headerlink" title="1 CSS元素隐藏的方式"></a>1 CSS元素隐藏的方式</h3><h4 id="1-1-display-none"><a href="#1-1-display-none" class="headerlink" title="1.1 display:none"></a>1.1 display:none</h4><blockquote>
+<p>这种方式是我们最常用的隐藏页面元素的方式，它使元素完全不占控件，任何基于该元素的用户交互操作不会起任何作用，该元素的子孙元素也都会被隐藏。但是我们可以通过常用的dom操作方法访问到该元素。</p>
+</blockquote>
+<h4 id="1-2-visibility-hidden"><a href="#1-2-visibility-hidden" class="headerlink" title="1.2 visibility: hidden"></a>1.2 visibility: hidden</h4><blockquote>
+<p>这种方式区别于none的地方在于该元素依然在页面布局中起作用，它仍然占据着它原来的空间，该元素的子孙元素是可见的。不过它并不影响任何交互操作。</p>
+</blockquote>
+<h4 id="1-3-opacity-0"><a href="#1-3-opacity-0" class="headerlink" title="1.3 opacity: 0;"></a>1.3 opacity: 0;</h4><blockquote>
+<p>opacity属性是用于设置元素的透明度的，当值为0时，该元素被隐藏，但它仍然在页面布局中起作用，但是它会影响部分页面交互操作，读屏软件能够读到该元素。</p>
+</blockquote>
+<h4 id="1-4-position-absolute-left-9999px"><a href="#1-4-position-absolute-left-9999px" class="headerlink" title="1.4 position: absolute; left: -9999px"></a>1.4 position: absolute; left: -9999px</h4><blockquote>
+<p>position属性可以将该元素移除可视区域，不会影响布局，又可以让元素进行操作。</p>
+</blockquote>
+<h3 id="2-opacity的兼容性处理"><a href="#2-opacity的兼容性处理" class="headerlink" title="2 opacity的兼容性处理"></a>2 opacity的兼容性处理</h3><h3 id="3-flex布局"><a href="#3-flex布局" class="headerlink" title="3 flex布局"></a>3 flex布局</h3><h3 id="4-元素的居中方式"><a href="#4-元素的居中方式" class="headerlink" title="4 元素的居中方式"></a>4 元素的居中方式</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/06/CSS-%E9%9D%A2%E8%AF%95/" data-id="cl1noejlc00000wuvhvtg4um1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-高频手写代码" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/04/05/%E9%AB%98%E9%A2%91%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/" class="article-date">
@@ -179,6 +227,48 @@
 </ul>
 </li>
 </ul>
+<blockquote>
+<p>什么是标签语义化？</p>
+</blockquote>
+<p>答：语义化变迁就是具有语义的标签，它可以清晰地向我们展示它的作用和用途。</p>
+<blockquote>
+<p>常见的标签有哪些？都有什么含义？</p>
+</blockquote>
+<p>答：HTML将标签可分为三类：行内元素，块级元素和行内块元素。这三者可以使用dispaly属性进行转化。</p>
+<p>行内元素：可以在一行中显示的元素，无法对它设置宽和高，常见的行内块元素有<code>&lt;a&gt;</code>,<code>&lt;span&gt;</code>,<code>&lt;input&gt;</code>等。行内元素的设置方式：<code>display:inline</code>。</p>
+<p>块级元素：可以自动换行，多个块级元素写在一起时默认排列方式为从上至下。常见的块级元素有：<code>&lt;h1&gt;-&lt;h5&gt;</code>,<code>&lt;p&gt;</code>,<code>&lt;div&gt;</code>,<code>&lt;nav&gt;</code>,<code>&lt;header&gt;</code>,<code>&lt;footer&gt;</code>等。块级元素的设置方式：<code>display:block</code>。</p>
+<p>行内块元素：它综合了行内元素和块级元素的特性，不自动换行，可以设置宽高，默认排列方式为从左向右。行内块级元素的设置方式：<code>display:inline-block</code>。</p>
+<blockquote>
+<p>display除<code>inline</code>，<code>block</code>和<code>inline-block</code>以外，还有什么值？有什么含义？</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>该元素不会被显示</td>
+</tr>
+<tr>
+<td>list-item</td>
+<td>该元素会被作为列表显示</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承display属性的值</td>
+</tr>
+<tr>
+<td>flex</td>
+<td>CSS3引入的新的布局模式，弹性盒模型</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>让元素隐藏的方式，除了display:none外，还有什么方式？</p>
+</blockquote>
+<p>答：还有visibility，opacity和position。</p>
 <h3 id="4-关于URL编码-（URL-Encode）"><a href="#4-关于URL编码-（URL-Encode）" class="headerlink" title="4 关于URL编码 （URL Encode）"></a>4 关于URL编码 （URL Encode）</h3><blockquote>
 <p>URL就是网址，URL只能由字母、数字、一些特殊符号组成<code>$-_.+!*&#39;(),</code>、以及某些保留字来组成。</p>
 </blockquote>
@@ -451,6 +541,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/04/06/CSS-%E9%9D%A2%E8%AF%95/">CSS_面试</a>
+          </li>
         
           <li>
             <a href="/2022/04/05/%E9%AB%98%E9%A2%91%E6%89%8B%E5%86%99%E4%BB%A3%E7%A0%81/">高频手写代码</a>
