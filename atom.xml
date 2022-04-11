@@ -6,7 +6,7 @@
   <link href="http://is-yaojm.github.io/atom.xml" rel="self"/>
   
   <link href="http://is-yaojm.github.io/"/>
-  <updated>2022-04-10T14:55:53.420Z</updated>
+  <updated>2022-04-11T02:57:10.713Z</updated>
   <id>http://is-yaojm.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Algorithm-二叉树</title>
+    <link href="http://is-yaojm.github.io/2022/04/11/Algorithm-%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>http://is-yaojm.github.io/2022/04/11/Algorithm-%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
+    <published>2022-04-11T02:41:13.000Z</published>
+    <updated>2022-04-11T02:57:10.713Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-二叉树基础"><a href="#1-二叉树基础" class="headerlink" title="1 二叉树基础"></a>1 二叉树基础</h2><h3 id="1-1-二叉树的种类"><a href="#1-1-二叉树的种类" class="headerlink" title="1.1 二叉树的种类"></a>1.1 二叉树的种类</h3><h4 id="1-1-1-满二叉树"><a href="#1-1-1-满二叉树" class="headerlink" title="1.1.1 满二叉树"></a>1.1.1 满二叉树</h4><blockquote><p>如果一棵二叉树只有度为0和度为2的结点，且度为0的结点在同一层，则这颗树为满二叉树。<br><img src="tree.png" alt="满二叉树"><br>满二叉树：深度为k，有2^k-1个结点。</p></blockquote><h4 id="1-1-2-完全二叉树"><a href="#1-1-2-完全二叉树" class="headerlink" title="1.1.2 完全二叉树"></a>1.1.2 完全二叉树</h4><blockquote><p>完全二叉树：除底层结点可能没填满外，其余每层结点数都达到了最大值，且最下面一层的结点有右必有左，有左不一定有右。<br><img src="tree2.png" alt="完全二叉树"><br>完全二叉树：若最底层为第h层，则该层包含<code>1~2^(h-1)</code>个结点</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-二叉树基础&quot;&gt;&lt;a href=&quot;#1-二叉树基础&quot; class=&quot;headerlink&quot; title=&quot;1 二叉树基础&quot;&gt;&lt;/a&gt;1 二叉树基础&lt;/h2&gt;&lt;h3 id=&quot;1-1-二叉树的种类&quot;&gt;&lt;a href=&quot;#1-1-二叉树的种类&quot; class=&quot;head</summary>
+      
+    
+    
+    
+    <category term="Algorithm" scheme="http://is-yaojm.github.io/categories/Algorithm/"/>
+    
+    
+    <category term="Algorithm" scheme="http://is-yaojm.github.io/tags/Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS_面试_经典布局方案</title>

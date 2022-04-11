@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Algorithm-二叉树</title>
+    <url>/2022/04/11/Algorithm-%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<h2 id="1-二叉树基础"><a href="#1-二叉树基础" class="headerlink" title="1 二叉树基础"></a>1 二叉树基础</h2><h3 id="1-1-二叉树的种类"><a href="#1-1-二叉树的种类" class="headerlink" title="1.1 二叉树的种类"></a>1.1 二叉树的种类</h3><h4 id="1-1-1-满二叉树"><a href="#1-1-1-满二叉树" class="headerlink" title="1.1.1 满二叉树"></a>1.1.1 满二叉树</h4><blockquote>
+<p>如果一棵二叉树只有度为0和度为2的结点，且度为0的结点在同一层，则这颗树为满二叉树。<br><img src="tree.png" alt="满二叉树"><br>满二叉树：深度为k，有2^k-1个结点。</p>
+</blockquote>
+<h4 id="1-1-2-完全二叉树"><a href="#1-1-2-完全二叉树" class="headerlink" title="1.1.2 完全二叉树"></a>1.1.2 完全二叉树</h4><blockquote>
+<p>完全二叉树：除底层结点可能没填满外，其余每层结点数都达到了最大值，且最下面一层的结点有右必有左，有左不一定有右。<br><img src="tree2.png" alt="完全二叉树"><br>完全二叉树：若最底层为第h层，则该层包含<code>1~2^(h-1)</code>个结点</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CSS_面试_盒子模型</title>
     <url>/2022/04/08/CSS-%E9%9D%A2%E8%AF%95-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/</url>
     <content><![CDATA[<h1 id="CSS-盒子模型"><a href="#CSS-盒子模型" class="headerlink" title="CSS_盒子模型"></a>CSS_盒子模型</h1>]]></content>
