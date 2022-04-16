@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.1k</span>
+            <span class="post-count">2k</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">4 分钟</span>
+            <span class="post-count">7 分钟</span>
         </span>
     </span>
 </div>
@@ -211,6 +211,87 @@
 <ul>
 <li>Promise的构造函数是同步执行</li>
 <li>.then()是异步执行的</li>
+</ul>
+<h2 id="5-JS作用域"><a href="#5-JS作用域" class="headerlink" title="5 JS作用域"></a>5 JS作用域</h2><h3 id="5-1-作用域常见类型"><a href="#5-1-作用域常见类型" class="headerlink" title="5.1 作用域常见类型"></a>5.1 作用域常见类型</h3><blockquote>
+<p>全局作用域</p>
+</blockquote>
+<ul>
+<li>全局作用域在一面打开时被创建，页面关闭时被销毁。</li>
+<li>写在script标签中的变量和函数，作用域为全局，在页面的任意位置都可以访问到。</li>
+<li>在全局作用域中有全局对象window，由浏览器创建，可以直接调用。</li>
+<li>全局作用域中声明的变量和函数会作为window对象的属性和方法保存。<blockquote>
+<p>函数作用域</p>
+</blockquote>
+</li>
+<li>调用函数时被创建，执行完毕被销毁。</li>
+<li>每调用一次函数就会创建一个新的函数作用域，他们之间相互独立。</li>
+<li>函数作用域可以访问到全局作用域的变量，在函数外无法访问到函数作用域内的变量。</li>
+<li>在函数作用域中访问变量、函数时，会现在自身作用域中寻找，若没找到，则会到上一级寻找， 一直到全局作用域。</li>
+</ul>
+<p>注意：JS可以模拟块级作用域。</p>
+<h3 id="5-2-作用域的深层次理解"><a href="#5-2-作用域的深层次理解" class="headerlink" title="5.2 作用域的深层次理解"></a>5.2 作用域的深层次理解</h3><ul>
+<li><p>执行期的上下文</p>
+<ul>
+<li>当函数代码执行的前期会创建一个执行期上下文的内部对象(<code>AO</code>)(局部作用域)；</li>
+<li>这个内部对象是在预编译的时候创建出来的，因为当函数被调用的时候，会先进行预编译；</li>
+<li>在全局代码执行的前期会创建一个执行期的上下文的对象<code>GO</code>(全局作用域)。</li>
+</ul>
+</li>
+<li><p>作用域链</p>
+<ul>
+<li>作用域链会被保存到一个隐式的属性中[[scope]]。这个属性是用户无法访问的，但是JS引擎将会访问它，这里面存储的是作用域链。</li>
+<li><code>AO</code>和<code>GO</code>的集合</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-3-预编译"><a href="#5-3-预编译" class="headerlink" title="5.3 预编译"></a>5.3 预编译</h3><blockquote>
+<p>函数作用域-预编译</p>
+</blockquote>
+<ul>
+<li>预编译发生在代码执行的前一刻。</li>
+<li>预编译的作用<ul>
+<li>函数声明整体提升；</li>
+<li>变量声明提升；</li>
+</ul>
+</li>
+<li>预编译步骤<ul>
+<li>创建AO对象(Activation object)</li>
+<li>找形参和变量声明，将变量声明的名作为AO属性的名，值为undefined；</li>
+<li>将实参和形参相统一；</li>
+<li>在函数体中找到函数声明，值赋予函数体。（注意函数声明要区别于函数表达式）(函数声明会覆盖变量声明)</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>全局作用域 - 预编译</p>
+</blockquote>
+<ul>
+<li>创建GO对象；</li>
+<li>找变量声明，将变量名作为GO对象的属性名，值是undefined；</li>
+<li>找函数声明，值赋予函数体。</li>
+</ul>
+<h2 id="6-闭包"><a href="#6-闭包" class="headerlink" title="6 闭包"></a>6 闭包</h2><blockquote>
+<p>闭包： 可以在一个内层函数中访问到其外层函数的作用域。</p>
+</blockquote>
+<ul>
+<li>简单来讲：闭包就是指有权访问另一个函数作用域中的变量的函数。（b带着a的ao出去了。）</li>
+<li>理解：外部函数调用之后其变量对象本应该销毁，但是闭包的存在是我们仍然可以访问外部函数的变量对象。</li>
+<li>闭包的特性：<ul>
+<li>函数嵌套函数；</li>
+<li>函数内部引用了函数外部的参数和变量；</li>
+<li>参数和变量不会被垃圾回收机制收回。</li>
+</ul>
+</li>
+<li>闭包的优点：<ul>
+<li>保护函数内的变量安全，实现封装，防止变量流入其他环境发生命名冲突；</li>
+<li>在内存中维持一个变量，可以做缓存；</li>
+<li>匿名自执行函数可以减少内存消耗。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> name =<span class="string">&quot;asd&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="title function_">a</span>();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>JS的防抖和节流使用了闭包。</li>
 </ul>
  
       <!-- reward -->
