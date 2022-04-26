@@ -140,6 +140,379 @@
     
     
     <article
+  id="post-CSS-面试总结2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/21/CSS-%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%932/"
+    >CSS_面试总结2</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/21/CSS-%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%932/" class="article-date">
+  <time datetime="2022-04-21T12:55:18.000Z" itemprop="datePublished">2022-04-21</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-CSS选择器权重"><a href="#1-CSS选择器权重" class="headerlink" title="1 CSS选择器权重"></a>1 CSS选择器权重</h2><blockquote>
+<p>选择器优先级： !important &gt; 行内样式 &gt; ID选择器 &gt; 类选择器 &gt; 标签选择器 &gt; 通配符 &gt; 继承 &gt; 浏览器默认属性</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>权重</th>
+<th>详情</th>
+<th>使用方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>!important</td>
+<td>10000</td>
+<td>拥有最高的优先级，可以覆盖父级样式</td>
+<td><code>color:red !important;</code></td>
+</tr>
+<tr>
+<td>行内样式</td>
+<td>1000</td>
+<td>写在标签style属性中的样式</td>
+<td><code>&lt;div style=&quot;color:blue&quot;&gt;这是一个div元素&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td>ID选择器</td>
+<td>100</td>
+<td>根据该元素的ID属性中的内容匹配元素</td>
+<td><code>#content</code></td>
+</tr>
+<tr>
+<td>类/伪类/属性选择器</td>
+<td>10</td>
+<td>根据元素属性进行匹配</td>
+<td><code>content、:hover</code></td>
+</tr>
+<tr>
+<td>标签/伪元素选择器</td>
+<td>1</td>
+<td>是指用HTML标签名作为选择器</td>
+<td><code>div p </code></td>
+</tr>
+<tr>
+<td>通配符选择器</td>
+<td>0</td>
+<td>* ，指给当前界面上所有的标签设置属性</td>
+<td><code>*</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>子选择器：&gt;  (权重为0)</p>
+</li>
+<li><p>相邻选择器： +  (权重为0)</p>
+<ul>
+<li>在HTML代码中，（引用）相邻选择器元素<code>后面紧邻的</code>选择器元素，属性声明有效。（必须相邻才会有效，一个有效）</li>
+</ul>
+</li>
+<li><p>同胞(兄弟)选择器： ~  (权重为0)</p>
+<ul>
+<li>在HTML代码中，（引用）兄弟选择器元素<code>后面所有的</code>选择器元素，属性声明均有效。（引用后面的均有效）</li>
+</ul>
+</li>
+<li><p>属性选择器：属性选择器可以根据元素的属性及属性值来选择元素。</p>
+<ul>
+<li>eg：如果您希望把包含标题（title）的所有元素变为红色：<code>*[title] &#123;color:red;&#125;</code></li>
+<li>属性选择器与类选择器的权重一样高</li>
+</ul>
+</li>
+<li><p>伪类和伪元素的区别</p>
+<ul>
+<li>伪类作用对象：整个元素</li>
+<li>伪元素作用： 元素的一部分</li>
+</ul>
+</li>
+</ul>
+<p><img src="wl.png" alt="伪类选择器"> </p>
+<p><img src="wys.png" alt="伪元素选择器"> </p>
+<p>eg：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 权重计算 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#content</span> <span class="selector-tag">div</span><span class="selector-class">.main_content</span> <span class="selector-tag">h2</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">color</span>:red;    </span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#content</span> <span class="selector-class">.main_content</span> <span class="selector-tag">h2</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">color</span>:blue;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">......</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;content&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;main_content&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>这是一个h2标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">第一条样式的权重计算： 100+1+10+1，结果为112；</span></span><br><span class="line"><span class="comment">第二条样式的权重计算： 100+10+1，结果为111；</span></span><br><span class="line"><span class="comment">h2标题的最终颜色为red</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 相邻选择器 --&gt;</span></span><br><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.br1</span> + <span class="selector-class">.br2</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">color</span>: <span class="number">#f00</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;br1&quot;</span>&gt;</span>我是p元素<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;br2&quot;</span>&gt;</span>我是p元素<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;br1&quot;</span>&gt;</span>我是p元素<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;br1&quot;</span>&gt;</span>我是p元素<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;br1&quot;</span>&gt;</span>我是p元素<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;br1&quot;</span>&gt;</span>我是p元素<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 兄弟选择器 --&gt;</span></span><br><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="selector-class">.br2</span> ~ <span class="selector-class">.br1</span> &#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">color</span>: <span class="number">#f00</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;br1&quot;</span>&gt;</span>我是p元素<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;br2&quot;</span>&gt;</span>我是p元素<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;br1&quot;</span>&gt;</span>我是p元素<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;br1&quot;</span>&gt;</span>我是p元素<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;br1&quot;</span>&gt;</span>我是p元素<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;br1&quot;</span>&gt;</span>我是p元素<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-CSS单位"><a href="#2-CSS单位" class="headerlink" title="2 CSS单位"></a>2 CSS单位</h2><h3 id="2-1-相对单位"><a href="#2-1-相对单位" class="headerlink" title="2.1 相对单位"></a>2.1 相对单位</h3><blockquote>
+<p>相对单位规定相对于另一个长度属性的长度。它在不同渲染介质之间缩放表现更好。<br><img src="%E7%9B%B8%E5%AF%B9%E5%8D%95%E4%BD%8D.png" alt="相对单位"></p>
+</blockquote>
+<h4 id="2-1-1-em和rem"><a href="#2-1-1-em和rem" class="headerlink" title="2.1.1 em和rem"></a>2.1.1 em和rem</h4><blockquote>
+<p>em : 相对于元素的字体大小.</p>
+</blockquote>
+<ul>
+<li>em：如果自身元素未设置字体大小，那么其根据父元素的字体大小进行计算；如果自身元素设置了字体大小，则基于自身的字体大小进行计算。</li>
+<li>em的值不是固定的</li>
+</ul>
+<blockquote>
+<p>rem : 相对于根元素的字体大小计算。</p>
+</blockquote>
+<ul>
+<li><p>rem在处理小数的时候会有误差。</p>
+</li>
+<li><p>不支持iframe，并且这里存在一个理念问题，大屏是为了更大更清晰，还是为了承载更多内容。</p>
+</li>
+<li><p><code>em</code>与<code>rem</code>的选择情况：</p>
+<ul>
+<li>两者在客户端中计算出来的样式都会以px的形式显示；</li>
+<li><code>rem</code>是<code>相对根元素</code>html的字体大小计算，<code>em</code>是<code>相对于元素</code>的字体大小进行计算；</li>
+<li>当需要根据<code>浏览器的font-size设置缩放</code>时，使用<code>rem</code>；</li>
+<li>使用em应该根据组件的font-size来定；</li>
+<li>rem可以从浏览器字体设置中继承font-size值；</li>
+<li>em可能受任何继承过来的父元素font-size的影响。</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-1-2-vh和vm，vmin和vmax"><a href="#2-1-2-vh和vm，vmin和vmax" class="headerlink" title="2.1.2 vh和vm，vmin和vmax"></a>2.1.2 vh和vm，vmin和vmax</h4><ul>
+<li>vw：视窗宽度的百分比；</li>
+<li>vh：视窗高度的百分比；</li>
+<li>vmax：较大的 vh 和 vw；</li>
+<li>vmin：较小的 vh 和 vw。</li>
+</ul>
+<p>eg:</p>
+<ul>
+<li>若一个浏览器高度为500px，宽度为1200px，<ul>
+<li>1vh = 5px;</li>
+<li>1vw = 12px;</li>
+<li>1vmin = 5px;</li>
+<li>1vmax = 12px.</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2-绝对单位"><a href="#2-2-绝对单位" class="headerlink" title="2.2 绝对单位"></a>2.2 绝对单位</h3><blockquote>
+<p>绝对单位是固定的，用任何一个绝对长度表示的长度都将恰好显示为这个尺寸。</p>
+</blockquote>
+<ul>
+<li>不建议在屏幕上使用绝对长度单位，因为屏幕尺寸变化较大。</li>
+</ul>
+<p><img src="%E7%BB%9D%E5%AF%B9%E5%8D%95%E4%BD%8D.png" alt="绝对单位"></p>
+<h3 id="2-3-百分比单位"><a href="#2-3-百分比单位" class="headerlink" title="2.3 百分比单位"></a>2.3 百分比单位</h3><ul>
+<li>百分比（%）是较常用的单位之一，所有接受长度值的属性都可以使用百分比单位。但是不同属性使用该单位的效果可能并不一样。但是都需要有一个参照值，也就是说百分比值是一个相对的值。 ​</li>
+</ul>
+<p><img src="%E7%99%BE%E5%88%86%E6%AF%94%E5%8D%95%E4%BD%8D.png" alt="百分比单位"></p>
+<h3 id="2-4-角度单位-​"><a href="#2-4-角度单位-​" class="headerlink" title="2.4 角度单位 ​"></a>2.4 角度单位 ​</h3><p><img src="%E8%A7%92%E5%BA%A6%E5%8D%95%E4%BD%8D.png" alt="角度单位"></p>
+<h2 id="3-CSS样式抖动"><a href="#3-CSS样式抖动" class="headerlink" title="3 CSS样式抖动"></a>3 CSS样式抖动</h2><ul>
+<li><p>前端开发时，出现页面抖动的原因？</p>
+<ul>
+<li>没有指定元素具体高度和宽度，例如数据还没加载进来的时候元素高度为100px，数据加载进来后元素被撑开，所以出现了抖动。</li>
+<li>在使用css3动画后，经常会出现文字抖动情况，原因是元素高度塌陷。</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/SiShen654/article/details/118642780">css解决文字抖动问题</a></li>
+</ul>
+</li>
+<li><p>CSS Shake：是一个使用CSS3实现的动画样式，使用SASS编写的，利用它可实现多种不同样式的抖动效果。</p>
+<ul>
+<li>网址：<a target="_blank" rel="noopener" href="https://www.webhek.com/post/css-shake.html">CSS-shake样式抖动</a></li>
+</ul>
+</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-其他"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/18/%E5%85%B6%E4%BB%96/"
+    >其他</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/18/%E5%85%B6%E4%BB%96/" class="article-date">
+  <time datetime="2022-04-18T09:52:30.000Z" itemprop="datePublished">2022-04-18</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-函数柯里化"><a href="#1-函数柯里化" class="headerlink" title="1 函数柯里化"></a>1 函数柯里化</h2><ul>
+<li>在计算机科学中，柯里化(<code>Currying</code>)是把<code>接受多个参数的函数</code>变换成<code>接受一个单一参数的函数</code>，并且返回接受余下的参数且返回结果的新函数的技术。</li>
+<li>作用<ul>
+<li>参数复用：本质上来说时降低通用性，提高适用性；</li>
+<li>提前返回<ul>
+<li>经典实例：元素绑定事件监听器，区分IE浏览器的attachEvent方法</li>
+</ul>
+</li>
+<li>延迟计算：柯里化函数不会立即执行计算，第一次只是返回一个函数，后面的调用才会进行计算。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-登录验证"><a href="#2-登录验证" class="headerlink" title="2 登录验证"></a>2 登录验证</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/itlihao/p/14846026.html">几种登录验证的方式</a></li>
+</ul>
+<h3 id="2-1-传统方式-Cookie-Session认证"><a href="#2-1-传统方式-Cookie-Session认证" class="headerlink" title="2.1 传统方式 Cookie-Session认证"></a>2.1 传统方式 Cookie-Session认证</h3><ul>
+<li><p>认证过程：</p>
+<ul>
+<li>用户输入用户名、密码或用短信验证码方式登录系统；</li>
+<li>服务器端验证后，返回一个SessionId，客户端将SessionId保存在cookie中，下次访问时带着SessionId；</li>
+<li>当客户端再次发起请求时，自动带上cookie信息，服务端通过cookie获取Session信息进行校验，判断对应用户是否存在。</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>每次用户认证后服务器都要创建一条记录，这个记录(Session)一般保存在内存中。当很多用户同时认证后，会有很多条记录，增加服务器负担。</li>
+<li>如果session保存在内存中，不利于可扩展性。</li>
+</ul>
+</li>
+</ul>
+<p><img src="cookie-sessionId.jpg" alt="Cookie-Session认证"></p>
+<h3 id="2-2-基于token认证"><a href="#2-2-基于token认证" class="headerlink" title="2.2 基于token认证"></a>2.2 基于token认证</h3><ul>
+<li><p>认证过程</p>
+<ul>
+<li>用户在登录表单中输入用户名和密码，然后点击登录。服务器端会返回一个token，访问其他接口时带着token；</li>
+<li>请求通过在请求头中携带token发送登录请求之后，通过后端查询数据库验证用户的合法性；</li>
+<li>每次发送访问请求时提供token信息，然后根据这个token得到相关用户信息去数据库查到用户信息进行验证账号密码等，通过则让用户访问服务端接口，不通过则拒绝访问。</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>与sessionId的方式本质上没有什么区别；</li>
+<li>需要用token去redis数据库查询是否有相应用户；</li>
+<li>会占用redis的内存。</li>
+</ul>
+</li>
+</ul>
+<p><img src="token.png" alt="基于token认证"></p>
+<h3 id="2-3-JWT认证方式"><a href="#2-3-JWT认证方式" class="headerlink" title="2.3 JWT认证方式"></a>2.3 JWT认证方式</h3><blockquote>
+<p>JWT :Json web token是为了在网络应用环境间传递声明而执行的一种基于JSON传世格式的开放标准，可实现无状态、分布式的web应用授权。</p>
+</blockquote>
+<ul>
+<li><p>认证过程</p>
+<ul>
+<li>用户登录服务器，服务端验证用户账号密码，使用secret生成JWT令牌和过期时间，然后将令牌返回给客户端；</li>
+<li>客户端访问服务端时，在请求头中带上这个令牌，服务器端使用secret验证令牌是否合法，如果合法则让用户访问服务器接口，不合法则拒绝；</li>
+<li>服务器并不保存token。</li>
+</ul>
+</li>
+<li><p>缺点</p>
+<ul>
+<li>用户主动注销，服务器并不能让token主动失效。</li>
+</ul>
+</li>
+</ul>
+<p><img src="JWT.png" alt="JWT认证"></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B6%E4%BB%96/" rel="tag">其他</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-Vue-基础"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/16/Vue-%E5%9F%BA%E7%A1%80/"
+    >Vue-基础</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/16/Vue-%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time datetime="2022-04-16T08:54:11.000Z" itemprop="datePublished">2022-04-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+   
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-Vue-router"
   class="article article-type-post"
   itemscope
@@ -297,7 +670,16 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// this确定练习</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;obj2&#x27;</span>,</span><br><span class="line">    <span class="attr">study</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// obj2</span></span><br><span class="line">        <span class="keyword">let</span> obj3 = &#123;</span><br><span class="line">            <span class="attr">name</span>: <span class="string">&#x27;obj3&#x27;</span>,</span><br><span class="line">            <span class="attr">code</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// obj3</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        obj3.<span class="title function_">code</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj2.<span class="title function_">study</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj4 = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;obj4&#x27;</span>,</span><br><span class="line">    <span class="attr">study</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// obj4</span></span><br><span class="line">        <span class="keyword">let</span> obj5 = &#123;</span><br><span class="line">            <span class="attr">name</span>: <span class="string">&#x27;obj5&#x27;</span>,</span><br><span class="line">            <span class="attr">code</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// obj4</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        obj5.<span class="title function_">code</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj4.<span class="title function_">study</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj6 = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;obj6&#x27;</span>,</span><br><span class="line">    <span class="attr">study</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">// obj6</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> obj7 = &#123;</span><br><span class="line">                <span class="attr">name</span>: <span class="string">&#x27;obj7&#x27;</span>,</span><br><span class="line">                <span class="attr">code</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">                    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>); <span class="comment">//window</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            obj7.<span class="title function_">code</span>();</span><br><span class="line">        &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj6.<span class="title function_">study</span>();</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2> 
+<h2 id="3-防抖和节流函数实现"><a href="#3-防抖和节流函数实现" class="headerlink" title="3 防抖和节流函数实现"></a>3 防抖和节流函数实现</h2><blockquote>
+<p>防抖</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;input&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 要求 : 打印结果只出现一次,在键盘抬起后一秒产生 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 1. 获取输入框</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> input = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;input&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 2. 防抖函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">delay, callback</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> timer;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// timer变量需要一直保存在内存中</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 使用闭包（函数里面return出函数）</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">value</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="built_in">clearTimeout</span>(timer);</span></span><br><span class="line"><span class="language-javascript">            timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">callback</span>(value)</span></span><br><span class="line"><span class="language-javascript">            &#125;, delay)</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 在外部输出value值</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">value</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(value);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 3. 将防抖函数的return值（函数）赋值给debounceFunc</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> debounceFunc = <span class="title function_">debounce</span>(<span class="number">1000</span>, fn);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 4. 函数触发</span></span></span><br><span class="line"><span class="language-javascript">    input.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keyup&#x27;</span>, <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">debounceFunc</span>(e.<span class="property">target</span>.<span class="property">value</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>节流</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;button&quot;</span>&gt;</span>点击<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 节流函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">thro</span>(<span class="params">func, wait</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> timerOut;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 使用闭包</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 根据timerOut的值 判断程序是否进行</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (!timerOut) &#123;</span></span><br><span class="line"><span class="language-javascript">                timerOut = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="title function_">func</span>();</span></span><br><span class="line"><span class="language-javascript">                    timerOut = <span class="literal">null</span>;<span class="comment">// 程序运行之后timerOut设置为空</span></span></span><br><span class="line"><span class="language-javascript">                &#125;, wait)</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">handle</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>());</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;button&#x27;</span>).<span class="property">onclick</span> = <span class="title function_">thro</span>(handle,<span class="number">2000</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+ 
       <!-- reward -->
       
     </div>
@@ -530,6 +912,84 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> name =<span class="string">&quot;asd&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="title function_">a</span>();</span><br></pre></td></tr></table></figure>
 <ul>
 <li>JS的防抖和节流使用了闭包。</li>
+</ul>
+<h2 id="7-JS的防抖和节流"><a href="#7-JS的防抖和节流" class="headerlink" title="7 JS的防抖和节流"></a>7 JS的防抖和节流</h2><h3 id="7-1-防抖函数-debounce"><a href="#7-1-防抖函数-debounce" class="headerlink" title="7.1 防抖函数 - debounce"></a>7.1 防抖函数 - debounce</h3><blockquote>
+<p>防抖： 在一段时间内允许多次触发函数，但是只在最后一次有效执行。</p>
+</blockquote>
+<ul>
+<li>理解<ul>
+<li>当持续触发事件，在一定时间内没有再触发事件，事件处理函数才会执行一次。如果在设定的事件到来之前又一次触发了事件，就重新开始延时。</li>
+<li>（栗子）：王者荣耀回城，如果多次点击回城按钮，则最后一次才有效。</li>
+<li>（栗子）王者荣耀回城是防抖，放技能后进入冷却就是节流。</li>
+</ul>
+</li>
+<li>实际应用<ul>
+<li>使用echarts时，改变浏览器宽度的时候，希望重新渲染。echarts的图像，可以使用此函数，提升性能。</li>
+<li>解决输入搜索时的bug：输入结束后n秒才进行搜索请求，n秒内又输入内容，则重新计时。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;input&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 要求 : 打印结果只出现一次,在键盘抬起后一秒产生 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 1. 获取输入框</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> input = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;input&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 2. 防抖函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">delay, callback</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> timer;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// timer变量需要一直保存在内存中</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 使用闭包（函数里面return出函数）</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">value</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="built_in">clearTimeout</span>(timer);</span></span><br><span class="line"><span class="language-javascript">            timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">callback</span>(value)</span></span><br><span class="line"><span class="language-javascript">            &#125;, delay)</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 在外部输出value值</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">value</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(value);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 3. 将防抖函数的return值（函数）赋值给debounceFunc</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> debounceFunc = <span class="title function_">debounce</span>(<span class="number">1000</span>, fn);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 4. 函数触发</span></span></span><br><span class="line"><span class="language-javascript">    input.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keyup&#x27;</span>, <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">debounceFunc</span>(e.<span class="property">target</span>.<span class="property">value</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-2-节流函数-throttling"><a href="#7-2-节流函数-throttling" class="headerlink" title="7.2 节流函数 - throttling"></a>7.2 节流函数 - throttling</h3><blockquote>
+<p>节流： 在一段事件内，只做一件事情。</p>
+</blockquote>
+<ul>
+<li><p>理解</p>
+<ul>
+<li>当持续触发事件的时候，保证一段时间内只调用一次事件处理函数。</li>
+</ul>
+</li>
+<li><p>应用</p>
+<ul>
+<li>表单的提交：鼠标不断点击触发，规定在n秒内多次点击只有一次生效。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;button&quot;</span>&gt;</span>点击<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 节流函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">thro</span>(<span class="params">func, wait</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> timerOut;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 使用闭包</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 根据timerOut的值 判断程序是否进行</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (!timerOut) &#123;</span></span><br><span class="line"><span class="language-javascript">                timerOut = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="title function_">func</span>();</span></span><br><span class="line"><span class="language-javascript">                    timerOut = <span class="literal">null</span>;<span class="comment">// 程序运行之后timerOut设置为空</span></span></span><br><span class="line"><span class="language-javascript">                &#125;, wait)</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">handle</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>());</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;button&#x27;</span>).<span class="property">onclick</span> = <span class="title function_">thro</span>(handle,<span class="number">2000</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><ul>
+<li>防抖和节流都是用来防止高频率的JS代码的执行。</li>
+</ul>
+<h2 id="8-call、apply和bind"><a href="#8-call、apply和bind" class="headerlink" title="8 call、apply和bind"></a>8 call、apply和bind</h2><h3 id="8-1-基础"><a href="#8-1-基础" class="headerlink" title="8.1 基础"></a>8.1 基础</h3><ol>
+<li><p>简介</p>
+<ul>
+<li><code>call</code>和<code>apply</code>都属于<code>Function.prototype</code>的一个方法，它是JS引擎内在实现的，因为属于<code>Function.prototype</code>，所以每个<code>function对象实例</code>都有<code>call</code>和<code>apply</code>属性。</li>
+<li>目标函数调用call和apply后，会直接被执行。</li>
+<li>目标函数调用bind后，不会立即执行，而是返回一个新的函数，调用新函数才会执行目标函数。</li>
+</ul>
+</li>
+<li><p>作用 ：改变this的指向。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    改变 this 的指向方式：</span></span><br><span class="line"><span class="comment">        1. call (this,arg1,arg2,arg3)</span></span><br><span class="line"><span class="comment">        2. apply (this,[arg1,arg2,arg3])</span></span><br><span class="line"><span class="comment">        3. bind (this,arg1,arg2,arg3) 手动调用</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> oBtn1 = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;btn1&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> fn5 = <span class="keyword">function</span> (<span class="params">str</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>, str);</span><br><span class="line">&#125;</span><br><span class="line">fn5.<span class="title function_">call</span>(oBtn1, <span class="string">&#x27;aa&#x27;</span>);</span><br><span class="line">fn5.<span class="title function_">apply</span>(oBtn1, [<span class="string">&#x27;aa&#x27;</span>]);</span><br><span class="line">fn5.<span class="title function_">bind</span>(oBtn1, <span class="string">&#x27;aa&#x27;</span>)();</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">getName</span>.<span class="title function_">call</span>(obj2,  <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> ));<span class="comment">// aaa</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">getName</span>.<span class="title function_">apply</span>(obj2, [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]));<span class="comment">// aaa</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">getName</span>.<span class="title function_">bind</span>(obj2,<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span> )());<span class="comment">// aaa</span></span><br></pre></td></tr></table></figure></li>
+<li><p>区别 ：在于接收参数的方式不同</p>
+<ul>
+<li><code>call()</code> : 第一个参数是this值，其余参数都直接传递给函数。 传递给函数的<strong>参数必须逐个列举</strong>。</li>
+<li><code>apply()</code> : 传递给函数的是<strong>参数数组</strong>。</li>
+<li><code>bind()</code> ： 手动调用，返回的是函数。在使用时要加<code>()</code>。</li>
+</ul>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>实现JS的继承，构造函数继承可以使用call实现；</li>
+<li>判断JS的数据类型；<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用call判断js的数据类型</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(&#123;&#125;)=== <span class="string">&#x27;[object Object]&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>([])=== <span class="string">&#x27;[object Array]&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+<li>把伪数组转换为数组。</li>
+</ul>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用call把伪数组转换成数组</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">get</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>);<span class="comment">// Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span></span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>([...<span class="variable language_">arguments</span>]);<span class="comment">// es6  (3) [1, 2, 3]</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>));<span class="comment">//es5  (3) [1, 2, 3]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">get</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="8-2-call"><a href="#8-2-call" class="headerlink" title="8.2 call()"></a>8.2 call()</h3><ol>
+<li><p>改变this指向</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// call实现改变this指向</span></span><br><span class="line">    <span class="keyword">var</span> person = &#123;</span><br><span class="line">        getName : <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">name</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> person1 = &#123;</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&#x27;ddd&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">getName</span>.<span class="title function_">call</span>(person1))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>手写<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    手写call</span></span><br><span class="line"><span class="comment">    1. 写在哪？ Function.prototype后</span></span><br><span class="line"><span class="comment">    2. 对this进行判断，this必须是一个function，如果不是function则抛出异常</span></span><br><span class="line"><span class="comment">    3. 给上下文赋值，设置为接收到的参数或者是window</span></span><br><span class="line"><span class="comment">    4. 考虑参数，拿到除了第一个参数之外的参数</span></span><br><span class="line"><span class="comment">    5. 改变this的指向</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">mycall</span> = <span class="keyword">function</span> (<span class="params">context</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>( <span class="keyword">typeof</span> <span class="variable language_">this</span> !== <span class="string">&#x27;function&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>;</span><br><span class="line">    &#125;   </span><br><span class="line">    context = context || <span class="variable language_">window</span>;<span class="comment">// 给context赋值</span></span><br><span class="line">    <span class="keyword">let</span> args = [...<span class="variable language_">arguments</span>].<span class="title function_">slice</span>(<span class="number">1</span>);<span class="comment">//获取除第一个参数之外的参数 </span></span><br><span class="line"></span><br><span class="line">    context.<span class="property">fn</span> = <span class="variable language_">this</span>;<span class="comment">// 改变this的指向</span></span><br><span class="line">    <span class="keyword">let</span> result = context.<span class="title function_">fn</span>(...args);<span class="comment">// 解构参数 </span></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">getName</span>.<span class="title function_">mycall</span>(person1))</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<h3 id="8-3-apply"><a href="#8-3-apply" class="headerlink" title="8.3 apply()"></a>8.3 apply()</h3><ul>
+<li>手写apply()<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    手写apply</span></span><br><span class="line"><span class="comment">    与call的区别：将传入的第二个参数(数组)进行解构</span></span><br><span class="line"><span class="comment">*/</span>  </span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">myApply</span> = <span class="keyword">function</span> (<span class="params">context</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>( <span class="keyword">typeof</span> <span class="variable language_">this</span> !== <span class="string">&#x27;function&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">Error</span>;</span><br><span class="line">    &#125;   </span><br><span class="line">    context = context || <span class="variable language_">window</span>;<span class="comment">// 给context赋值</span></span><br><span class="line">    context.<span class="property">fn</span> = <span class="variable language_">this</span>; <span class="comment">// 改变this的指向</span></span><br><span class="line">    <span class="keyword">let</span> result;</span><br><span class="line">    <span class="comment">// 判断是否有传入多的参数</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="variable language_">arguments</span>[<span class="number">1</span>])&#123;</span><br><span class="line">        result = context.<span class="title function_">fn</span>(...<span class="variable language_">arguments</span>[<span class="number">1</span>]);<span class="comment">// 解构</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        result = context.<span class="title function_">fn</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span> context.<span class="property">fn</span>;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">getName</span>.<span class="title function_">myApply</span>(obj2,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]));<span class="comment">// 手写</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">getName</span>.<span class="title function_">apply</span>(obj2,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>])); <span class="comment">// 调用</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="8-4-bind"><a href="#8-4-bind" class="headerlink" title="8.4 bind()"></a>8.4 bind()</h3><ul>
+<li>手写bind()<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">bind1</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// arguments 可以获取一个函数的所有参数，arguments 是一个伪数组</span></span><br><span class="line">    <span class="comment">// 使用 Array.from() 方法将 arguments 伪数组转化成数组</span></span><br><span class="line">    <span class="keyword">const</span> args = <span class="title class_">Array</span>.<span class="title function_">from</span>(<span class="variable language_">arguments</span>)</span><br><span class="line">    <span class="comment">// 获取 this 指向取出数组第一项，数组剩余的就是传递的参数</span></span><br><span class="line">    <span class="keyword">const</span> _this = args.<span class="title function_">shift</span>()</span><br><span class="line">    <span class="keyword">const</span> context = <span class="variable language_">this</span> <span class="comment">// 当前函数 fn1.bind(...) 中的 fn1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> context.<span class="title function_">apply</span>(_this, args)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn1</span>(<span class="params">a, b, c</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;this&#x27;</span>, <span class="variable language_">this</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a, b, c)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn2</span>(<span class="params"></span>) &#123;</span><br><span class="line">    fn1.<span class="title function_">bind1</span>(&#123; <span class="attr">x</span>: <span class="number">100</span> &#125;, <span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn2</span>();</span><br></pre></td></tr></table></figure></li>
 </ul>
  
       <!-- reward -->
@@ -771,7 +1231,7 @@
 
     
     <article
-  id="post-CSS_面试总结(1)"
+  id="post-CSS_面试总结1"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -782,7 +1242,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2022/04/06/CSS_%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93(1)/"
+  <a class="article-title" href="/2022/04/06/CSS_%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%931/"
     >CSS_面试总结(1)</a> 
 </h2>
  
@@ -791,7 +1251,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/04/06/CSS_%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93(1)/" class="article-date">
+      <a href="/2022/04/06/CSS_%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%931/" class="article-date">
   <time datetime="2022-04-06T14:25:32.000Z" itemprop="datePublished">2022-04-06</time>
 </a> 
   <div class="article-category">
@@ -1081,301 +1541,14 @@
 </article>
 
     
-    <article
-  id="post-HTML面试总结(1)"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/05/HTML%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93(1)/"
-    >HTML面试总结(1)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/05/HTML%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93(1)/" class="article-date">
-  <time datetime="2022-04-05T00:14:42.000Z" itemprop="datePublished">2022-04-05</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/HTML/">HTML</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1-标签语义化"><a href="#1-标签语义化" class="headerlink" title="1 标签语义化"></a>1 标签语义化</h2><blockquote>
-<p>语义化： 通过这个标签的名称就可以知道这个标签的含义。</p>
-</blockquote>
-<h4 id="常见语义化标签："><a href="#常见语义化标签：" class="headerlink" title="常见语义化标签："></a>常见语义化标签：</h4><ul>
-<li><p>html5新增的语义标签</p>
-<ul>
-<li>header, footer, nav, section, article, aside, details, summary,<br>dialog, figure, main, mark, time</li>
-</ul>
-</li>
-<li><p>常见：</p>
-<ul>
-<li>h1/h2/h3/h4/h5</li>
-<li>img</li>
-<li>p</li>
-<li>menu</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>1.1 什么是标签语义化？</p>
-</blockquote>
-<p>答：语义化变迁就是具有语义的标签，它可以清晰地向我们展示它的作用和用途。</p>
-<blockquote>
-<p>1.2 常见的标签有哪些？都有什么含义？</p>
-</blockquote>
-<p>答：HTML将标签可分为三类：行内元素，块级元素和行内块元素。这三者可以使用dispaly属性进行转化。</p>
-<ul>
-<li>行内元素：内容撑开宽度，左右都是行内元素的可以排列在一行，无法对它设置宽和高，常见的行内块元素有<code>&lt;a&gt;</code>,<code>&lt;span&gt;</code>,<code>&lt;input&gt;</code>,<code>&lt;textarea&gt;</code>等。行内元素的设置方式：<code>display:inline</code>。</li>
-<li>块级元素：可以自动换行，多个块级元素写在一起时默认排列方式为从上至下。常见的块级元素有：<code>&lt;h1&gt;-&lt;h5&gt;</code>,<code>&lt;p&gt;</code>,<code>&lt;div&gt;</code>,<code>&lt;nav&gt;</code>,<code>&lt;header&gt;</code>,<code>&lt;footer&gt;</code>等。块级元素的设置方式：<code>display:block</code>。</li>
-<li>行内块元素：它综合了行内元素和块级元素的特性，不自动换行，可以设置宽高，默认排列方式为从左向右。行内块级元素的设置方式：<code>display:inline-block</code>。</li>
-</ul>
-<blockquote>
-<p>1.3 display除<code>inline</code>，<code>block</code>和<code>inline-block</code>以外，还有什么值？有什么含义？</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>none</td>
-<td>该元素不会被显示</td>
-</tr>
-<tr>
-<td>list-item</td>
-<td>该元素会被作为列表显示</td>
-</tr>
-<tr>
-<td>inherit</td>
-<td>规定应该从父元素继承display属性的值</td>
-</tr>
-<tr>
-<td>flex</td>
-<td>CSS3引入的新的布局模式，弹性盒模型</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>1.4 让元素隐藏的方式，除了display:none外，还有什么方式？</p>
-</blockquote>
-<p>答：还有visibility，opacity和position。</p>
-<h2 id="2-对HTML5的理解"><a href="#2-对HTML5的理解" class="headerlink" title="2 对HTML5的理解"></a>2 对HTML5的理解</h2><p>答： HTML5是新一代的HTML，相比之前的版本做了如下改动：</p>
-<ul>
-<li>良好的移动性，以移动端设备为主；</li>
-<li>增加了响应式设计，以适应自动变化的屏幕尺寸；</li>
-<li>支持离线缓存技术，webStorage本地缓存；</li>
-<li>增加了canvas，video，audio等新标签元素；</li>
-<li>新增特殊的内容元素：article ,footer ,header,nav ,section等；</li>
-<li>新增表单控件：calendar，date，time，email，url，search等；</li>
-<li>地理定位功能；</li>
-<li>新增webSocket/webWork技术。</li>
-</ul>
-<h2 id="3-常见标签分类"><a href="#3-常见标签分类" class="headerlink" title="3 常见标签分类"></a>3 常见标签分类</h2><h3 id="3-1-行内元素"><a href="#3-1-行内元素" class="headerlink" title="3.1 行内元素"></a>3.1 行内元素</h3><blockquote>
-<p>行内元素：内容撑开宽度，左右都是行内元素的可以排列在一行，无法对它设置宽和高.</p>
-</blockquote>
-<ul>
-<li>常见的行内块元素有<code>&lt;a&gt;</code>,<code>&lt;span&gt;</code>,<code>&lt;input&gt;</code>,<code>&lt;textarea&gt;</code>等。</li>
-<li>行内元素的设置方式：<code>display:inline</code>。<h3 id="3-2-块级元素"><a href="#3-2-块级元素" class="headerlink" title="3.2 块级元素"></a>3.2 块级元素</h3><blockquote>
-<p>块级元素：可以自动换行，多个块级元素写在一起时默认排列方式为从上至下。</p>
-</blockquote>
-</li>
-<li>常见的块级元素有：<code>&lt;h1&gt;-&lt;h5&gt;</code>,<code>&lt;p&gt;</code>,<code>&lt;div&gt;</code>,<code>&lt;nav&gt;</code>,<code>&lt;header&gt;</code>,<code>&lt;footer&gt;</code>等。</li>
-<li>块级元素的设置方式：<code>display:block</code>。<h3 id="3-1-行内块元素"><a href="#3-1-行内块元素" class="headerlink" title="3.1 行内块元素"></a>3.1 行内块元素</h3><blockquote>
-<p>行内块元素：它综合了行内元素和块级元素的特性，不自动换行，可以设置宽高，默认排列方式为从左向右。</p>
-</blockquote>
-</li>
-<li>行内块级元素的设置方式：<code>display:inline-block</code>。</li>
-</ul>
-<h2 id="4-其他"><a href="#4-其他" class="headerlink" title="4 其他"></a>4 其他</h2><h3 id="4-1-HTML状态码"><a href="#4-1-HTML状态码" class="headerlink" title="4.1 HTML状态码"></a>4.1 HTML状态码</h3><blockquote>
-<p>当用户浏览一个网页时，浏览器会向网页所在的服务器发出请求。当浏览器接收并显示王爷前，此网页所在的服务器会返回一个包含HTTP状态码的信息头用以响应浏览器的请求。</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/http/http-status-codes.html">HTTP状态码 - 菜鸟教程</a></p>
-<h4 id="常见状态码分类"><a href="#常见状态码分类" class="headerlink" title="常见状态码分类:"></a>常见状态码分类:</h4><ul>
-<li>1** ： 信息，服务器收到请求，需要请求者继续执行操作；</li>
-<li>2** ： 成功；</li>
-<li>3** ： 重定向，需要进一步的操作完成请求；</li>
-<li>4** ： 客户端错误；</li>
-<li>5** ： 服务器端错误； <h4 id="常见状态码："><a href="#常见状态码：" class="headerlink" title="常见状态码："></a>常见状态码：</h4></li>
-<li><code>200 - OK</code> ：请求成功，一般用于get和post请求；</li>
-<li><code>301 - Moved Permanently</code> ：永久重定向，网页被永久转移到其他URL；</li>
-<li><code>302 - Found </code> ：临时重定向，资源只是临时被移动，客户端继续使用原有的URL；</li>
-<li><code>304 - Not Modified</code> ： 缓存，未修改。所请求的资源未修改，服务器返回此状态码时，不会返回任何资源；</li>
-<li><code>403 - Forbidden</code> ： 一般是参数传递时有问题；</li>
-<li><code>404 - Not Found</code> ： 找不到资源，请求的资源/网页等不存在；</li>
-<li><code>500 - Internal Server Error</code> ： 内部服务器错误，无法完成请求；</li>
-</ul>
-<h3 id="4-2-关于URL编码-（URL-Encode）"><a href="#4-2-关于URL编码-（URL-Encode）" class="headerlink" title="4.2 关于URL编码 （URL Encode）"></a>4.2 关于URL编码 （URL Encode）</h3><blockquote>
-<p>URL就是网址，URL只能由字母、数字、一些特殊符号组成<code>$-_.+!*&#39;(),</code>、以及某些保留字来组成。</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2010/02/url_encoding.html">关于URL编码</a></p>
-<h3 id="4-3-HTML中的input标签的type"><a href="#4-3-HTML中的input标签的type" class="headerlink" title="4.3 HTML中的input标签的type"></a>4.3 HTML中的input标签的type</h3><blockquote>
-<p>input标签： 用于搜集用户信息，根据不同的type属性值，输入字段拥有很多种形式。</p>
-</blockquote>
-<ul>
-<li>HTML5中增加的新类型：<ul>
-<li>color、date、datetime、datetime-local、month、week、time、email、number、range、search、tel 和 url。</li>
-<li>语法：<code>&lt;input type=&quot; value &quot;&gt;</code></li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>type值</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>color</td>
-<td>定义拾色器。</td>
-</tr>
-<tr>
-<td>date</td>
-<td>定义 date 控件（包括年、月、日，不包括时间）。</td>
-</tr>
-<tr>
-<td>datetime</td>
-<td>定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，基于 UTC 时区）。</td>
-</tr>
-<tr>
-<td>datetime-local</td>
-<td>定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，不带时区）。</td>
-</tr>
-<tr>
-<td>email</td>
-<td>定义用于 e-mail 地址的字段。</td>
-</tr>
-<tr>
-<td>month</td>
-<td>定义 month 和 year 控件（不带时区）。</td>
-</tr>
-<tr>
-<td>number</td>
-<td>定义用于输入数字的字段。</td>
-</tr>
-<tr>
-<td>range</td>
-<td>定义用于精确值不重要的输入数字的控件（比如 slider 控件）。</td>
-</tr>
-<tr>
-<td>search</td>
-<td>定义用于输入搜索字符串的文本字段。</td>
-</tr>
-<tr>
-<td>tel</td>
-<td>定义用于输入电话号码的字段。</td>
-</tr>
-<tr>
-<td>time</td>
-<td>定义用于输入时间的控件（不带时区）。</td>
-</tr>
-<tr>
-<td>url</td>
-<td>定义用于输入 URL 的字段。</td>
-</tr>
-<tr>
-<td>week</td>
-<td>定义 week 和 year 控件（不带时区）。</td>
-</tr>
-</tbody></table>
-<ul>
-<li>常见：<ul>
-<li>text(默认) ：文本框</li>
-<li>password：密码框</li>
-<li>checkbox：多选框</li>
-<li>radio：单选框</li>
-<li>submit：提交按钮,  reset：重置按钮, image：图片按钮, button：普通按钮</li>
-<li>file：选择文件的控件</li>
-<li>search：搜索框</li>
-<li>hidden： 不显示的控件</li>
-</ul>
-</li>
-</ul>
-<h3 id="4-4-Data-URL"><a href="#4-4-Data-URL" class="headerlink" title="4.4 Data URL"></a>4.4 Data URL</h3><ol>
-<li><p>什么是Data URL</p>
-<blockquote>
-<p>Data URL是将图片转换为base64直接嵌入到网页中，使用<code>&lt;img src=&quot;data:[MIME type];base64&quot;/&gt;</code>这种方式引用图片，不需要再发送请求获取图片。</p>
-</blockquote>
-</li>
-<li><p>Data URL能用在很多场合，跟传统的外部资源引用方式相比，它独有的用处：</p>
-<ol>
-<li>当访问外部资源很麻烦或受限时；</li>
-<li>当图片是在服务器端用程序动态生成，每个访问用户显示的都不同时；</li>
-<li>当图片的体积太小，占用一个http会话不是很值得时；</li>
-</ol>
-</li>
-<li><p>Data URL缺点：</p>
-<ol>
-<li>base64编码后的图片会比原来的体积大三分之一左右；</li>
-<li>Data URL形式的图片不会被缓存下来，每次访问页面都要被下载一次。</li>
-</ol>
-</li>
-<li><p>优化方法：在CSS里使用Data URL</p>
-</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xuechenlei/p/5940371.html">Data URL简介及利弊</a></p>
-<h3 id="4-5-重排和重绘"><a href="#4-5-重排和重绘" class="headerlink" title="4.5 重排和重绘"></a>4.5 重排和重绘</h3><p><code>重排</code>和<code>重绘</code>是<code>关键渲染路径</code>中的两步。<strong>重排必定会造成重绘</strong>。</p>
-<blockquote>
-<p>重排-Reflow ： 元素的<code>位置发生变动</code>时发生<code>重排</code>。</p>
-</blockquote>
-<ul>
-<li>重排在关键渲染路径中的Layout阶段，计算每一个元素在设备视口内的确切位置和大小。当一个元素位置发生变化时，其父元素及其后边的元素位置都可能发生变化，代价极高。</li>
-</ul>
-<blockquote>
-<p>重绘-Repaint： 元素的<code>样式发生变动</code>时，但位置没有发生变化。</p>
-</blockquote>
-<ul>
-<li><p>重绘在关键渲染路径中的Paint阶段，将渲染树中的每个节点转换成屏幕上的实际像素，这一步通常称为绘制或栅格化。</p>
-</li>
-<li><p>避免过多重排重绘的方法：</p>
-<ul>
-<li>使用<code>DocumentFragment</code>进行Dom操作；</li>
-<li>CSS样式尽量批量修改；</li>
-<li>避免使用table布局；</li>
-<li>为元素提前设置好高宽，不因多次渲染而改变位置。</li>
-</ul>
-</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/soyxiaobi/p/9963019.html">前端性能优化之重排重绘</a></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
   </article>
   
 
+  
+  <nav class="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+  </nav>
   
 </section>
 </div>
