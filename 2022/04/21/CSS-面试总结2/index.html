@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">3.5k</span>
+            <span class="post-count">4.2k</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">14 分钟</span>
+            <span class="post-count">16 分钟</span>
         </span>
     </span>
 </div>
@@ -483,7 +483,50 @@
 <li><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2015/07/flex-examples.html">CSS-Flex布局实例-阮一峰老师</a></p>
 </li>
 </ul>
-<h2 id="4-css动画"><a href="#4-css动画" class="headerlink" title="4 css动画"></a>4 css动画</h2><h2 id="5-经典布局方案"><a href="#5-经典布局方案" class="headerlink" title="5 经典布局方案"></a>5 经典布局方案</h2><h2 id="6-其他"><a href="#6-其他" class="headerlink" title="6 其他"></a>6 其他</h2><h3 id="6-1-css-variable"><a href="#6-1-css-variable" class="headerlink" title="6.1 css variable"></a>6.1 css variable</h3><h3 id="6-2-styled-component"><a href="#6-2-styled-component" class="headerlink" title="6.2 styled-component"></a>6.2 styled-component</h3><h3 id="6-3-CSS样式抖动"><a href="#6-3-CSS样式抖动" class="headerlink" title="6.3 CSS样式抖动"></a>6.3 CSS样式抖动</h3><ul>
+<h2 id="4-css动画"><a href="#4-css动画" class="headerlink" title="4 css动画"></a>4 css动画</h2><h2 id="5-经典布局方案"><a href="#5-经典布局方案" class="headerlink" title="5 经典布局方案"></a>5 经典布局方案</h2><h2 id="6-其他"><a href="#6-其他" class="headerlink" title="6 其他"></a>6 其他</h2><h3 id="6-1-CSS变量"><a href="#6-1-CSS变量" class="headerlink" title="6.1 CSS变量"></a>6.1 CSS变量</h3><h4 id="6-1-1-变量的声明"><a href="#6-1-1-变量的声明" class="headerlink" title="6.1.1 变量的声明"></a>6.1.1 变量的声明</h4><ul>
+<li><code>CSS变量</code>(CSS variable)又叫做<code>CSS 自定义属性</code>。在声明变量的时候，在变量名前加两根连词线（<code>--</code>）.</li>
+<li>变量名大小写敏感，<code>--header-color</code>和<code>--Header-Color</code>是两个不同变量。</li>
+<li>各种值都可以放入CSS变量。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attr">--foo</span>: <span class="number">#7F583F</span>;</span><br><span class="line">  <span class="attr">--bar</span>: <span class="number">#F7EFD2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-1-2-var-函数"><a href="#6-1-2-var-函数" class="headerlink" title="6.1.2 var()函数"></a>6.1.2 var()函数</h4><ul>
+<li><p>作用：var()函数用于读取变量。</p>
+</li>
+<li><p>变量值只能用作属性值，不能用作属性名。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--foo);</span><br><span class="line">  <span class="attribute">text-decoration-color</span>: <span class="built_in">var</span>(--bar);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>var()函数可以使用第二个参数，表示变量的默认值。若该变量不存在，则会使用该默认值。第二个参数不处理内部的逗号和空格，逗号和空格都将作为参数的一部分。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span>&#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--foo, <span class="number">#7F583F</span>);</span><br><span class="line">  <span class="attribute">font</span>: <span class="built_in">var</span>(--font-stack, <span class="string">&quot;Roboto&quot;</span>, <span class="string">&quot;Helvetica&quot;</span>);</span><br><span class="line">  <span class="attribute">font</span>: <span class="built_in">var</span>(--pad, <span class="number">10px</span> <span class="number">15px</span> <span class="number">20px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>var()函数还可以用在变量的声明。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attr">--primary-color</span>: red;</span><br><span class="line">  <span class="attr">--logo-text</span>: <span class="built_in">var</span>(--primary-color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="6-1-3-CSS变量的作用及用法"><a href="#6-1-3-CSS变量的作用及用法" class="headerlink" title="6.1.3 CSS变量的作用及用法"></a>6.1.3 CSS变量的作用及用法</h4><ol>
+<li><p>什么是CSS变量？</p>
+<ul>
+<li>CSS变量当前有两种形式：<ul>
+<li>变量，拥有合法标识符和合法的值。可以使用var()函数来使用变量。</li>
+<li>自定义属性。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>为什么要使用css变量</p>
+<ul>
+<li>答：在构件大型网站时，通常会面对可维护性的挑战。在网页中使用的css数量时非常庞大的。在这种情况下维护或修改一个配色方案，都会称为一个复杂的问题。这时，使用CSS变量为我们带来了一些预处理的便利，不需要额外的编译工作。</li>
+<li>减少样式重复定义，方便维护，提高可读性；</li>
+<li>增加预编译的便利性；</li>
+<li>变量名称本身就包含了语义信息，CSS文件将会变得易读和理解；</li>
+<li>可在运行时控制css逻辑，与less/sass相比，更加灵活，因为它很容易通过js来控制；</li>
+<li>可以减少js对dom的介入，制作性能更高的动画；</li>
+<li>配合conent等通过css给js传参，得到一些通过js难以获取的参数。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2017/05/css-variables.html">CSS变量教程 - 阮一峰</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/shkstart/article/details/107709997">转载-CSS变量</a></li>
+</ul>
+<h3 id="6-2-styled-component"><a href="#6-2-styled-component" class="headerlink" title="6.2 styled-component"></a>6.2 styled-component</h3><h3 id="6-3-CSS样式抖动"><a href="#6-3-CSS样式抖动" class="headerlink" title="6.3 CSS样式抖动"></a>6.3 CSS样式抖动</h3><ul>
 <li><p>前端开发时，出现页面抖动的原因？</p>
 <ul>
 <li>没有指定元素具体高度和宽度，例如数据还没加载进来的时候元素高度为100px，数据加载进来后元素被撑开，所以出现了抖动。</li>
@@ -497,7 +540,20 @@
 </ul>
 </li>
 </ul>
-<h3 id="6-4-使用CSS实现网页的黑暗模式"><a href="#6-4-使用CSS实现网页的黑暗模式" class="headerlink" title="6.4 使用CSS实现网页的黑暗模式"></a>6.4 使用CSS实现网页的黑暗模式</h3> 
+<h3 id="6-4-使用CSS实现网页的黑暗模式"><a href="#6-4-使用CSS实现网页的黑暗模式" class="headerlink" title="6.4 使用CSS实现网页的黑暗模式"></a>6.4 使用CSS实现网页的黑暗模式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span><span class="selector-attr">[theme=<span class="string">&quot;dark-mode&quot;</span>]</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">invert</span>(<span class="number">1</span>) <span class="built_in">hue-rotate</span>(<span class="number">180deg</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>CSS filter属性: 将模糊或颜色转移等图形效果应用到元素上。 滤镜通常用于调整图像、背景和边框的渲染。</p>
+</li>
+<li><p>黑暗模式使用两个滤镜：</p>
+<ul>
+<li>invert滤镜：可以帮助反转应用程序的颜色方案。</li>
+<li>hue-rotate滤镜：可以帮助处理所有其他非黑白的颜色。将色调旋转180°，确保应用程序的颜色主题不会改变。而只是减弱他的颜色。</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000023598551">CSS暗黑模式</a></p>
+</li>
+</ul>
+ 
       <!-- reward -->
       
       <div id="reword-out">
@@ -691,19 +747,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" target="_blank" rel="noopener" href="http://shenyu-vip.lofter.com">摄影</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/friends">友链</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/2019/about">关于我</a>
+      <a class="nav-item-link" href="/2021/about">关于我</a>
     </li>
     
   </ul>
