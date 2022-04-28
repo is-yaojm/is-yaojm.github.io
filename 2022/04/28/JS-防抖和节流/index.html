@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>CSS-样式练习 |  小姚同学今天学习了吗</title>
+      <title>JS-防抖和节流 |  小姚同学今天学习了吗</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -56,7 +56,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-CSS-样式练习"
+  id="post-JS-防抖和节流"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -67,7 +67,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  CSS-样式练习
+  JS-防抖和节流
 </h1>
  
 
@@ -75,11 +75,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/04/27/CSS-%E6%A0%B7%E5%BC%8F%E7%BB%83%E4%B9%A0/" class="article-date">
-  <time datetime="2022-04-27T02:56:58.000Z" itemprop="datePublished">2022-04-27</time>
+      <a href="/2022/04/28/JS-%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" class="article-date">
+  <time datetime="2022-04-28T10:08:37.000Z" itemprop="datePublished">2022-04-28</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
   </div>
   
 <div class="word_count">
@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">38</span>
+            <span class="post-count">587</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -111,8 +111,43 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="1-css实现一个三角形"><a href="#1-css实现一个三角形" class="headerlink" title="1 css实现一个三角形"></a>1 css实现一个三角形</h2><ul>
-<li>使用边框特性，设置宽度及颜色。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#div</span>&#123; </span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">50px</span> solid white; </span><br><span class="line">    <span class="attribute">border-bottom-color</span>: red; </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+  <h2 id="JS的防抖和节流"><a href="#JS的防抖和节流" class="headerlink" title="JS的防抖和节流"></a>JS的防抖和节流</h2><h3 id="1-防抖函数-debounce"><a href="#1-防抖函数-debounce" class="headerlink" title="1 防抖函数 - debounce"></a>1 防抖函数 - debounce</h3><blockquote>
+<p>防抖： 在一段时间内允许多次触发函数，但是只在最后一次有效执行。</p>
+</blockquote>
+<ul>
+<li>理解<ul>
+<li>当持续触发事件，在一定时间内没有再触发事件，事件处理函数才会执行一次。如果在设定的事件到来之前又一次触发了事件，就重新开始延时。</li>
+<li>（栗子）：王者荣耀回城，如果多次点击回城按钮，则最后一次才有效。</li>
+<li>（栗子）王者荣耀回城是防抖，放技能后进入冷却就是节流。</li>
+</ul>
+</li>
+<li>实际应用<ul>
+<li>使用echarts时，改变浏览器宽度的时候，希望重新渲染。echarts的图像，可以使用此函数，提升性能。</li>
+<li>解决输入搜索时的bug：输入结束后n秒才进行搜索请求，n秒内又输入内容，则重新计时。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;input&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 要求 : 打印结果只出现一次,在键盘抬起后一秒产生 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 1. 获取输入框</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> input = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;input&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 2. 防抖函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">debounce</span>(<span class="params">delay, callback</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> timer;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// timer变量需要一直保存在内存中</span></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 使用闭包（函数里面return出函数）</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">value</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="built_in">clearTimeout</span>(timer);</span></span><br><span class="line"><span class="language-javascript">            timer = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">callback</span>(value)</span></span><br><span class="line"><span class="language-javascript">            &#125;, delay)</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 在外部输出value值</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params">value</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(value);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 3. 将防抖函数的return值（函数）赋值给debounceFunc</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> debounceFunc = <span class="title function_">debounce</span>(<span class="number">1000</span>, fn);</span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 4. 函数触发</span></span></span><br><span class="line"><span class="language-javascript">    input.<span class="title function_">addEventListener</span>(<span class="string">&#x27;keyup&#x27;</span>, <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">debounceFunc</span>(e.<span class="property">target</span>.<span class="property">value</span>)</span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-节流函数-throttling"><a href="#2-节流函数-throttling" class="headerlink" title="2 节流函数 - throttling"></a>2 节流函数 - throttling</h3><blockquote>
+<p>节流： 在一段事件内，只做一件事情。</p>
+</blockquote>
+<ul>
+<li><p>理解</p>
+<ul>
+<li>当持续触发事件的时候，保证一段时间内只调用一次事件处理函数。</li>
+</ul>
+</li>
+<li><p>应用</p>
+<ul>
+<li>表单的提交：鼠标不断点击触发，规定在n秒内多次点击只有一次生效。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;button&quot;</span>&gt;</span>点击<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 节流函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">thro</span>(<span class="params">func, wait</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> timerOut;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 使用闭包</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 根据timerOut的值 判断程序是否进行</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (!timerOut) &#123;</span></span><br><span class="line"><span class="language-javascript">                timerOut = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="title function_">func</span>();</span></span><br><span class="line"><span class="language-javascript">                    timerOut = <span class="literal">null</span>;<span class="comment">// 程序运行之后timerOut设置为空</span></span></span><br><span class="line"><span class="language-javascript">                &#125;, wait)</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">handle</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>());</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;button&#x27;</span>).<span class="property">onclick</span> = <span class="title function_">thro</span>(handle,<span class="number">2000</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><ul>
+<li>防抖和节流都是用来防止高频率的JS代码的执行。</li>
 </ul>
  
       <!-- reward -->
@@ -184,12 +219,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://is-yaojm.github.io/2022/04/27/CSS-%E6%A0%B7%E5%BC%8F%E7%BB%83%E4%B9%A0/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://is-yaojm.github.io/2022/04/28/JS-%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%A3%E7%A0%81/" rel="tag">代码</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">JS-知识点</a></li></ul>
 
     </footer>
   </div>
@@ -197,19 +232,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2022/04/28/CSS-%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95/" class="article-nav-link">
+      <a href="/2022/04/28/JS-call%E3%80%81apply%E5%92%8Cbind/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            CSS-实现元素居中方法
+            JS-call、apply和bind
           
         </div>
       </a>
     
     
-      <a href="/2022/04/21/CSS-%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%932/" class="article-nav-link">
+      <a href="/2022/04/28/JS-%E9%97%AD%E5%8C%85/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">CSS_面试总结2</div>
+        <div class="article-nav-title">JS-闭包</div>
       </a>
     
   </nav>
