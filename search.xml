@@ -449,7 +449,25 @@
 <li><p><a href="https://www.ruanyifeng.com/blog/2015/07/flex-examples.html">CSS-Flex布局实例-阮一峰老师</a></p>
 </li>
 </ul>
-<h2 id="4-css动画"><a href="#4-css动画" class="headerlink" title="4 css动画"></a>4 css动画</h2><h2 id="5-CSS布局"><a href="#5-CSS布局" class="headerlink" title="5 CSS布局"></a>5 CSS布局</h2><h3 id="前言-1"><a href="#前言-1" class="headerlink" title="前言"></a>前言</h3><ul>
+<h2 id="4-css动画"><a href="#4-css动画" class="headerlink" title="4 css动画"></a>4 css动画</h2><h3 id="4-1-JS"><a href="#4-1-JS" class="headerlink" title="4.1 JS"></a>4.1 JS</h3><h4 id="4-1-1-JS优点"><a href="#4-1-1-JS优点" class="headerlink" title="4.1.1 JS优点"></a>4.1.1 JS优点</h4><ol>
+<li>控制能力更强，可以再动画播放过程中对动画进行精细控制，包括开始、暂停、终止和取消等；</li>
+<li>效果比css3动画效果更丰富；</li>
+<li>大多数情况下没有兼容性问题，而css3存在兼容性问题。</li>
+</ol>
+<h4 id="4-1-2-JS缺点"><a href="#4-1-2-JS缺点" class="headerlink" title="4.1.2 JS缺点"></a>4.1.2 JS缺点</h4><ol>
+<li>复杂度高于CSS3；</li>
+<li>在执行过程中，因其他进程的影响可能会出现阻塞从而出现丢帧的情况；</li>
+<li>往往需要频繁操作DOM，对浏览器性能消耗较大。</li>
+</ol>
+<h3 id="4-2-CSS3"><a href="#4-2-CSS3" class="headerlink" title="4.2 CSS3"></a>4.2 CSS3</h3><h4 id="4-2-1-优点"><a href="#4-2-1-优点" class="headerlink" title="4.2.1 优点"></a>4.2.1 优点</h4><ol>
+<li>在部分情况下浏览器可以对动画进行优化；</li>
+<li>部分效果可以强制使用硬件加速。</li>
+</ol>
+<h4 id="4-2-2-缺点"><a href="#4-2-2-缺点" class="headerlink" title="4.2.2 缺点"></a>4.2.2 缺点</h4><ol>
+<li>css3动画对运行进程控制较弱，只能在某些场景下控制动画的暂停和继续；</li>
+<li>代码冗长。</li>
+</ol>
+<h2 id="5-CSS布局"><a href="#5-CSS布局" class="headerlink" title="5 CSS布局"></a>5 CSS布局</h2><h3 id="前言-1"><a href="#前言-1" class="headerlink" title="前言"></a>前言</h3><ul>
 <li><p>根据宽度是否固定来分，可分为：</p>
 <ul>
 <li>固定宽度布局 ： PC端一般宽度为960/1000/1024px；</li>
@@ -629,7 +647,7 @@
 <li><a href="https://www.ruanyifeng.com/blog/2017/05/css-variables.html">CSS变量教程 - 阮一峰</a></li>
 <li><a href="https://blog.csdn.net/shkstart/article/details/107709997">转载-CSS变量</a></li>
 </ul>
-<h3 id="6-2-styled-component"><a href="#6-2-styled-component" class="headerlink" title="6.2 styled-component"></a>6.2 styled-component</h3><h3 id="6-3-CSS样式抖动"><a href="#6-3-CSS样式抖动" class="headerlink" title="6.3 CSS样式抖动"></a>6.3 CSS样式抖动</h3><ul>
+<h3 id="6-2-CSS样式抖动"><a href="#6-2-CSS样式抖动" class="headerlink" title="6.2 CSS样式抖动"></a>6.2 CSS样式抖动</h3><ul>
 <li><p>前端开发时，出现页面抖动的原因？</p>
 <ul>
 <li>没有指定元素具体高度和宽度，例如数据还没加载进来的时候元素高度为100px，数据加载进来后元素被撑开，所以出现了抖动。</li>
@@ -643,7 +661,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="6-4-使用CSS实现网页的黑暗模式"><a href="#6-4-使用CSS实现网页的黑暗模式" class="headerlink" title="6.4 使用CSS实现网页的黑暗模式"></a>6.4 使用CSS实现网页的黑暗模式</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span><span class="selector-attr">[theme=<span class="string">&quot;dark-mode&quot;</span>]</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">invert</span>(<span class="number">1</span>) <span class="built_in">hue-rotate</span>(<span class="number">180deg</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="6-3-使用CSS实现网页的黑暗模式"><a href="#6-3-使用CSS实现网页的黑暗模式" class="headerlink" title="6.3 使用CSS实现网页的黑暗模式"></a>6.3 使用CSS实现网页的黑暗模式</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span><span class="selector-attr">[theme=<span class="string">&quot;dark-mode&quot;</span>]</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">invert</span>(<span class="number">1</span>) <span class="built_in">hue-rotate</span>(<span class="number">180deg</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>CSS filter属性: 将模糊或颜色转移等图形效果应用到元素上。 滤镜通常用于调整图像、背景和边框的渲染。</p>
 </li>
@@ -656,7 +674,7 @@
 <li><p><a href="https://segmentfault.com/a/1190000023598551">CSS暗黑模式</a></p>
 </li>
 </ul>
-<h3 id="6-5-自定义滚动条的样式"><a href="#6-5-自定义滚动条的样式" class="headerlink" title="6.5 自定义滚动条的样式"></a>6.5 自定义滚动条的样式</h3><h3 id="6-6-写css时如何避免命名样式冲突"><a href="#6-6-写css时如何避免命名样式冲突" class="headerlink" title="6.6 写css时如何避免命名样式冲突"></a>6.6 写css时如何避免命名样式冲突</h3><h3 id="6-7-CSS如何设置一行超出显示省略号"><a href="#6-7-CSS如何设置一行超出显示省略号" class="headerlink" title="6.7 CSS如何设置一行超出显示省略号"></a>6.7 CSS如何设置一行超出显示省略号</h3>]]></content>
+]]></content>
       <categories>
         <category>CSS</category>
       </categories>
@@ -1711,7 +1729,114 @@
   <entry>
     <title>CSS-动画</title>
     <url>/2022/04/28/CSS-%E5%8A%A8%E7%94%BB/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="CSS动画"><a href="#CSS动画" class="headerlink" title="CSS动画"></a>CSS动画</h1><ul>
+<li><p>作用</p>
+<ul>
+<li>增强网页交互体验</li>
+<li>减少代码量，让网页运行更快</li>
+</ul>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>网页特效</li>
+<li>用户交互</li>
+</ul>
+</li>
+<li><p>浏览器兼容性问题<br><a href="CSS%E5%8A%A8%E7%94%BB.png">CSS3动画浏览器兼容性问题</a></p>
+</li>
+</ul>
+<h2 id="1-过渡动画-transition"><a href="#1-过渡动画-transition" class="headerlink" title="1 过渡动画 transition"></a>1 过渡动画 transition</h2><blockquote>
+<p>CSS过渡动画：为某一元素添加某种效果可以从一种样式转变到另一种。</p>
+</blockquote>
+<ul>
+<li><p>实现条件：</p>
+<ul>
+<li>指定要添加效果的CSS属性；</li>
+<li>指定效果的持续时间，若没有指定期限，transition默认值为0，没有效果。</li>
+</ul>
+</li>
+<li><p>过渡属性</p>
+<ul>
+<li>transition-property ： 规定有应用过渡效果的css属性名称；<ul>
+<li><code>transition-property: none|all| property;</code>   (没有 | 全部 | 列表)</li>
+</ul>
+</li>
+<li>transition-duration ： 过渡效果持续时间； </li>
+<li>transition-delay ： 过渡效果延迟时间；</li>
+<li>transition-timing-function： 过渡效果动画<ul>
+<li><code>transition-timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);</code> (匀速 | 慢快慢 | 慢速开始 | 慢速结束 | 慢快慢 |)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#box1</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background</span>:red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#box1</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">600px</span>;</span><br><span class="line">    <span class="comment">/* 过渡效果</span></span><br><span class="line"><span class="comment">        1-有过渡效果的属性   transition-property</span></span><br><span class="line"><span class="comment">        2-过渡持续时间       transition-duration</span></span><br><span class="line"><span class="comment">        3-延迟效果开始的时间 transition-delay</span></span><br><span class="line"><span class="comment">        4-过渡效果动画       transition-timing-function</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="attribute">transition</span>:width <span class="number">2s</span> ease;<span class="comment">/*宽度变化*/</span></span><br><span class="line">    <span class="attribute">transition</span>:all <span class="number">2s</span> ease;<span class="comment">/*all 宽高都变化*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="2-变换动画-transfrom"><a href="#2-变换动画-transfrom" class="headerlink" title="2 变换动画 transfrom"></a>2 变换动画 transfrom</h2><h3 id="2-1-2D转换"><a href="#2-1-2D转换" class="headerlink" title="2.1 2D转换"></a>2.1 2D转换</h3><ul>
+<li>移动 translate()方法： 根据x轴和y轴位置给定的参数，从当前元素位置移动。</li>
+<li>旋转 rotate() 方法： 旋转。正值顺时针，负值逆时针。</li>
+<li>缩放 scale() 方法： 该元素增大或减小的大小，取决于x轴和y轴的参数。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">-ms-<span class="attribute">transform</span>:<span class="built_in">scale</span>(<span class="number">2</span>,<span class="number">3</span>); <span class="comment">/* IE 9 */</span></span><br><span class="line">-webkit-<span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>,<span class="number">3</span>); <span class="comment">/* Safari */</span></span><br><span class="line"><span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">2</span>,<span class="number">3</span>); <span class="comment">/* 标准语法,宽度为原来大小的两倍，高度为原来的三倍 */</span></span><br></pre></td></tr></table></figure></li>
+<li>倾斜 skew() 方法：包含两个参数值，分别表示X轴和Y轴倾斜的角度，如果第二个参数为空，则默认为0，参数为负表示向相反方向倾斜。<ul>
+<li>skewX(<angle>);表示只在X轴(水平方向)倾斜。</li>
+<li>skewY(<angle>);表示只在Y轴(垂直方向)倾斜。</li>
+<li><code>transform:skew(&lt;angle&gt; [,&lt;angle&gt;]);</code></li>
+</ul>
+</li>
+<li>matrix() 方法: matrix 方法有六个参数，包含旋转，缩放，移动（平移）和倾斜功能。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.test</span> <span class="selector-class">.translateX</span> <span class="selector-tag">p</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="comment">/*  -moz 火狐；</span></span></span><br><span class="line"><span class="comment"><span class="language-css">            -webkit 谷歌，苹果；</span></span></span><br><span class="line"><span class="comment"><span class="language-css">            -ms  IE；</span></span></span><br><span class="line"><span class="comment"><span class="language-css">            -o   欧鹏    </span></span></span><br><span class="line"><span class="comment"><span class="language-css">        */</span></span></span><br><span class="line"><span class="language-css">        -moz-<span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">20px</span>);</span></span><br><span class="line"><span class="language-css">        -webkit-<span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">20px</span>);</span></span><br><span class="line"><span class="language-css">        -ms-<span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">20px</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">20px</span>);</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#div1</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="number">#000</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">100px</span> auto;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="comment">/* 旋转 正值-顺时针 负值-逆时针*/</span></span></span><br><span class="line"><span class="language-css">        <span class="comment">/* 沿中心点旋转*/</span></span></span><br><span class="line"><span class="language-css">        <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">45deg</span>);</span></span><br><span class="line"><span class="language-css">        <span class="comment">/*设置旋转点 以设置的坐标为顶点旋转*/</span> </span></span><br><span class="line"><span class="language-css">        <span class="attribute">transform-origin</span>: <span class="number">0</span> <span class="number">0</span> ;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="comment">/* 平移 - 相对于自己原来的位置移动 */</span></span></span><br><span class="line"><span class="language-css">        <span class="comment">/*第一个参数对应X轴，第二个参数对应Y轴*/</span></span></span><br><span class="line"><span class="language-css">        <span class="attribute">transform</span>: <span class="built_in">translate</span>(<span class="number">50px</span>,<span class="number">100px</span>);</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">        <span class="comment">/* 缩放 */</span></span></span><br><span class="line"><span class="language-css">         <span class="attribute">transform</span>:<span class="built_in">scale</span>(<span class="number">2</span>);</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-3D转换"><a href="#2-2-3D转换" class="headerlink" title="2.2 3D转换"></a>2.2 3D转换</h3><ul>
+<li><p>转换属性<br><a href="%E8%BD%AC%E6%8D%A2%E5%B1%9E%E6%80%A7.png">转换属性</a></p>
+</li>
+<li><p>转换方法<br><a href="%E8%BD%AC%E5%8C%96%E6%96%B9%E6%B3%95.png">3D转换方法</a></p>
+</li>
+</ul>
+<h2 id="3-keyframes与Animation"><a href="#3-keyframes与Animation" class="headerlink" title="3 @keyframes与Animation"></a>3 @keyframes与Animation</h2><blockquote>
+<p>@keyframes规则： 创建动画，该规则内指定一个CSS样式和动画将逐步从目前的样式更改为新的样式。</p>
+</blockquote>
+<ul>
+<li><code>animation属性</code>的子属性有：<ul>
+<li><code>@keyframes 规则</code>: 一个动画想要运行，还应该包括 @keyframes 规则，在内部设定动画关键帧。(必有)</li>
+<li><code>animation-name</code>：指定由 @keyframes 描述的关键帧名称。(必有)</li>
+<li><code>animation-duration</code>：设置动画一个周期的时长。(必有)</li>
+<li><code>animation-delay</code>：设置延时，即从元素加载完成之后到动画序列开始执行的这段时间。</li>
+<li><code>animation-direction</code>：设置动画在每次运行完后是反向运行还是重新回到开始位置重复运行。</li>
+<li><code>animation-iteration-count</code>：设置动画重复次数， 可以指定 infinite 无限次重复动画.</li>
+<li><code>animation-play-state</code>：允许暂停和恢复动画。</li>
+<li><code>animation-timing-function</code>：设置动画速度， 即通过建立加速度曲线，设置动画在关键帧之间是如何变化。</li>
+<li><code>animation-fill-mode</code>：指定动画执行前后如何为目标元素应用样式。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#box1</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: rebeccapurple;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">animation</span>:ease-in move <span class="number">3s</span>; </span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="keyword">@keyframes</span> move&#123;</span></span><br><span class="line"><span class="language-css">        <span class="number">5%</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">width</span>: <span class="number">150px</span>;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="number">15%</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>:red;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="number">50%</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">transform</span>:<span class="built_in">rotate</span>(<span class="number">30deg</span>);</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">        <span class="number">70%</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">transform</span>:<span class="built_in">rotate</span>(<span class="number">180deg</span>);</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-CSS3动画与JS动画的区别"><a href="#4-CSS3动画与JS动画的区别" class="headerlink" title="4 CSS3动画与JS动画的区别"></a>4 CSS3动画与JS动画的区别</h2><h3 id="4-1-JS"><a href="#4-1-JS" class="headerlink" title="4.1 JS"></a>4.1 JS</h3><h4 id="4-1-1-JS优点"><a href="#4-1-1-JS优点" class="headerlink" title="4.1.1 JS优点"></a>4.1.1 JS优点</h4><ol>
+<li>控制能力更强，可以再动画播放过程中对动画进行精细控制，包括开始、暂停、终止和取消等；</li>
+<li>效果比css3动画效果更丰富；</li>
+<li>大多数情况下没有兼容性问题，而css3存在兼容性问题。</li>
+</ol>
+<h4 id="4-1-2-JS缺点"><a href="#4-1-2-JS缺点" class="headerlink" title="4.1.2 JS缺点"></a>4.1.2 JS缺点</h4><ol>
+<li>复杂度高于CSS3；</li>
+<li>在执行过程中，因其他进程的影响可能会出现阻塞从而出现丢帧的情况；</li>
+<li>往往需要频繁操作DOM，对浏览器性能消耗较大。</li>
+</ol>
+<h3 id="4-2-CSS3"><a href="#4-2-CSS3" class="headerlink" title="4.2 CSS3"></a>4.2 CSS3</h3><h4 id="4-2-1-优点"><a href="#4-2-1-优点" class="headerlink" title="4.2.1 优点"></a>4.2.1 优点</h4><ol>
+<li>在部分情况下浏览器可以对动画进行优化；</li>
+<li>部分效果可以强制使用硬件加速。</li>
+</ol>
+<h4 id="4-2-2-缺点"><a href="#4-2-2-缺点" class="headerlink" title="4.2.2 缺点"></a>4.2.2 缺点</h4><ol>
+<li>css3动画对运行进程控制较弱，只能在某些场景下控制动画的暂停和继续；</li>
+<li>代码冗长。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS-知识点</tag>
+      </tags>
   </entry>
   <entry>
     <title>CSS-实现元素居中方法</title>
@@ -2500,5 +2625,214 @@
       <tags>
         <tag>JS-知识点</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>CSS-Grid布局</title>
+    <url>/2022/04/28/CSS-Grid%E5%B8%83%E5%B1%80/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>CSS-单位</title>
+    <url>/2022/04/28/CSS-%E5%8D%95%E4%BD%8D/</url>
+    <content><![CDATA[<h1 id="CSS单位"><a href="#CSS单位" class="headerlink" title="CSS单位"></a>CSS单位</h1><h2 id="1-相对单位"><a href="#1-相对单位" class="headerlink" title="1 相对单位"></a>1 相对单位</h2><blockquote>
+<p>相对单位规定相对于另一个长度属性的长度。它在不同渲染介质之间缩放表现更好。<br><img src="%E7%9B%B8%E5%AF%B9%E5%8D%95%E4%BD%8D.png" alt="相对单位"></p>
+</blockquote>
+<h3 id="1-1-em和rem"><a href="#1-1-em和rem" class="headerlink" title="1.1 em和rem"></a>1.1 em和rem</h3><blockquote>
+<p>em : 相对于元素的字体大小.</p>
+</blockquote>
+<ul>
+<li>em：如果自身元素未设置字体大小，那么其根据父元素的字体大小进行计算；如果自身元素设置了字体大小，则基于自身的字体大小进行计算。</li>
+<li>em的值不是固定的</li>
+</ul>
+<blockquote>
+<p>rem : 相对于根元素的字体大小计算。</p>
+</blockquote>
+<ul>
+<li><p>rem在处理小数的时候会有误差。</p>
+</li>
+<li><p>不支持iframe，并且这里存在一个理念问题，大屏是为了更大更清晰，还是为了承载更多内容。</p>
+</li>
+<li><p><code>em</code>与<code>rem</code>的选择情况：</p>
+<ul>
+<li>两者在客户端中计算出来的样式都会以px的形式显示；</li>
+<li><code>rem</code>是<code>相对根元素</code>html的字体大小计算，<code>em</code>是<code>相对于元素</code>的字体大小进行计算；</li>
+<li>当需要根据<code>浏览器的font-size设置缩放</code>时，使用<code>rem</code>；</li>
+<li>使用em应该根据组件的font-size来定；</li>
+<li>rem可以从浏览器字体设置中继承font-size值；</li>
+<li>em可能受任何继承过来的父元素font-size的影响。</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-vh和vm，vmin和vmax"><a href="#1-2-vh和vm，vmin和vmax" class="headerlink" title=".1.2 vh和vm，vmin和vmax"></a>.1.2 vh和vm，vmin和vmax</h3><ul>
+<li>vw：视窗宽度的百分比；</li>
+<li>vh：视窗高度的百分比；</li>
+<li>vmax：较大的 vh 和 vw；</li>
+<li>vmin：较小的 vh 和 vw。</li>
+</ul>
+<p>eg:</p>
+<ul>
+<li>若一个浏览器高度为500px，宽度为1200px，<ul>
+<li>1vh = 5px;</li>
+<li>1vw = 12px;</li>
+<li>1vmin = 5px;</li>
+<li>1vmax = 12px.</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-绝对单位"><a href="#2-绝对单位" class="headerlink" title="2 绝对单位"></a>2 绝对单位</h2><blockquote>
+<p>绝对单位是固定的，用任何一个绝对长度表示的长度都将恰好显示为这个尺寸。</p>
+</blockquote>
+<ul>
+<li>不建议在屏幕上使用绝对长度单位，因为屏幕尺寸变化较大。</li>
+</ul>
+<p><img src="%E7%BB%9D%E5%AF%B9%E5%8D%95%E4%BD%8D.png" alt="绝对单位"></p>
+<h2 id="3-百分比单位"><a href="#3-百分比单位" class="headerlink" title="3 百分比单位"></a>3 百分比单位</h2><ul>
+<li>百分比（%）是较常用的单位之一，所有接受长度值的属性都可以使用百分比单位。但是不同属性使用该单位的效果可能并不一样。但是都需要有一个参照值，也就是说百分比值是一个相对的值。 ​</li>
+</ul>
+<p><img src="%E7%99%BE%E5%88%86%E6%AF%94%E5%8D%95%E4%BD%8D.png" alt="百分比单位"></p>
+<h2 id="4-角度单位-​"><a href="#4-角度单位-​" class="headerlink" title="4 角度单位 ​"></a>4 角度单位 ​</h2><p><img src="%E8%A7%92%E5%BA%A6%E5%8D%95%E4%BD%8D.png" alt="角度单位"></p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS-知识点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS-响应式布局</title>
+    <url>/2022/04/28/CSS-%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/</url>
+    <content><![CDATA[<h1 id="CSS响应式布局"><a href="#CSS响应式布局" class="headerlink" title="CSS响应式布局"></a>CSS响应式布局</h1><h2 id="1-响应式布局"><a href="#1-响应式布局" class="headerlink" title="1 响应式布局"></a>1 响应式布局</h2><blockquote>
+<p>响应式布局：是同一页面在不同的屏幕上有不同的布局，即只需要一套代码使页面适应不同的屏幕。</p>
+</blockquote>
+<ul>
+<li>采用响应式设计，在不同设备中，网站会重新排列，展现出不同的设计风格，以完美的适配任何尺寸的屏幕。</li>
+</ul>
+<h2 id="2-设计原则"><a href="#2-设计原则" class="headerlink" title="2 设计原则"></a>2 设计原则</h2><h3 id="2-1-响应式设计两个设计原则"><a href="#2-1-响应式设计两个设计原则" class="headerlink" title="2.1 响应式设计两个设计原则"></a>2.1 响应式设计两个设计原则</h3><ul>
+<li>渐进增强：是指基本需求得到满足和实现后，再根据不同浏览器及不同分辨率设备的特点，利用高级浏览器中的新特新提供更好的体检。（由基本到完美）<ul>
+<li><code>移动端</code>响应式布局采用<code>渐进增强</code>原则。</li>
+</ul>
+</li>
+<li>优雅降级：现有功能已经开发完备，但需要向下兼容版本和不支持该功能的浏览器。（向下兼容）</li>
+</ul>
+<h3 id="2-2-常见设备的屏幕像素"><a href="#2-2-常见设备的屏幕像素" class="headerlink" title="2.2 常见设备的屏幕像素"></a>2.2 常见设备的屏幕像素</h3><ul>
+<li>viewport视口设置：<ul>
+<li><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</code></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>屏幕类型</th>
+<th>对应设备</th>
+<th>常见尺寸</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>超小屏幕</td>
+<td>手机</td>
+<td>&lt;768px</td>
+</tr>
+<tr>
+<td>小屏幕</td>
+<td>平板</td>
+<td>&gt;768px</td>
+</tr>
+<tr>
+<td>中等屏幕</td>
+<td>桌面显示器</td>
+<td>&gt;992px</td>
+</tr>
+<tr>
+<td>大屏幕</td>
+<td>超大桌面显示器</td>
+<td>&gt;1200px</td>
+</tr>
+</tbody></table>
+<h2 id="3-实现方法"><a href="#3-实现方法" class="headerlink" title="3 实现方法"></a>3 实现方法</h2><h3 id="3-1-媒体查询"><a href="#3-1-媒体查询" class="headerlink" title="3.1 媒体查询"></a>3.1 媒体查询</h3><blockquote>
+<p>媒体查询</p>
+</blockquote>
+<ul>
+<li>什么是媒体查询 ：<strong>媒体查询可以让CSS更加精确作用于不同的媒体类型和同一媒体的不同条件。</strong></li>
+<li>JS监听媒体查询：<code>MediaQueryList.addListener(func)</code>；</li>
+<li>使用<code>@media查询</code>，可以针对不同的媒体类型定义不同的样式；</li>
+<li><code>@media</code>可以针对不同的屏幕尺寸设置不同的样式，特别是如果需要设置<strong>响应式的页面</strong>，<code>@media</code>是非常有用的。</li>
+<li>当你重置浏览器大小的过程中，页面也会根据浏览器的高度重新渲染页面。</li>
+</ul>
+<blockquote>
+<p>媒体查询的用途</p>
+</blockquote>
+<ul>
+<li><p>使用CSS@media和at规则有条件地应用样式；</p>
+</li>
+<li><p>使用该属性为<code>&lt;style&gt;</code>,<code>&lt;link&gt;</code>,<code>&lt;source&gt;</code>和其他HTML元素定位特定媒体；</p>
+</li>
+<li><p>使用JS方法测试和监控媒体状态。</p>
+<p>  eg:</p>
+  <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">200px</span>; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>:violet;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">980px</span>) <span class="keyword">and</span> (<span class="attribute">min-width</span>:<span class="number">600px</span>) &#123;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>: red;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    </span></span><br><span class="line"><span class="language-css">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">499px</span>) &#123;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">41</span>, <span class="number">119</span>, <span class="number">192</span>);</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><a href="%E5%AA%92%E4%BD%93%E7%89%B9%E6%80%A7.png">媒体特性</a></p>
+<h3 id="3-2-相对尺寸"><a href="#3-2-相对尺寸" class="headerlink" title="3.2 相对尺寸"></a>3.2 相对尺寸</h3></li>
+</ul>
+<ol>
+<li>百分比</li>
+</ol>
+<ul>
+<li>百分比是相对于包含块的计量单位，通过对属性设置百分比来适应不同的屏幕。</li>
+<li>包含块：<ul>
+<li>有父元素相对于父元素；</li>
+<li>无父元素相对于视口；</li>
+<li>继承父元素；</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>vw/vh</li>
+</ol>
+<ul>
+<li>vw/vh，vmin和vmax是视口单位，可以根据浏览器的窗口大小进行适配。</li>
+<li>eg：文字自适应</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.text</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">248</span>, <span class="number">150</span>, <span class="number">150</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">line-height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">p</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">font-size</span>: <span class="number">2vw</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        今天是个好天气 </span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>rem</li>
+</ol>
+<ul>
+<li>rem单位：相对单位，相对于根元素字体大小的单位。</li>
+<li>使用场景：某一元素的宽需要为47px，根元素大小为20px，要求适应不同的终端。<ul>
+<li>设想屏幕宽度为750px，设计稿宽度为750px；</li>
+<li>设置<code>font-size = 1rem = 屏幕宽度×100/设计稿宽度 = 100px</code>；</li>
+<li>使用<code>getBoundingClientRect().width</code>可以获取屏幕宽度，在该宽度下梓蒿为fontsize；</li>
+<li><code> width / ( 750 * fontSize ) = 750 / (750 * 100 )</code>;</li>
+<li>计算得出fontSize的值。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-响应式图片"><a href="#4-响应式图片" class="headerlink" title="4 响应式图片"></a>4 响应式图片</h2><ul>
+<li>使用<code>background</code>属性设置背景图<ul>
+<li>将<code>background-size</code>属性值设置为<code>cover</code>，则会把背景图片扩展至足够大，是背景图片完全覆盖背景区域。</li>
+<li><code>background-size: cover;</code>    /* 让背景图片一起缩放 */</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-移动端事件"><a href="#5-移动端事件" class="headerlink" title="5 移动端事件"></a>5 移动端事件</h2><ul>
+<li><p><a href="https://blog.csdn.net/weixin_43842373/article/details/113397331">移动端响应式开发</a></p>
+</li>
+<li><p><a href="https://wenku.baidu.com/view/9e2c202651ea551810a6f524ccbff121dd36c50b.html">CSS-常用分辨率</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS-知识点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS-渲染和解析</title>
+    <url>/2022/04/28/CSS-%E6%B8%B2%E6%9F%93%E5%92%8C%E8%A7%A3%E6%9E%90/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
