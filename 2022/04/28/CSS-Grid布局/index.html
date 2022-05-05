@@ -77,13 +77,17 @@
     <div class="article-meta">
       <a href="/2022/04/28/CSS-Grid%E5%B8%83%E5%B1%80/" class="article-date">
   <time datetime="2022-04-28T10:35:44.000Z" itemprop="datePublished">2022-04-28</time>
-</a>   
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">1.5k</span>
         </span>
     </span>
 
@@ -92,20 +96,154 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">6 分钟</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h1 id="CSS-Grid布局"><a href="#CSS-Grid布局" class="headerlink" title="CSS - Grid布局"></a>CSS - Grid布局</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">CSS-Grid网格布局教程-阮一峰老师</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/try/gridgarden/index.html">CSS-grid小游戏</a>哈哈哈哈 很有意思的小游戏，还可以学习布局</li>
+</ul>
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><blockquote>
+<p>Grid布局： 将容器划分为行和列，产生单元格，然后指定项目所在的单元格。</p>
+</blockquote>
+<ul>
+<li>Flex布局：是轴线布局，只能指定“项目”针对轴线的位置，可看作是一维布局。</li>
+<li>Grid布局：划分行和列，产生单元格，可看作二维布局。</li>
+</ul>
+<h2 id="2-基本概念"><a href="#2-基本概念" class="headerlink" title="2 基本概念"></a>2 基本概念</h2><h3 id="2-1-容器和项目"><a href="#2-1-容器和项目" class="headerlink" title="2.1 容器和项目"></a>2.1 容器和项目</h3><ol>
+<li><p>容器（具有容器属性）<br><a href="container.png">容器</a></p>
+</li>
+<li><p>项目（具有项目属性）<br><a href="item.png">项目</a></p>
+</li>
+<li><p>grid布局中的各种要素<br><a href="grid.png">grid</a></p>
+</li>
+</ol>
+<h2 id="3-容器属性"><a href="#3-容器属性" class="headerlink" title="3 容器属性"></a>3 容器属性</h2><h3 id="3-1-dispaly属性"><a href="#3-1-dispaly属性" class="headerlink" title="3.1 dispaly属性"></a>3.1 dispaly属性</h3><blockquote>
+<p><code>display: grid</code> 指定一个容器采用<code>网格布局</code>。默认情况下，容器元素都是块级元素，但是也可设置为行内元素<code>/* display: inline-grid; */</code>。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS Bin<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-tag">span</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">font-size</span>: <span class="number">2em</span>; </span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-id">#container</span>&#123;</span></span><br><span class="line"><span class="language-css">                <span class="comment">/* 网格布局 */</span></span></span><br><span class="line"><span class="language-css">                <span class="attribute">display</span>: grid;</span></span><br><span class="line"><span class="language-css">                <span class="comment">/* 行内网格布局 */</span></span></span><br><span class="line"><span class="language-css">                <span class="comment">/* display: inline-grid; */</span></span></span><br><span class="line"><span class="language-css">                <span class="attribute">grid-template-columns</span>: <span class="number">50px</span> <span class="number">50px</span> <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">grid-template-rows</span>: <span class="number">50px</span> <span class="number">50px</span> <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">font-size</span>: <span class="number">2em</span>;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e5e4e9</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-1</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#ef342a</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-2</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#f68f26</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-3</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#4ba946</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-4</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#0376c2</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-5</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#c077af</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-6</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#f8d29d</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>foo<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-3&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-4&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-5&quot;</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-6&quot;</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-7&quot;</span>&gt;</span>7<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-8&quot;</span>&gt;</span>8<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-9&quot;</span>&gt;</span>9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>bar<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意：若容器设置为网格布局之后，容器中的项目的部分属性会失效：<ul>
+<li><code>float</code></li>
+<li><code>display: inline-block </code></li>
+<li><code>display: table-cell</code> </li>
+<li><code>vertical-align</code>和<code>column-*</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-grid-template-columns属性-和-grid-template-rows属性"><a href="#3-2-grid-template-columns属性-和-grid-template-rows属性" class="headerlink" title="3.2 grid-template-columns属性 和 grid-template-rows属性"></a>3.2 grid-template-columns属性 和 grid-template-rows属性</h3><blockquote>
+<p>grid-template-columns属性: 定义每一列列宽；<br>grid-template-rows属性: 定义每一行行高。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="comment">/* 指定一个三行三列的网格，行高和列宽都是100px ，单位可以是绝对单位可以是相对单位，或者百分比*/</span></span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">100px</span> <span class="number">100px</span> <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">100px</span> <span class="number">100px</span> <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-1-repeat-函数"><a href="#3-2-1-repeat-函数" class="headerlink" title="3.2.1 repeat()函数"></a>3.2.1 repeat()函数</h4><blockquote>
+<p>repeat()函数： 简化重复的值。</p>
+</blockquote>
+<ul>
+<li>两个参数：<ul>
+<li>参数1： 重复的次数（几行，或者几列）；</li>
+<li>参数2： 重复的值</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123; </span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">100px</span>);</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">100px</span>) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>repeat()定义某种模式：<code>grid-template-columns: repeat(1, 100px 20px 80px);</code></li>
+<li></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">1</span>, <span class="number">100px</span> <span class="number">20px</span> <span class="number">80px</span>);</span><br><span class="line">  <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">50px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="repeat1.png">三行</a><br><a href="repeat2.png">二行</a><br><a href="repeat3.png">一行</a></p>
+<h4 id="3-2-2-auto-fill关键字"><a href="#3-2-2-auto-fill关键字" class="headerlink" title="3.2.2 auto-fill关键字"></a>3.2.2 auto-fill关键字</h4><blockquote>
+<p>当单元格的大小固定，但容器的大小不确定时，如果希望每一行（或每一列）容纳尽可能多的单元格，可以使用<code>auto-fill关键字</code>表示自动填充。</p>
+</blockquote>
+<p><a href="autofill.png">auto-fill关键字</a></p>
+<h4 id="3-2-3-fr关键字"><a href="#3-2-3-fr关键字" class="headerlink" title="3.2.3 fr关键字"></a>3.2.3 fr关键字</h4><blockquote>
+<p>fr关键字： 方便表示比例关系。</p>
+</blockquote>
+<ul>
+<li>如果两列的宽度分别为1fr和2fr，就表示后者是前者的两倍。</li>
+<li>fr关键字可以和绝对长度的单位结合使用。</li>
+</ul>
+<p><a href="fr.png">fr关键字</a></p>
+<h4 id="3-2-4-minmax"><a href="#3-2-4-minmax" class="headerlink" title="3.2.4 minmax()"></a>3.2.4 minmax()</h4><blockquote>
+<p>minmax()函数:产生一个长度范围，表示长度就在这个范围之中。它接受两个参数，分别为最小值和最大值。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="built_in">minmax</span>(<span class="number">100px</span>, <span class="number">1</span>fr);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-gap属性"><a href="#3-3-gap属性" class="headerlink" title="3.3 gap属性"></a>3.3 gap属性</h3><blockquote>
+<p>grid-row-gap 属性:设置行间距<br>grid-column-gap 属性： 设置列间距</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">grid-row</span>-<span class="attribute">gap</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">grid-column</span>-<span class="attribute">gap</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>grid-gap 属性 ：行列间距的简写形式</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">grid-gap</span>: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-grid-template-areas-属性"><a href="#3-4-grid-template-areas-属性" class="headerlink" title="3.4 grid-template-areas 属性"></a>3.4 grid-template-areas 属性</h3><blockquote>
+<p>grid-template-areas属性 : 用于定义区域</p>
+</blockquote>
+<h3 id="3-4-grid-auto-flow属性"><a href="#3-4-grid-auto-flow属性" class="headerlink" title="3.4 grid-auto-flow属性"></a>3.4 grid-auto-flow属性</h3><blockquote>
+<p>grid-auto-flow属性 : 划分网格线以后，容器的子元素会按照顺序，自动放置在每一个网格。默认的放置顺序是先行后列，即填满第一行，再开始放入第二行（就是子元素的排放顺序）</p>
+</blockquote>
+<ul>
+<li>grid-auto-flow：row（先行后列  默认）</li>
+<li>grid-auto-flow：column （先列后行）</li>
+<li>跟grid-auto-flow相关  dense（提高空间的利用率）</li>
+</ul>
+<h3 id="3-5-单元格内容位置属性"><a href="#3-5-单元格内容位置属性" class="headerlink" title="3.5 单元格内容位置属性"></a>3.5 单元格内容位置属性</h3><blockquote>
+<p>items属性: 单元格里面的内容。</p>
+</blockquote>
+<ul>
+<li><code>justify-items属性</code> : 设置<strong>单元格内容</strong>的<code>水平</code>位置（左中右）；</li>
+<li><code>align-items属性设置</code> : <strong>单元格内容</strong>的<code>垂直</code>位置（上中下）;</li>
+<li><code>place-items属性</code>: 是<code>align-items属性</code>和<code>justify-items属性</code>的合并简写形式。<ul>
+<li><code>place-items: &lt;align-items&gt; &lt;justify-items&gt;;</code>,如果省略第二个值，则浏览器认为与第一个值相等。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-6-整个内容区域位置属性"><a href="#3-6-整个内容区域位置属性" class="headerlink" title="3.6 整个内容区域位置属性"></a>3.6 整个内容区域位置属性</h3><ul>
+<li><code>justify-content属性</code>: 是整个内容区域在容器里面的水平位置（左中右）</li>
+<li><code>align-content属性</code> :是整个内容区域的垂直位置（上中下）。</li>
+</ul>
+<h3 id="3-7-grid-auto-columns-grid-auto-rows"><a href="#3-7-grid-auto-columns-grid-auto-rows" class="headerlink" title="3.7 grid-auto-columns / grid-auto-rows"></a>3.7 grid-auto-columns / grid-auto-rows</h3><ul>
+<li>用来设置多出来的项目的宽和高</li>
+</ul>
+<h2 id="4-项目属性"><a href="#4-项目属性" class="headerlink" title="4 项目属性"></a>4 项目属性</h2><h3 id="4-1-grid-column和grid-row的start属性、end属性"><a href="#4-1-grid-column和grid-row的start属性、end属性" class="headerlink" title="4.1 grid-column和grid-row的start属性、end属性"></a>4.1 grid-column和grid-row的start属性、end属性</h3><ul>
+<li>grid-column-start属性：左边框所在的垂直网格线</li>
+<li>grid-column-end属性：右边框所在的垂直网格线；（结束在x行，但不包括）</li>
+<li>grid-row-start属性：上边框所在的水平网格线</li>
+<li>grid-row-end属性：下边框所在的水平网格线</li>
+</ul>
+<h3 id="4-2-grid-column-属性-grid-row-属性"><a href="#4-2-grid-column-属性-grid-row-属性" class="headerlink" title="4.2 grid-column 属性  , grid-row 属性"></a>4.2 grid-column 属性  , grid-row 属性</h3><ul>
+<li><p>grid-column属性是grid-column-start和grid-column-end的合并简写形式;</p>
+</li>
+<li><p>grid-row属性是grid-row-start属性和grid-row-end的合并简写形式。</p>
+</li>
+<li><p>grid-column 属性定义了网格元素列的开始和结束位置。</p>
+</li>
+<li><p>设置 “item1” 在第 1 列开始，在第 5 列前结束：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item1 &#123;</span><br><span class="line">grid-column: 1 / 5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4-3-grid-area-属性"><a href="#4-3-grid-area-属性" class="headerlink" title="4.3 grid-area 属性"></a>4.3 grid-area 属性</h3><ul>
+<li>grid-area属性指定项目放在哪一个区域。</li>
+</ul>
+<p><a href="gridarea.png">grid-area</a></p>
+<h3 id="4-4-order属性"><a href="#4-4-order属性" class="headerlink" title="4.4 order属性"></a>4.4 order属性</h3> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -180,17 +318,19 @@
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">CSS-知识点</a></li></ul>
+
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
-      <a href="/2022/04/28/CSS-%E6%B8%B2%E6%9F%93%E5%92%8C%E8%A7%A3%E6%9E%90/" class="article-nav-link">
+      <a href="/2022/04/28/CSS-%E5%8D%95%E4%BD%8D/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            CSS-渲染和解析
+            CSS-单位
           
         </div>
       </a>

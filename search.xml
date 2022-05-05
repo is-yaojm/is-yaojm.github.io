@@ -122,7 +122,145 @@
   <entry>
     <title>CSS-Grid布局</title>
     <url>/2022/04/28/CSS-Grid%E5%B8%83%E5%B1%80/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="CSS-Grid布局"><a href="#CSS-Grid布局" class="headerlink" title="CSS - Grid布局"></a>CSS - Grid布局</h1><ul>
+<li><a href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">CSS-Grid网格布局教程-阮一峰老师</a></li>
+<li><a href="https://www.runoob.com/try/gridgarden/index.html">CSS-grid小游戏</a>哈哈哈哈 很有意思的小游戏，还可以学习布局</li>
+</ul>
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><blockquote>
+<p>Grid布局： 将容器划分为行和列，产生单元格，然后指定项目所在的单元格。</p>
+</blockquote>
+<ul>
+<li>Flex布局：是轴线布局，只能指定“项目”针对轴线的位置，可看作是一维布局。</li>
+<li>Grid布局：划分行和列，产生单元格，可看作二维布局。</li>
+</ul>
+<h2 id="2-基本概念"><a href="#2-基本概念" class="headerlink" title="2 基本概念"></a>2 基本概念</h2><h3 id="2-1-容器和项目"><a href="#2-1-容器和项目" class="headerlink" title="2.1 容器和项目"></a>2.1 容器和项目</h3><ol>
+<li><p>容器（具有容器属性）<br><a href="container.png">容器</a></p>
+</li>
+<li><p>项目（具有项目属性）<br><a href="item.png">项目</a></p>
+</li>
+<li><p>grid布局中的各种要素<br><a href="grid.png">grid</a></p>
+</li>
+</ol>
+<h2 id="3-容器属性"><a href="#3-容器属性" class="headerlink" title="3 容器属性"></a>3 容器属性</h2><h3 id="3-1-dispaly属性"><a href="#3-1-dispaly属性" class="headerlink" title="3.1 dispaly属性"></a>3.1 dispaly属性</h3><blockquote>
+<p><code>display: grid</code> 指定一个容器采用<code>网格布局</code>。默认情况下，容器元素都是块级元素，但是也可设置为行内元素<code>/* display: inline-grid; */</code>。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS Bin<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-tag">span</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">font-size</span>: <span class="number">2em</span>; </span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-id">#container</span>&#123;</span></span><br><span class="line"><span class="language-css">                <span class="comment">/* 网格布局 */</span></span></span><br><span class="line"><span class="language-css">                <span class="attribute">display</span>: grid;</span></span><br><span class="line"><span class="language-css">                <span class="comment">/* 行内网格布局 */</span></span></span><br><span class="line"><span class="language-css">                <span class="comment">/* display: inline-grid; */</span></span></span><br><span class="line"><span class="language-css">                <span class="attribute">grid-template-columns</span>: <span class="number">50px</span> <span class="number">50px</span> <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">grid-template-rows</span>: <span class="number">50px</span> <span class="number">50px</span> <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">font-size</span>: <span class="number">2em</span>;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e5e4e9</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-1</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#ef342a</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-2</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#f68f26</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-3</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#4ba946</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-4</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#0376c2</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-5</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#c077af</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-6</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#f8d29d</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>foo<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-3&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-4&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-5&quot;</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-6&quot;</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-7&quot;</span>&gt;</span>7<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-8&quot;</span>&gt;</span>8<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-9&quot;</span>&gt;</span>9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>bar<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意：若容器设置为网格布局之后，容器中的项目的部分属性会失效：<ul>
+<li><code>float</code></li>
+<li><code>display: inline-block </code></li>
+<li><code>display: table-cell</code> </li>
+<li><code>vertical-align</code>和<code>column-*</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-grid-template-columns属性-和-grid-template-rows属性"><a href="#3-2-grid-template-columns属性-和-grid-template-rows属性" class="headerlink" title="3.2 grid-template-columns属性 和 grid-template-rows属性"></a>3.2 grid-template-columns属性 和 grid-template-rows属性</h3><blockquote>
+<p>grid-template-columns属性: 定义每一列列宽；<br>grid-template-rows属性: 定义每一行行高。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="comment">/* 指定一个三行三列的网格，行高和列宽都是100px ，单位可以是绝对单位可以是相对单位，或者百分比*/</span></span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">100px</span> <span class="number">100px</span> <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">100px</span> <span class="number">100px</span> <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-1-repeat-函数"><a href="#3-2-1-repeat-函数" class="headerlink" title="3.2.1 repeat()函数"></a>3.2.1 repeat()函数</h4><blockquote>
+<p>repeat()函数： 简化重复的值。</p>
+</blockquote>
+<ul>
+<li>两个参数：<ul>
+<li>参数1： 重复的次数（几行，或者几列）；</li>
+<li>参数2： 重复的值</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123; </span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">100px</span>);</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">100px</span>) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>repeat()定义某种模式：<code>grid-template-columns: repeat(1, 100px 20px 80px);</code></li>
+<li></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">1</span>, <span class="number">100px</span> <span class="number">20px</span> <span class="number">80px</span>);</span><br><span class="line">  <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">50px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="repeat1.png">三行</a><br><a href="repeat2.png">二行</a><br><a href="repeat3.png">一行</a></p>
+<h4 id="3-2-2-auto-fill关键字"><a href="#3-2-2-auto-fill关键字" class="headerlink" title="3.2.2 auto-fill关键字"></a>3.2.2 auto-fill关键字</h4><blockquote>
+<p>当单元格的大小固定，但容器的大小不确定时，如果希望每一行（或每一列）容纳尽可能多的单元格，可以使用<code>auto-fill关键字</code>表示自动填充。</p>
+</blockquote>
+<p><a href="autofill.png">auto-fill关键字</a></p>
+<h4 id="3-2-3-fr关键字"><a href="#3-2-3-fr关键字" class="headerlink" title="3.2.3 fr关键字"></a>3.2.3 fr关键字</h4><blockquote>
+<p>fr关键字： 方便表示比例关系。</p>
+</blockquote>
+<ul>
+<li>如果两列的宽度分别为1fr和2fr，就表示后者是前者的两倍。</li>
+<li>fr关键字可以和绝对长度的单位结合使用。</li>
+</ul>
+<p><a href="fr.png">fr关键字</a></p>
+<h4 id="3-2-4-minmax"><a href="#3-2-4-minmax" class="headerlink" title="3.2.4 minmax()"></a>3.2.4 minmax()</h4><blockquote>
+<p>minmax()函数:产生一个长度范围，表示长度就在这个范围之中。它接受两个参数，分别为最小值和最大值。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="built_in">minmax</span>(<span class="number">100px</span>, <span class="number">1</span>fr);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-gap属性"><a href="#3-3-gap属性" class="headerlink" title="3.3 gap属性"></a>3.3 gap属性</h3><blockquote>
+<p>grid-row-gap 属性:设置行间距<br>grid-column-gap 属性： 设置列间距</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">grid-row</span>-<span class="attribute">gap</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">grid-column</span>-<span class="attribute">gap</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>grid-gap 属性 ：行列间距的简写形式</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">grid-gap</span>: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-grid-template-areas-属性"><a href="#3-4-grid-template-areas-属性" class="headerlink" title="3.4 grid-template-areas 属性"></a>3.4 grid-template-areas 属性</h3><blockquote>
+<p>grid-template-areas属性 : 用于定义区域</p>
+</blockquote>
+<h3 id="3-4-grid-auto-flow属性"><a href="#3-4-grid-auto-flow属性" class="headerlink" title="3.4 grid-auto-flow属性"></a>3.4 grid-auto-flow属性</h3><blockquote>
+<p>grid-auto-flow属性 : 划分网格线以后，容器的子元素会按照顺序，自动放置在每一个网格。默认的放置顺序是先行后列，即填满第一行，再开始放入第二行（就是子元素的排放顺序）</p>
+</blockquote>
+<ul>
+<li>grid-auto-flow：row（先行后列  默认）</li>
+<li>grid-auto-flow：column （先列后行）</li>
+<li>跟grid-auto-flow相关  dense（提高空间的利用率）</li>
+</ul>
+<h3 id="3-5-单元格内容位置属性"><a href="#3-5-单元格内容位置属性" class="headerlink" title="3.5 单元格内容位置属性"></a>3.5 单元格内容位置属性</h3><blockquote>
+<p>items属性: 单元格里面的内容。</p>
+</blockquote>
+<ul>
+<li><code>justify-items属性</code> : 设置<strong>单元格内容</strong>的<code>水平</code>位置（左中右）；</li>
+<li><code>align-items属性设置</code> : <strong>单元格内容</strong>的<code>垂直</code>位置（上中下）;</li>
+<li><code>place-items属性</code>: 是<code>align-items属性</code>和<code>justify-items属性</code>的合并简写形式。<ul>
+<li><code>place-items: &lt;align-items&gt; &lt;justify-items&gt;;</code>,如果省略第二个值，则浏览器认为与第一个值相等。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-6-整个内容区域位置属性"><a href="#3-6-整个内容区域位置属性" class="headerlink" title="3.6 整个内容区域位置属性"></a>3.6 整个内容区域位置属性</h3><ul>
+<li><code>justify-content属性</code>: 是整个内容区域在容器里面的水平位置（左中右）</li>
+<li><code>align-content属性</code> :是整个内容区域的垂直位置（上中下）。</li>
+</ul>
+<h3 id="3-7-grid-auto-columns-grid-auto-rows"><a href="#3-7-grid-auto-columns-grid-auto-rows" class="headerlink" title="3.7 grid-auto-columns / grid-auto-rows"></a>3.7 grid-auto-columns / grid-auto-rows</h3><ul>
+<li>用来设置多出来的项目的宽和高</li>
+</ul>
+<h2 id="4-项目属性"><a href="#4-项目属性" class="headerlink" title="4 项目属性"></a>4 项目属性</h2><h3 id="4-1-grid-column和grid-row的start属性、end属性"><a href="#4-1-grid-column和grid-row的start属性、end属性" class="headerlink" title="4.1 grid-column和grid-row的start属性、end属性"></a>4.1 grid-column和grid-row的start属性、end属性</h3><ul>
+<li>grid-column-start属性：左边框所在的垂直网格线</li>
+<li>grid-column-end属性：右边框所在的垂直网格线；（结束在x行，但不包括）</li>
+<li>grid-row-start属性：上边框所在的水平网格线</li>
+<li>grid-row-end属性：下边框所在的水平网格线</li>
+</ul>
+<h3 id="4-2-grid-column-属性-grid-row-属性"><a href="#4-2-grid-column-属性-grid-row-属性" class="headerlink" title="4.2 grid-column 属性  , grid-row 属性"></a>4.2 grid-column 属性  , grid-row 属性</h3><ul>
+<li><p>grid-column属性是grid-column-start和grid-column-end的合并简写形式;</p>
+</li>
+<li><p>grid-row属性是grid-row-start属性和grid-row-end的合并简写形式。</p>
+</li>
+<li><p>grid-column 属性定义了网格元素列的开始和结束位置。</p>
+</li>
+<li><p>设置 “item1” 在第 1 列开始，在第 5 列前结束：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.item1 &#123;</span><br><span class="line">grid-column: 1 / 5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4-3-grid-area-属性"><a href="#4-3-grid-area-属性" class="headerlink" title="4.3 grid-area 属性"></a>4.3 grid-area 属性</h3><ul>
+<li>grid-area属性指定项目放在哪一个区域。</li>
+</ul>
+<p><a href="gridarea.png">grid-area</a></p>
+<h3 id="4-4-order属性"><a href="#4-4-order属性" class="headerlink" title="4.4 order属性"></a>4.4 order属性</h3>]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS-知识点</tag>
+      </tags>
   </entry>
   <entry>
     <title>CSS-动画</title>
@@ -497,11 +635,6 @@
       <tags>
         <tag>代码</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>CSS-渲染和解析</title>
-    <url>/2022/04/28/CSS-%E6%B8%B2%E6%9F%93%E5%92%8C%E8%A7%A3%E6%9E%90/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>CSS-经典布局方案</title>
@@ -2140,7 +2273,7 @@
   <entry>
     <title>JS-call、apply和bind</title>
     <url>/2022/04/28/JS-call%E3%80%81apply%E5%92%8Cbind/</url>
-    <content><![CDATA[<h2 id="call、apply和bind"><a href="#call、apply和bind" class="headerlink" title="call、apply和bind"></a>call、apply和bind</h2><h3 id="1-基础"><a href="#1-基础" class="headerlink" title="1 基础"></a>1 基础</h3><ol>
+    <content><![CDATA[<h2 id="改变this指向的方式"><a href="#改变this指向的方式" class="headerlink" title="改变this指向的方式"></a>改变this指向的方式</h2><h3 id="1-基础"><a href="#1-基础" class="headerlink" title="1 基础"></a>1 基础</h3><ol>
 <li><p>简介</p>
 <ul>
 <li><code>call</code>和<code>apply</code>都属于<code>Function.prototype</code>的一个方法，它是JS引擎内在实现的，因为属于<code>Function.prototype</code>，所以每个<code>function对象实例</code>都有<code>call</code>和<code>apply</code>属性。</li>
@@ -2161,9 +2294,9 @@
 <ul>
 <li>实现JS的继承，构造函数继承可以使用call实现；</li>
 <li>判断JS的数据类型；<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用call判断js的数据类型</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(&#123;&#125;)=== <span class="string">&#x27;[object Object]&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>([])=== <span class="string">&#x27;[object Array]&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
-<li>把伪数组转换为数组。</li>
+<li>把伪数组转换为数组。<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用call把伪数组转换成数组</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">get</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>);<span class="comment">// Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span></span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>([...<span class="variable language_">arguments</span>]);<span class="comment">// es6  (3) [1, 2, 3]</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>));<span class="comment">//es5  (3) [1, 2, 3]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">get</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure></li>
 </ul>
- <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用call把伪数组转换成数组</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">get</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>);<span class="comment">// Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span></span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>([...<span class="variable language_">arguments</span>]);<span class="comment">// es6  (3) [1, 2, 3]</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>));<span class="comment">//es5  (3) [1, 2, 3]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">get</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure></li>
+</li>
 </ol>
 <h3 id="2-call"><a href="#2-call" class="headerlink" title="2 call()"></a>2 call()</h3><ol>
 <li><p>改变this指向</p>
@@ -2191,11 +2324,13 @@
   <entry>
     <title>JS-this</title>
     <url>/2022/04/28/JS-this/</url>
-    <content><![CDATA[<h2 id="JS中的this"><a href="#JS中的this" class="headerlink" title="JS中的this"></a>JS中的this</h2><blockquote>
+    <content><![CDATA[<h2 id="1-JS中的this"><a href="#1-JS中的this" class="headerlink" title="1 JS中的this"></a>1 JS中的this</h2><ul>
+<li>this指向： <code>this指的是函数运行时 所在的“环境”</code></li>
+</ul>
+<blockquote>
 <p>使用情况1 ： 在函数中直接使用</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">get</span>(<span class="params">con</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(con);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 函数直接使用，get写法就等于get.call ，指向window</span></span><br><span class="line"><span class="title function_">get</span>(<span class="string">&#x27;hhh&#x27;</span>); </span><br><span class="line">get.<span class="title function_">call</span>(<span class="variable language_">window</span>, <span class="string">&#x27;hhh&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
 
 <blockquote>
 <p>使用情况2 ： 函数作为对象的方法被调用（谁调用，指向谁）</p>
@@ -2226,6 +2361,28 @@
 <li>解释二：箭头函数没有this，它的父作用域中的this是谁，箭头函数的this就是谁，否则就是window。</li>
 <li>因为箭头函数没有this，所以它不能用作构造函数。<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// -----4----- 箭头函数</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">11</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">x</span>:<span class="number">22</span>,</span><br><span class="line">    <span class="attr">say</span>: <span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">x</span>); <span class="comment">// 11</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.<span class="title function_">say</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// -----5----- 箭头函数</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">birth</span>: <span class="number">1990</span>,</span><br><span class="line">    <span class="attr">getAge</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> b = <span class="variable language_">this</span>.<span class="property">birth</span>;<span class="comment">// 1990</span></span><br><span class="line">        <span class="keyword">var</span> <span class="title function_">fn</span> = (<span class="params"></span>)=&gt; <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getFullYear</span>() - <span class="variable language_">this</span>.<span class="property">birth</span>;<span class="comment">//2022-1990</span></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">fn</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.<span class="title function_">getAge</span>(); <span class="comment">//32</span></span><br></pre></td></tr></table></figure></li>
 </ul>
+<h2 id="2-了解this"><a href="#2-了解this" class="headerlink" title="2 了解this"></a>2 了解this</h2><ul>
+<li><p>历史原因：</p>
+<ul>
+<li>JS语言设计this是跟内存的数据结构有关。</li>
+</ul>
+</li>
+<li><p>原理</p>
+<ul>
+<li>因为函数可以在不同的环境下执行，所以就需要一种机制，能够在函数体内获取当前的运行环境。</li>
+</ul>
+</li>
+<li><p>设计目的</p>
+<ul>
+<li>this的设计目的就是在函数体内，指向函数当前的运行环境。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-改变this指向的方法"><a href="#3-改变this指向的方法" class="headerlink" title="3 改变this指向的方法"></a>3 改变this指向的方法</h2><ul>
+<li>call、apply、bind ： 是所有函数都具有的方法</li>
+<li>注意：函数也是对象，函数具有方法</li>
+</ul>
+<p>*** - 引擎会将函数单独保存在内存中。 </p>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -2291,30 +2448,59 @@
   <entry>
     <title>JS-闭包</title>
     <url>/2022/04/28/JS-%E9%97%AD%E5%8C%85/</url>
-    <content><![CDATA[<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><blockquote>
+    <content><![CDATA[<h1 id="闭包与递归"><a href="#闭包与递归" class="headerlink" title="闭包与递归"></a>闭包与递归</h1><h2 id="1-闭包"><a href="#1-闭包" class="headerlink" title="1 闭包"></a>1 闭包</h2><blockquote>
 <p>闭包： 可以在一个内层函数中访问到其外层函数的作用域。</p>
 </blockquote>
 <ul>
-<li>简单来讲：闭包就是指有权访问另一个函数作用域中的变量的函数。（b带着a的ao出去了。）</li>
-<li>理解：外部函数调用之后其变量对象本应该销毁，但是闭包的存在是我们仍然可以访问外部函数的变量对象。</li>
-<li>闭包的特性：<ul>
+<li><p>闭包是<code>一个函数</code>加上到<code>创建函数</code>的<code>作用域的连接</code>，闭包“关闭”了函数的自由变量。</p>
+</li>
+<li><p>简单来讲：闭包就是指有权访问另一个函数作用域中的变量的函数。（b带着a的ao出去了。）</p>
+<ul>
+<li>1 : 有两个函数，作用域有连接关系；</li>
+<li>2 ：变量不自由==》 会停留在内存中，不会销毁。 </li>
+</ul>
+</li>
+<li><p>理解：外部函数调用之后其变量对象本应该销毁，但是闭包的存在是我们仍然可以访问外部函数的变量对象。</p>
+</li>
+<li><p>闭包的特性：</p>
+<ul>
 <li>函数嵌套函数；</li>
 <li>函数内部引用了函数外部的参数和变量；</li>
 <li>参数和变量不会被垃圾回收机制收回。</li>
 </ul>
 </li>
-<li>闭包的优点：<ul>
+<li><p>闭包的优点：</p>
+<ul>
 <li>保护函数内的变量安全，实现封装，防止变量流入其他环境发生命名冲突；</li>
 <li>在内存中维持一个变量，可以做缓存；</li>
 <li>匿名自执行函数可以减少内存消耗。</li>
 </ul>
 </li>
+<li><h2 id="闭包的作用-使用"><a href="#闭包的作用-使用" class="headerlink" title="闭包的作用/使用"></a>闭包的作用/使用</h2></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> name =<span class="string">&quot;asd&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="title function_">a</span>();</span><br></pre></td></tr></table></figure>
 <ul>
 <li>JS的防抖和节流使用了闭包。</li>
 </ul>
-]]></content>
+<h2 id="2-递归"><a href="#2-递归" class="headerlink" title="2 递归"></a>2 递归</h2><blockquote>
+<p>递归函数： 自己调用自己。</p>
+</blockquote>
+<ul>
+<li><p>注意</p>
+<ul>
+<li>必须有结束条件，如果没有结束条件就会变成死循环。</li>
+</ul>
+</li>
+<li><p>作用</p>
+<ul>
+<li>累加，阶乘；</li>
+<li>数组扁平化：把多维数组变成一维数组；</li>
+<li>dom树的递归；</li>
+<li>斐波那契数列。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 累加器</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> n + <span class="title function_">add</span>(n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="title function_">add</span>(<span class="number">10</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 阶乘</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">factorial</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> n * <span class="title function_">add</span>(n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="title function_">factorial</span>(<span class="number">10</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组扁平化</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">arr</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> result = [];</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">let</span> i=<span class="number">0</span> ; i&lt; arr.<span class="property">length</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> arr[i]==<span class="string">&#x27;object&#x27;</span>)&#123;</span><br><span class="line">            result = result.<span class="title function_">concat</span>( <span class="title function_">fun</span>(arr[i]));</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            result.<span class="title function_">push</span>(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr1 = <span class="title function_">fun</span>([<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,[<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;f&#x27;</span>,[<span class="string">&#x27;o&#x27;</span>,<span class="string">&#x27;p&#x27;</span>]]]);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Dom树的递归</span></span><br><span class="line"><span class="keyword">var</span> arrDom = [];</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">dom</span>) &#123;</span><br><span class="line">    <span class="comment">// node保存父元素</span></span><br><span class="line">    <span class="keyword">let</span> node = dom.<span class="property">parentNode</span>;</span><br><span class="line">    <span class="comment">// 判断条件： 如果父节点存在</span></span><br><span class="line">    <span class="keyword">if</span> (node) &#123;</span><br><span class="line">        arrDom.<span class="title function_">push</span>(node);</span><br><span class="line">        <span class="title function_">fun</span>(node);</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fun</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;aaa&#x27;</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arrDom);</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>JavaScript</category>
       </categories>
@@ -2411,6 +2597,22 @@
 <p>节流</p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;button&quot;</span>&gt;</span>点击<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 节流函数</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">thro</span>(<span class="params">func, wait</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> timerOut;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 使用闭包</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 根据timerOut的值 判断程序是否进行</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (!timerOut) &#123;</span></span><br><span class="line"><span class="language-javascript">                timerOut = <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="title function_">func</span>();</span></span><br><span class="line"><span class="language-javascript">                    timerOut = <span class="literal">null</span>;<span class="comment">// 程序运行之后timerOut设置为空</span></span></span><br><span class="line"><span class="language-javascript">                &#125;, wait)</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">handle</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Math</span>.<span class="title function_">random</span>());</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;button&#x27;</span>).<span class="property">onclick</span> = <span class="title function_">thro</span>(handle,<span class="number">2000</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="4-斐波那契数列-递归实现"><a href="#4-斐波那契数列-递归实现" class="headerlink" title="4 斐波那契数列-递归实现"></a>4 斐波那契数列-递归实现</h2><ul>
+<li><p>常见描述：</p>
+<ul>
+<li>走楼梯：有一段楼梯有10级台阶，规定每一步只能跨一级或两级，要登上第 10 级台阶有几种不同的走法?</li>
+<li>兔子繁殖问题：一般而言，兔子在出生两个月后就有繁殖能力，一对兔子每个月能生出一对小兔子来。如果所有兔子都不死，那么一年（12个月）以后可以繁殖多少对兔子？</li>
+</ul>
+</li>
+<li><p>实现： 递归</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">fun</span>(n - <span class="number">1</span>) + <span class="title function_">fun</span>(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// fun(12)是前11个月的总体对数</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="title function_">fun</span>( <span class="number">12</span> ) );</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -2833,6 +3035,815 @@
       </categories>
       <tags>
         <tag>其他</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS-面试总结3</title>
+    <url>/2022/04/30/CSS-%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%933/</url>
+    <content><![CDATA[<h2 id="1-CSS渲染和解析"><a href="#1-CSS渲染和解析" class="headerlink" title="1 CSS渲染和解析"></a>1 CSS渲染和解析</h2><p><a href="https://blog.csdn.net/qq_43743402/article/details/121046578">CSS渲染原理</a></p>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>eslintrc中的问题</title>
+    <url>/2022/04/29/eslintrc%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<ol>
+<li><p>报错：Vue运行出现Missing semicolon错误</p>
+<ul>
+<li>增加分号</li>
+</ul>
+</li>
+<li><p>报错：Strings must use singlequote.</p>
+<ul>
+<li>/* eslint-disable */</li>
+</ul>
+</li>
+<li><p>报错：eslint报错Expected linebreaks to be ‘LF’ but found ‘CRLF’的解决方案</p>
+<ul>
+<li>在.eslintrc文件 rules 里面 配置<code>&quot;linebreak-style&quot;: [0 ,&quot;error&quot;, &quot;windows&quot;], </code></li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>问题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML开发规范</title>
+    <url>/2022/05/01/HTML%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</url>
+    <content><![CDATA[<h1 id="HTML代码书写规范"><a href="#HTML代码书写规范" class="headerlink" title="HTML代码书写规范"></a>HTML代码书写规范</h1><ol>
+<li><p>块级元素与块级元素平级，行内元素与行内元素平级。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>块级元素可以包含行内元素或某些块元素，但行内元素不能包含块元素，它只能包含其它的行内元素。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>几个特殊的块级元素只能包含行内元素，不能再包含块级元素。</p>
+<ul>
+<li>h1、h2、h3、h4、h5、h6、p、dt </li>
+</ul>
+</li>
+<li><p>块级元素不能放在标签p里面。</p>
+</li>
+<li><p><code>li标签</code>可以包含 <code>div标签</code>，因为li 和 div 标签都是装载内容的容器。</p>
+</li>
+</ol>
+<h3 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h3><ul>
+<li>h1-h6 : 1-6级标题 </li>
+<li>p : 段落 </li>
+<li>div : 定义文档中的节 </li>
+<li>ul : 定义无序列表 </li>
+<li>ol : 定义有序列表 </li>
+<li>li : 定义无序列表与有序列表中的项 </li>
+<li>hr : 水平线 </li>
+<li>address : 定义文档作者或拥有者的联系信息 </li>
+<li>blockquote : 定义长的引用  </li>
+<li>form : 定义表单  </li>
+<li>audio : 定义声音内容 </li>
+<li>video : 定义视频 </li>
+<li>nav : 定义导航链接 </li>
+<li>dl : 定义定义列表 </li>
+<li>dt : 定义定义列表中的项目 </li>
+<li>dd : 定义定义列表中项目的描述 </li>
+<li>menu : 定义命令的菜单/列表 </li>
+<li>table : 定义表格  </li>
+<li>tbody : 定义表格主体 </li>
+<li>thead : 定义表格头部 </li>
+<li>tfoot : 定义表格中的表注内容（脚注） </li>
+<li>tr : 定义表格中的行 </li>
+<li>th : 定义表格中的表头单元格 </li>
+<li>colgroup : 定义表格中供格式化的列组 </li>
+<li>col : 定义表格中一个或多个列的属性值。【在colgroup中使用 】 </li>
+<li>header : 定义 section 或 page 的页眉 </li>
+<li>footer : 定义 section 或 page 的页脚 </li>
+<li>section : 定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分 </li>
+<li>article : 定义文章 </li>
+<li>aside : 定义页面内容之外的内容。【可用作文章的侧栏。】 </li>
+<li>datails : 定义元素的细节。【用于描述有关文档或文档片段的详细信息。】 </li>
+<li>summary : 为 details 元素定义可见的标题。</li>
+</ul>
+<h3 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h3><ul>
+<li>br : 定义换行 </li>
+<li>a : 定义超链接 </li>
+<li>i : 定义文字倾斜 </li>
+<li>b : 定义文字加粗 </li>
+<li>em : 定义文字倾斜，语义更加强调  </li>
+<li>cite : 定义引用 </li>
+<li>code : 定义计算机代码文本   </li>
+<li>q : 定义短的引用  </li>
+<li>small : 定义小号文本 </li>
+<li>strong : 定义语气更为强烈的强调文本，文字加粗 </li>
+<li>sup : 定义上标文本 </li>
+<li>sub : 定义下标文本 </li>
+<li>time : 定义日期/时间 </li>
+<li>var : 定义文本的变量部分  </li>
+<li>label : 定义 input 元素的标注 </li>
+<li>datalist : 定义下拉列表 </li>
+<li>Keygen : 定义生成密钥。 </li>
+<li>output : 定义输出的一些类型。【如脚本输出】 </li>
+<li>map : 定义图像映射 </li>
+<li>area : 定义图像地图内部的区域 </li>
+<li>source : 定义媒介源 </li>
+<li>track : 定义用在媒体播放器中的文本轨道 </li>
+<li>link : 定义文档与外部资源的关系 </li>
+<li>command : 定义命令按钮 </li>
+<li>style : 定义文档的样式信息 </li>
+<li>span : 定义文档中的节 </li>
+<li>base : 定义页面中所有链接的默认地址或默认目标</li>
+</ul>
+<h3 id="行内块元素"><a href="#行内块元素" class="headerlink" title="行内块元素"></a>行内块元素</h3><ul>
+<li>img : 定义图像 </li>
+<li>input : 定义输入控件 </li>
+<li>meter  : 定义预定义范围内的度量 </li>
+<li>progress : 定义任何类型的任务的进度 </li>
+<li>textarea : 定义多行的文本输入控件 </li>
+<li>button : 定义按钮 </li>
+<li>select : 定义选择列表（下拉列表） </li>
+<li>iframe : 定义内联框架 </li>
+<li>canvas : 定义图形 </li>
+<li>td : 定义表格中的单元格</li>
+</ul>
+<h3 id="HTML字符集"><a href="#HTML字符集" class="headerlink" title="HTML字符集"></a>HTML字符集</h3><table>
+<thead>
+<tr>
+<th>显示结果</th>
+<th>描述</th>
+<th>实体名称</th>
+<th>实体编号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>空格</td>
+<td><code>&amp;nbsp;    </code></td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>小于号</td>
+<td><code>    &amp;lt;</code></td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大于号</td>
+<td><code>   &amp;gt;   </code></td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>和号</td>
+<td><code>&amp;amp;    </code></td>
+<td>&amp;</td>
+</tr>
+<tr>
+<td>“</td>
+<td>引号</td>
+<td><code>&amp;quot;</code></td>
+<td>“</td>
+</tr>
+<tr>
+<td>‘</td>
+<td>撇号</td>
+<td><code>&amp;apos; </code>(IE不支持)</td>
+<td>‘</td>
+</tr>
+<tr>
+<td>￠</td>
+<td>分</td>
+<td><code>&amp;cent;</code></td>
+<td>¢</td>
+</tr>
+<tr>
+<td>￡</td>
+<td>镑</td>
+<td><code>   &amp;pound;   </code></td>
+<td>£</td>
+</tr>
+<tr>
+<td>￥</td>
+<td>日元</td>
+<td><code>&amp;yen;    </code></td>
+<td>¥</td>
+</tr>
+<tr>
+<td>€</td>
+<td>欧元</td>
+<td><code>&amp;euro;    </code></td>
+<td>€</td>
+</tr>
+<tr>
+<td>§</td>
+<td>小节</td>
+<td><code>&amp;sect;</code></td>
+<td>§</td>
+</tr>
+<tr>
+<td>©</td>
+<td>版权</td>
+<td><code>&amp;copy;</code></td>
+<td>©</td>
+</tr>
+<tr>
+<td>®</td>
+<td>注册商标</td>
+<td><code>&amp;reg;</code></td>
+<td>®</td>
+</tr>
+<tr>
+<td>™</td>
+<td>商标</td>
+<td><code>&amp;trade;    </code></td>
+<td>™</td>
+</tr>
+<tr>
+<td>×</td>
+<td>乘号</td>
+<td><code>&amp;times;</code></td>
+<td>×</td>
+</tr>
+<tr>
+<td>÷</td>
+<td>除号</td>
+<td><code>&amp;divide;    </code></td>
+<td>÷</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>规范</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS开发规范</title>
+    <url>/2022/05/01/CSS%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83/</url>
+    <content><![CDATA[<h1 id="CSS规范"><a href="#CSS规范" class="headerlink" title="CSS规范"></a>CSS规范</h1><h2 id="1-命名空间规范"><a href="#1-命名空间规范" class="headerlink" title="1 命名空间规范"></a>1 命名空间规范</h2><ol>
+<li><p>布局：以 g 为命名空间，例如：.g-wrap 、.g-header、.g-content。</p>
+</li>
+<li><p>工具：以 u 为命名空间，表示不耦合业务逻辑的、可复用的的工具，例如：u-clearfix、u-ellipsis。（例如清除浮动，全局背景颜色等）</p>
+</li>
+<li><p>状态：以 s 为命名空间，表示动态的、具有交互性质的状态，例如：.s-current、s-selected。</p>
+</li>
+<li><p>组件：以 m 为命名空间，表示可复用、移植的组件模块，例如：m-slider、m-dropMenu。</p>
+</li>
+<li><p>钩子：以 j 为命名空间，表示特定给 JavaScript 调用的类名，例如：j-request、j-open。</p>
+</li>
+</ol>
+<h2 id="2-CSS书写顺序"><a href="#2-CSS书写顺序" class="headerlink" title="2 CSS书写顺序"></a>2 CSS书写顺序</h2><blockquote>
+<p>位置 大小 文字 背景 其他</p>
+</blockquote>
+<ol>
+<li><p>位置属性(<code>position</code>, <code>top</code>, <code>right</code>, <code>z-index</code>, <code>display</code>, <code>float</code>等)</p>
+</li>
+<li><p>大小(<code>width</code>, <code>height</code>, <code>padding</code>, <code>margin</code>)</p>
+</li>
+<li><p>文字系列(<code>font</code>, <code>line-height</code>, <code>letter-spacing</code>, <code>color</code>, <code>text-align</code>等)</p>
+</li>
+<li><p>背景(<code>background</code>, <code>border</code>等)</p>
+</li>
+<li><p>其他(<code>animation</code>,<code>transition</code>等)</p>
+</li>
+</ol>
+<h2 id="3-连字符CSS选择器的命名规范"><a href="#3-连字符CSS选择器的命名规范" class="headerlink" title="3 连字符CSS选择器的命名规范"></a>3 连字符CSS选择器的命名规范</h2><ol>
+<li><p>长名称或词组可以使用<code>中横线</code>(<code>-</code>)来为选择器命名。</p>
+</li>
+<li><p>不建议使用“_”下划线来命名CSS选择器:</p>
+<ul>
+<li>输入的时候少按一个shift键；</li>
+<li>浏览器兼容问题 （比如使用_tips的选择器命名，在IE6是无效的）;</li>
+<li>能良好区分JavaScript变量命名（JS变量命名是用<code>_</code>）.</li>
+</ul>
+</li>
+</ol>
+<h2 id="4-代码注释"><a href="#4-代码注释" class="headerlink" title="4 代码注释"></a>4 代码注释</h2><ol>
+<li><p>单行注释:星号与内容之间必须保留一个空格。<br><code>/* 表格隔行变色 */</code></p>
+</li>
+<li><p>多行注释:星号要一列对齐，星号与内容之间必须保留一个空格。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Sometimes you need to include optional context for the entire component. Do that up here if it&#x27;s important enough.</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure></li>
+<li><p>规则声明块内注释: 使用 // 注释，<code>// </code>后面加上一个空格，注释独立一行。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.foo</span>&#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">0</span>;</span><br><span class="line">    // ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>文件注释: 文件顶部必须包含文件注释，用 @name 标识文件说明。星号要一列对齐，星号与内容之间必须保留一个空格，标识符冒号与内容之间必须保留一个空格。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @name: 文件名或模块名</span></span><br><span class="line"><span class="comment"> * @description: 文件或模块描述</span></span><br><span class="line"><span class="comment"> * @author: author-name(mail-name@domain.com)</span></span><br><span class="line"><span class="comment"> *          author-name2(mail-name2@domain.com)</span></span><br><span class="line"><span class="comment"> * @update: 2015-04-29 00:02</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>@description为文件或模块描述。</li>
+<li>@update为可选项，建议每次改动都更新一下。</li>
+<li>当该业务项目主要由固定的一个或多个人负责时，需要添加@author标识，一方面是尊重劳动成果，另一方面方便在需要时快速定位责任人。</li>
+</ul>
+</li>
+</ol>
+<h2 id="5-单位"><a href="#5-单位" class="headerlink" title="5 单位"></a>5 单位</h2><table>
+<thead>
+<tr>
+<th>单位</th>
+<th>类型</th>
+<th>简介</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>px</code></td>
+<td>Absolute</td>
+<td>像素 (计算机屏幕上的一个点)，1px = 1/96in</td>
+</tr>
+<tr>
+<td><code>pt</code></td>
+<td>Absolute</td>
+<td>Points, 1pt = 1/72in</td>
+</tr>
+<tr>
+<td><code>pc</code></td>
+<td>Absolute</td>
+<td>Picas, 1pc = 12pt</td>
+</tr>
+<tr>
+<td><code>in</code></td>
+<td>Absolute</td>
+<td>Inches, 1in = 96px = 2.54cm</td>
+</tr>
+<tr>
+<td><code>cm</code></td>
+<td>Absolute</td>
+<td>Centimeters, 1cm = 96/2.54px</td>
+</tr>
+<tr>
+<td><code>mm</code></td>
+<td>Absolute</td>
+<td>Millimeters, 1mm = 1/10cm</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>Absolute</td>
+<td>Quarter-millimeters, 1q = 1/4mm</td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>Relative</td>
+<td>相对于父元素的宽度或字体大小</td>
+</tr>
+<tr>
+<td><code>em</code></td>
+<td>Relative</td>
+<td>相对于父元素的字体大小</td>
+</tr>
+<tr>
+<td><code>rem</code></td>
+<td>Relative</td>
+<td>(即root em) 相对于html标签的字体大小</td>
+</tr>
+<tr>
+<td><code>ex</code></td>
+<td>Relative</td>
+<td>当前字体环境中 x 字母的高度</td>
+</tr>
+<tr>
+<td><code>ch</code></td>
+<td>Relative</td>
+<td>当前字体环境中 0 数字的高度</td>
+</tr>
+<tr>
+<td><code>vw</code></td>
+<td>Relative</td>
+<td>1% 视口（浏览器可视区域）的宽度</td>
+</tr>
+<tr>
+<td><code>vh    </code></td>
+<td>Relative</td>
+<td>1% 视口（浏览器可视区域）的高度</td>
+</tr>
+<tr>
+<td><code>vmin</code></td>
+<td>Relative</td>
+<td>1% 视口（浏览器可视区域）的宽度和高度中较小的尺寸</td>
+</tr>
+<tr>
+<td><code>vmax    </code></td>
+<td>Relative</td>
+<td>1% 视口（浏览器可视区域）的宽度和高度中较大的尺寸</td>
+</tr>
+</tbody></table>
+<h2 id="6-CSS选择器"><a href="#6-CSS选择器" class="headerlink" title="6 CSS选择器"></a>6 CSS选择器</h2><h3 id="6-1-基本选择器"><a href="#6-1-基本选择器" class="headerlink" title="6.1  基本选择器"></a>6.1  基本选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>*    </code></td>
+<td>通配选择器</td>
+<td>选择所有的元素</td>
+</tr>
+<tr>
+<td><code>E    </code></td>
+<td>元素选择器</td>
+<td>选择指定的元素</td>
+</tr>
+<tr>
+<td><code>#idName</code></td>
+<td>id选择器</td>
+<td>选择id属性等于idName的元素</td>
+</tr>
+<tr>
+<td><code>.className</code></td>
+<td>class选择器</td>
+<td>选择class属性包含className的元素</td>
+</tr>
+</tbody></table>
+<h3 id="6-2-关系选择器"><a href="#6-2-关系选择器" class="headerlink" title="6.2  关系选择器"></a>6.2  关系选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>E F</code></td>
+<td>包含选择器</td>
+<td>选择所有包含在E元素里面的F元素</td>
+</tr>
+<tr>
+<td><code>E&gt;F</code></td>
+<td>子选择器</td>
+<td>选择所有作为E元素的子元素F</td>
+</tr>
+<tr>
+<td><code>E+F</code></td>
+<td>相邻选择器</td>
+<td>选择紧贴在E元素之后的F元素</td>
+</tr>
+<tr>
+<td><code>E~F</code></td>
+<td>兄弟选择器</td>
+<td>选择E元素所有兄弟元素F</td>
+</tr>
+</tbody></table>
+<h3 id="6-3-属性选择器"><a href="#6-3-属性选择器" class="headerlink" title="6.3  属性选择器"></a>6.3  属性选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>E[att]</code></td>
+<td>选择具有att属性的E元素</td>
+</tr>
+<tr>
+<td><code>E[att=&quot;val&quot;]</code></td>
+<td>选择具有att属性且属性值等于val的E元素</td>
+</tr>
+<tr>
+<td><code>E[att~=&quot;val&quot;]</code></td>
+<td>选择具有att属性且属性值其中一个等于val的E元素（包含只有一个值且该值等于val的情况）</td>
+</tr>
+<tr>
+<td>`E[att</td>
+<td>=”val”]`</td>
+</tr>
+<tr>
+<td><code>E[att^=&quot;val&quot;]</code></td>
+<td>选择具有att属性且属性值为以val开头的字符串的E元素</td>
+</tr>
+<tr>
+<td><code>E[att$=&quot;val&quot;]</code></td>
+<td>选择具有att属性且属性值为以val结尾的字符串的E元素</td>
+</tr>
+<tr>
+<td><code>E[att*=&quot;val&quot;]</code></td>
+<td>选择具有att属性且属性值为包含val的字符串的E元素</td>
+</tr>
+</tbody></table>
+<h3 id="6-4-伪类选择器"><a href="#6-4-伪类选择器" class="headerlink" title="6.4  伪类选择器"></a>6.4  伪类选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>E:link    </code></td>
+<td>设置超链接a在未被访问前的样式</td>
+</tr>
+<tr>
+<td><code>E:visited    </code></td>
+<td>设置超链接a在其链接地址已被访问过时的样式</td>
+</tr>
+<tr>
+<td><code>E:hover    </code></td>
+<td>设置元素鼠标在其悬停时的样式</td>
+</tr>
+<tr>
+<td><code>E:active    </code></td>
+<td>设置元素在被用户激活（在鼠标点击与释放之间发生的事件）时的样式</td>
+</tr>
+<tr>
+<td><code>E:focus    </code></td>
+<td>设置元素在成为输入焦点（该元素的onfocus事件发生）时的样式。(一般应用于表单元素)</td>
+</tr>
+<tr>
+<td><code>E:checked    </code></td>
+<td>匹配用户界面上处于选中状态的元素E。(用于input type为radio与checkbox时)</td>
+</tr>
+<tr>
+<td><code>E:enabled    </code></td>
+<td>匹配用户界面上处于可用状态的元素E。(一般应用于表单元素)</td>
+</tr>
+<tr>
+<td><code>E:disabled    </code></td>
+<td>匹配用户界面上处于禁用状态的元素E。(一般应用于表单元素)</td>
+</tr>
+<tr>
+<td><code>E:empty    </code></td>
+<td>匹配没有任何子元素（包括text节点）的元素E</td>
+</tr>
+<tr>
+<td><code>E:root    </code></td>
+<td>匹配E元素在文档的根元素。在HTML中，根元素永远是HTML</td>
+</tr>
+<tr>
+<td><code>E:not(s)    </code></td>
+<td>匹配不含有s选择符的元素E</td>
+</tr>
+<tr>
+<td><code>E:first-child</code></td>
+<td>匹配父元素的第一个子元素E</td>
+</tr>
+<tr>
+<td><code>E:last-child</code></td>
+<td>匹配父元素的最后一个子元素E</td>
+</tr>
+<tr>
+<td><code>E:only-child    </code></td>
+<td>匹配父元素仅有的一个子元素E</td>
+</tr>
+<tr>
+<td><code>E:nth-child(n)</code></td>
+<td>匹配父元素的第n个子元素E</td>
+</tr>
+<tr>
+<td><code>E:nth-last-child(n)</code></td>
+<td>匹配父元素的倒数第n个子元素E</td>
+</tr>
+<tr>
+<td><code>E:first-of-type</code></td>
+<td>匹配同类型中的第一个同级兄弟元素E</td>
+</tr>
+<tr>
+<td><code>E:last-of-type</code></td>
+<td>匹配同类型中的最后一个同级兄弟元素E</td>
+</tr>
+<tr>
+<td><code>E:only-of-type</code></td>
+<td>匹配同类型中的唯一的一个同级兄弟元素E</td>
+</tr>
+<tr>
+<td><code>E:nth-of-type(n)</code></td>
+<td>匹配同类型中的第n个同级兄弟元素E</td>
+</tr>
+<tr>
+<td><code>E:nth-last-of-type(n)    </code></td>
+<td>匹配同类型中的倒数第n个同级兄弟元素E</td>
+</tr>
+</tbody></table>
+<h3 id="6-5-伪元素选择器"><a href="#6-5-伪元素选择器" class="headerlink" title="6.5  伪元素选择器"></a>6.5  伪元素选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>E:before/E::before</code></td>
+<td>在目标元素E的前面插入的内容。用来和content属性一起使用</td>
+</tr>
+<tr>
+<td><code>E:after/E::after</code></td>
+<td>在目标元素E的后面插入的内容。用来和content属性一起使用</td>
+</tr>
+<tr>
+<td><code>E:first-letter/E::first-letter</code></td>
+<td>设置元素内的第一个字符的样式</td>
+</tr>
+<tr>
+<td><code>E:first-line/E::first-line</code></td>
+<td>设置元素内的第一行的样式</td>
+</tr>
+<tr>
+<td><code>E::placeholder</code></td>
+<td>设置元素文字占位符的样式。(一般用于input输入框)</td>
+</tr>
+<tr>
+<td><code>E::selection</code></td>
+<td>设置元素被选择时的字体颜色和背景颜色</td>
+</tr>
+</tbody></table>
+<h2 id="7-其他"><a href="#7-其他" class="headerlink" title="7 其他"></a>7 其他</h2><ul>
+<li><p>尽量使用CSS缩写属性。</p>
+</li>
+<li><p>写属性值的时候去掉小数点前的“ 0 ”。</p>
+</li>
+<li><p>定义选择器名称，属性，属性值均为小写。</p>
+</li>
+<li><p>不要随意使用ID选择器。</p>
+</li>
+<li><p>为选择器添加状态前缀，“.is-”前缀。</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>规范</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS书写规范</title>
+    <url>/2022/05/01/JS%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83/</url>
+    <content><![CDATA[<h1 id="JavaScript开发规范"><a href="#JavaScript开发规范" class="headerlink" title="JavaScript开发规范"></a>JavaScript开发规范</h1><h2 id="1-基本准则"><a href="#1-基本准则" class="headerlink" title="1 基本准则"></a>1 基本准则</h2><ul>
+<li><p>    符合web标准，结构表现行为分离，兼容性优良。页面性能方面，代码要求简洁明了有序， 尽可能的减小服务器负载，保证最快的解析速度；</p>
+</li>
+<li><p>    项目的维护和二次开发可能是直接或间接的团队合作，所以创建易维护的代码是一个项目成功与否的关键，易维护的代码意味着具有如下特性；</p>
+</li>
+<li><p>    阅读性好：如良好的注释和命名规范，有文档；</p>
+</li>
+<li><p>    具有一致性：看起来如同一个人编写；</p>
+</li>
+<li><p>    代码的松耦合，高度模块化：将页面内的元素视为一个个模块，相互独立，尽量避免耦合过高的代码，从html,css,js三个层面都要考虑模块化；</p>
+</li>
+<li><p>    严格按照规范编写代码。</p>
+</li>
+</ul>
+<h2 id="2-命名规范"><a href="#2-命名规范" class="headerlink" title="2 命名规范"></a>2 命名规范</h2><table>
+<thead>
+<tr>
+<th>JavaScript变量起名类型</th>
+<th>变量命名前缀</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Array 数组</code></td>
+<td>a</td>
+<td>aList，aGroup</td>
+</tr>
+<tr>
+<td><code>Boolean 逻辑</code></td>
+<td>b</td>
+<td>bChecked，bHasLogin</td>
+</tr>
+<tr>
+<td><code>Function 函数</code></td>
+<td>f</td>
+<td>fGetHtml，fInit</td>
+</tr>
+<tr>
+<td><code>Integer 数字</code></td>
+<td>n</td>
+<td>nPage，nTotal</td>
+</tr>
+<tr>
+<td><code>Object 对象</code></td>
+<td>o</td>
+<td>oButton，oDate</td>
+</tr>
+<tr>
+<td><code>Regular Expression 正则</code></td>
+<td>r</td>
+<td>rDomain，rEmail</td>
+</tr>
+<tr>
+<td><code>String 字符</code></td>
+<td>s</td>
+<td>sName，sHtml</td>
+</tr>
+</tbody></table>
+<ul>
+<li>特殊情况<ul>
+<li><p>作用域不大临时变量可以简写，比如：str，num，bol，obj，fun，arr。</p>
+</li>
+<li><p>循环变量可以简写，比如：i，j，k等。</p>
+</li>
+<li><p>某些作为不允许修改值的变量认为是常量，全部字母都大写。例如：COPYRIGHT，PI。常量可以存在于函数中，也可以存在于全局。必须采用全大写的命名，且单词以_分割，常量通常用于ajax请求url，和一些不会改变的数据。</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>函数命名</p>
+</blockquote>
+<ol>
+<li><p>普通函数：首字母小写，驼峰式命名，统一使用动词或者动词+名词形式。例如：<code>fnGetVersion()</code>，<code>fnSubmitForm()</code>，<code>fnInit()</code>。</p>
+</li>
+<li><p>内部函数：使用 <code>_fn + 动词 + 名词形式</code> ，内部函数必需在函数最后定义。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fnGetNumber</span>(<span class="params">nTotal</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (nTotal &lt; <span class="number">100</span>) &#123;</span><br><span class="line">        nTotal = <span class="number">100</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">_fnAdd</span>(nTotal);</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">_fnAdd</span>(<span class="params">nNumber</span>) &#123;</span><br><span class="line">        nNumber++;</span><br><span class="line">        <span class="keyword">return</span> nNumber;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">alert</span>(<span class="title function_">fGetNumber</span>(<span class="number">10</span>)); <span class="comment">//alert 101</span></span><br></pre></td></tr></table></figure></li>
+<li><p>对象方法与事件响应函数：对象方法命名使用<code>fn对象类名 + 动词 + 名词形式</code>；例如： <code>fnAddressGetEmail()</code>.</p>
+</li>
+<li><p>事件响应函数：<code>fn + 触发事件对象名 + 事件名或者模块名</code>。例如：<code>fnDivClick()</code>，<code>fnAddressSubmitButtonClick()</code>.</p>
+</li>
+</ol>
+<h2 id="3-其他"><a href="#3-其他" class="headerlink" title="3 其他"></a>3 其他</h2><ul>
+<li><p>引号的使用，单引号<code>&#39; &#39;</code>优先（如果不是引号嵌套，不要使用双引号） .</p>
+</li>
+<li><p>注释</p>
+<ul>
+<li><p>公共组件维护者和各栏目WD都需要在文件头部加上注释说明：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*文件用途说明</span></span><br><span class="line"><span class="comment">*作者姓名、联系方式</span></span><br><span class="line"><span class="comment">*制作日期</span></span><br><span class="line"><span class="comment">**/</span></span><br></pre></td></tr></table></figure></li>
+<li><p>大的模块注释方法：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//================</span></span><br><span class="line"><span class="comment">// 代码用途</span></span><br><span class="line"><span class="comment">//================</span></span><br></pre></td></tr></table></figure></li>
+<li><p>小的注释：<code>//代码说明</code></p>
+</li>
+<li><p>注释单独一行，不要在代码后的同一行内加注释。例如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//姓名</span></span><br><span class="line"><span class="keyword">var</span> name = “abc”;   V</span><br><span class="line"><span class="keyword">var</span> name =”abc”; <span class="comment">//姓名 X</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>规范</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS-作用域</title>
+    <url>/2022/05/04/JS-%E4%BD%9C%E7%94%A8%E5%9F%9F/</url>
+    <content><![CDATA[<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><h2 id="1-作用域常见类型"><a href="#1-作用域常见类型" class="headerlink" title="1 作用域常见类型"></a>1 作用域常见类型</h2><blockquote>
+<p>全局作用域</p>
+</blockquote>
+<ul>
+<li>全局作用域在一面打开时被创建，页面关闭时被销毁。</li>
+<li>写在script标签中的变量和函数，作用域为全局，在页面的任意位置都可以访问到。</li>
+<li>在全局作用域中有全局对象window，由浏览器创建，可以直接调用。</li>
+<li>全局作用域中声明的变量和函数会作为window对象的属性和方法保存。</li>
+</ul>
+<blockquote>
+<p>函数作用域</p>
+</blockquote>
+<ul>
+<li>调用函数时被创建，执行完毕被销毁。</li>
+<li>每调用一次函数就会创建一个新的函数作用域，他们之间相互独立。</li>
+<li>函数作用域可以访问到全局作用域的变量，在函数外无法访问到函数作用域内的变量。</li>
+<li>在函数作用域中访问变量、函数时，会现在自身作用域中寻找，若没找到，则会到上一级寻找， 一直到全局作用域。</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>JS没有块级作用域，但是可以模拟块级作用域。</li>
+<li>不是有<code>&#123;&#125;</code>就是作用域。</li>
+</ul>
+<h2 id="2-作用域的深层次理解"><a href="#2-作用域的深层次理解" class="headerlink" title="2 作用域的深层次理解"></a>2 作用域的深层次理解</h2><ul>
+<li><p>执行期的上下文</p>
+<ul>
+<li>当函数代码执行的前期会创建一个执行期上下文的内部对象(<code>AO</code>)(局部作用域)；</li>
+<li>这个内部对象是在预编译的时候创建出来的，因为当函数被调用的时候，会先进行预编译；</li>
+<li>在全局代码执行的前期会创建一个执行期的上下文的对象<code>GO</code>(全局作用域)。</li>
+</ul>
+</li>
+<li><p>作用域链</p>
+<ul>
+<li>作用域链会被保存到一个隐式的属性中[[scope]]。这个属性是用户无法访问的，但是JS引擎将会访问它，这里面存储的是作用域链。</li>
+<li>从内部向外链接。作用域链从当前作用域开始找，如果找不到则向外作用域找，找到返回，找不到报错。</li>
+<li>从内部逐级向上查找。</li>
+<li><code>AO</code>和<code>GO</code>的集合</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>变量提升（悬挂变量声明）</p>
+<ul>
+<li>JS提升所有变量声明（var，函数），将他们移到其作用域的开头</li>
+<li>eg:<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// var变量提升 JS不存在块级作用域</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// undefined</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">if</span>( <span class="literal">false</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> x = <span class="number">1</span> ; </span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// undefined</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>执行顺序、优先级</p>
+<ul>
+<li><code>变量</code> &gt; <code>函数</code> &gt; <code>参数</code> &gt; <code>变量提升</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="3-面试题"><a href="#3-面试题" class="headerlink" title="3 面试题"></a>3 面试题</h2><ul>
+<li><p>eg1：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;123&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// var str  变量提升</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str);<span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">var</span> str =<span class="string">&#x27;234&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>eg2：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn1</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str1); <span class="comment">// 报错 未定义</span></span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">str1</span> =<span class="string">&#x27;2343&#x27;</span>; <span class="comment">// 全局变量 没有进行变量提升 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn1</span>();</span><br></pre></td></tr></table></figure></li>
+<li><p>eg3:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn2</span>(<span class="params">str2</span>)&#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">str2</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str2);<span class="comment">// f str2()&#123; return &#x27;2&#x27;; &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn2</span>(<span class="string">&#x27;222&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn3</span>(<span class="params">str3</span>)&#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">str3</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> str3 =<span class="string">&#x27;999&#x27;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str3);<span class="comment">// 999</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn3</span>(<span class="string">&#x27;23332&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>知识点</tag>
       </tags>
   </entry>
 </search>

@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">850</span>
+            <span class="post-count">855</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">4 分钟</span>
         </span>
     </span>
 </div>
@@ -111,7 +111,7 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="call、apply和bind"><a href="#call、apply和bind" class="headerlink" title="call、apply和bind"></a>call、apply和bind</h2><h3 id="1-基础"><a href="#1-基础" class="headerlink" title="1 基础"></a>1 基础</h3><ol>
+  <h2 id="改变this指向的方式"><a href="#改变this指向的方式" class="headerlink" title="改变this指向的方式"></a>改变this指向的方式</h2><h3 id="1-基础"><a href="#1-基础" class="headerlink" title="1 基础"></a>1 基础</h3><ol>
 <li><p>简介</p>
 <ul>
 <li><code>call</code>和<code>apply</code>都属于<code>Function.prototype</code>的一个方法，它是JS引擎内在实现的，因为属于<code>Function.prototype</code>，所以每个<code>function对象实例</code>都有<code>call</code>和<code>apply</code>属性。</li>
@@ -132,9 +132,9 @@
 <ul>
 <li>实现JS的继承，构造函数继承可以使用call实现；</li>
 <li>判断JS的数据类型；<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用call判断js的数据类型</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>(&#123;&#125;)=== <span class="string">&#x27;[object Object]&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">toString</span>.<span class="title function_">call</span>([])=== <span class="string">&#x27;[object Array]&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
-<li>把伪数组转换为数组。</li>
+<li>把伪数组转换为数组。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用call把伪数组转换成数组</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">get</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>);<span class="comment">// Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span></span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>([...<span class="variable language_">arguments</span>]);<span class="comment">// es6  (3) [1, 2, 3]</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>));<span class="comment">//es5  (3) [1, 2, 3]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">get</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure></li>
 </ul>
- <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用call把伪数组转换成数组</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">get</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">arguments</span>);<span class="comment">// Arguments(3) [1, 2, 3, callee: ƒ, Symbol(Symbol.iterator): ƒ]</span></span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>([...<span class="variable language_">arguments</span>]);<span class="comment">// es6  (3) [1, 2, 3]</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">slice</span>.<span class="title function_">call</span>(<span class="variable language_">arguments</span>));<span class="comment">//es5  (3) [1, 2, 3]</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">get</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br></pre></td></tr></table></figure></li>
+</li>
 </ol>
 <h3 id="2-call"><a href="#2-call" class="headerlink" title="2 call()"></a>2 call()</h3><ol>
 <li><p>改变this指向</p>
