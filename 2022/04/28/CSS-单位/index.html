@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">525</span>
+            <span class="post-count">618</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -115,14 +115,14 @@
 <p>相对单位规定相对于另一个长度属性的长度。它在不同渲染介质之间缩放表现更好。<br><img src="%E7%9B%B8%E5%AF%B9%E5%8D%95%E4%BD%8D.png" alt="相对单位"></p>
 </blockquote>
 <h3 id="1-1-em和rem"><a href="#1-1-em和rem" class="headerlink" title="1.1 em和rem"></a>1.1 em和rem</h3><blockquote>
-<p>em : 相对于元素的字体大小.</p>
+<p>em : 相对于元素(父元素)的字体大小.</p>
 </blockquote>
 <ul>
 <li>em：如果自身元素未设置字体大小，那么其根据父元素的字体大小进行计算；如果自身元素设置了字体大小，则基于自身的字体大小进行计算。</li>
 <li>em的值不是固定的</li>
 </ul>
 <blockquote>
-<p>rem : 相对于根元素的字体大小计算。</p>
+<p>rem : 相对于根元素(html)的字体大小计算。</p>
 </blockquote>
 <ul>
 <li><p>rem在处理小数的时候会有误差。</p>
@@ -137,12 +137,13 @@
 <li>使用em应该根据组件的font-size来定；</li>
 <li>rem可以从浏览器字体设置中继承font-size值；</li>
 <li>em可能受任何继承过来的父元素font-size的影响。</li>
+<li>一般在使用em和rem时将font-size的值初始化为100px(<code>font-size: 625%;</code>)，取消默认大小对于字体的影响，若要设置30px，则<code>width: .3rem</code>。 (不能取10px，因为移动端字体最小为12px)</li>
 </ul>
 </li>
 </ul>
-<h3 id="1-2-vh和vm，vmin和vmax"><a href="#1-2-vh和vm，vmin和vmax" class="headerlink" title=".1.2 vh和vm，vmin和vmax"></a>.1.2 vh和vm，vmin和vmax</h3><ul>
-<li>vw：视窗宽度的百分比；</li>
-<li>vh：视窗高度的百分比；</li>
+<h3 id="1-2-vh和vw，vmin和vmax"><a href="#1-2-vh和vw，vmin和vmax" class="headerlink" title=".1.2 vh和vw，vmin和vmax"></a>.1.2 vh和vw，vmin和vmax</h3><ul>
+<li>vw：视窗宽度的百分比；(<code>width: 100vw;</code>   )</li>
+<li>vh：视窗高度的百分比；(<code>height: 100vh;</code>  设置100vh和100vw后div占慢整个屏幕 )</li>
 <li>vmax：较大的 vh 和 vw；</li>
 <li>vmin：较小的 vh 和 vw。</li>
 </ul>
@@ -168,6 +169,12 @@
 </ul>
 <p><img src="%E7%99%BE%E5%88%86%E6%AF%94%E5%8D%95%E4%BD%8D.png" alt="百分比单位"></p>
 <h2 id="4-角度单位-​"><a href="#4-角度单位-​" class="headerlink" title="4 角度单位 ​"></a>4 角度单位 ​</h2><p><img src="%E8%A7%92%E5%BA%A6%E5%8D%95%E4%BD%8D.png" alt="角度单位"></p>
+<ul>
+<li>补充<ul>
+<li>谷歌浏览器默认字体大小为16px，最小为12px。</li>
+</ul>
+</li>
+</ul>
  
       <!-- reward -->
       

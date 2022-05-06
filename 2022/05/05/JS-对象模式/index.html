@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>CSS |  小姚同学今天学习了吗</title>
+      <title>JS-对象模式 |  小姚同学今天学习了吗</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -55,144 +55,215 @@
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-JS-对象模式"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">CSS</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  JS-对象模式
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/05/05/JS-%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F/" class="article-date">
+  <time datetime="2022-05-05T11:41:03.000Z" itemprop="datePublished">2022-05-05</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2022" class="archive-year">2022</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">518</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/04/28/CSS-%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  <time datetime="2022-04-28T10:00:05.000Z" itemprop="datePublished">04/28</time>
-</a>
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/04/28/CSS-%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95/"
-    >CSS-实现元素居中方法</a> 
-</h2>
+  <h1 id="JavaScript对象模式"><a href="#JavaScript对象模式" class="headerlink" title="JavaScript对象模式"></a>JavaScript对象模式</h1><h2 id="1-工厂模式"><a href="#1-工厂模式" class="headerlink" title="1 工厂模式"></a>1 工厂模式</h2><blockquote>
+<p>工厂模式：静态工厂方法，由一个工厂对象决定创建某一种产品对象类的实例。主要用来创建同一类对象。</p>
+</blockquote>
+<ul>
+<li>将多个类封装在一个函数中，通过这个函数就可以创建我们需要的对象，这样开发者就不需要再关注这些对象到底依赖于哪个基类。这个函数我们称为工厂函数，这种模式叫做简单工厂模式。</li>
+<li>作用<ul>
+<li>可用于对不同的类进行实例化；</li>
+<li>可创建相似对象；（把多个相似类的相似部分提取出来，不相似部分做针对性处理即可）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-构造函数"><a href="#2-构造函数" class="headerlink" title="2 构造函数"></a>2 构造函数</h2><blockquote>
+<p>构造函数：在JS种，用new关键字来调用的函数称为构造函数，其首字母一般要大写。</p>
+</blockquote>
+<ul>
+<li><p>JS语言使用构造函数作为对象的模板：</p>
+<ul>
+<li>所谓构造函数，就是专门用来生成实例对象的函数。它就是对象的模板，描述实例对象的基本结构。</li>
+</ul>
+</li>
+<li><p>构造函数的两个特点：</p>
+<ul>
+<li>函数体内使用了this关键字，代表了所要生成的对象实例（this指向new出来的对象）；</li>
+<li>生成对象的时候，必须使用new关键字。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-原型模式"><a href="#3-原型模式" class="headerlink" title="3 原型模式"></a>3 原型模式</h2><blockquote>
+<p><code>prototype属性</code>：这个属性包含一个<code>prototype对象</code>，所有实例对象<code>需要共享</code>的属性和方法放在 <code>prototype对象</code> 中，<code>不需要共享</code>的属性和方法的就放在<code>构造函数</code>中。</p>
+</blockquote>
+<ul>
+<li>注意<ul>
+<li>函数拥有prototype属性|方法；</li>
+<li>共享的属性和方法放在prototype中，不共享的放在构造函数中；</li>
+<li>new的缺点： 无法共享属性和方法。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Fun</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">run</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;跑快点&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// person方法共享</span></span><br><span class="line"><span class="title class_">Fun</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">person</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;人具有的能力&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 写法2</span></span><br><span class="line"><span class="title class_">Fun</span>.<span class="property"><span class="keyword">prototype</span></span> = &#123;</span><br><span class="line">    person : <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;人具有的能力&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o1 = <span class="keyword">new</span> <span class="title class_">Fun</span>();</span><br><span class="line"><span class="keyword">var</span> o2 = <span class="keyword">new</span> <span class="title class_">Fun</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(o1.<span class="property">run</span> === o2.<span class="property">run</span> ); <span class="comment">// false 不共享</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(o1.<span class="property">person</span> === o2.<span class="property">person</span>); <span class="comment">// true  共享</span></span><br></pre></td></tr></table></figure>
+
  
-
-    </header>
-    
+      <!-- reward -->
       
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/04/27/CSS-%E6%A0%B7%E5%BC%8F%E7%BB%83%E4%B9%A0/" class="archive-article-date">
-  <time datetime="2022-04-27T02:56:58.000Z" itemprop="datePublished">04/27</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/04/27/CSS-%E6%A0%B7%E5%BC%8F%E7%BB%83%E4%B9%A0/"
-    >CSS-样式练习</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/04/21/CSS-%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%932/" class="archive-article-date">
-  <time datetime="2022-04-21T12:55:18.000Z" itemprop="datePublished">04/21</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/04/21/CSS-%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%932/"
-    >CSS_面试总结2</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/04/06/CSS_%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%931/" class="archive-article-date">
-  <time datetime="2022-04-06T14:25:32.000Z" itemprop="datePublished">04/06</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2022/04/06/CSS_%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%931/"
-    >CSS_面试总结(1)</a> 
-</h2>
- 
-
-    </header>
-    
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
-  </div>
-
-    
-    
-  </div>
-</article>
-      
+      <div id="reword-out">
+        <div id="reward-btn">
+          打赏
+        </div>
+      </div>
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/categories/CSS/">上一页</a><a class="page-number" href="/categories/CSS/">1</a><span class="page-number current">2</span>
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://is-yaojm.github.io/2022/05/05/JS-%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">JS-知识点</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2022/05/05/Algorithm-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Algorithm-二叉树遍历方式
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/05/04/JS-%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">JS-作用域</div>
+      </a>
+    
   </nav>
+
   
+   
+    
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -329,6 +400,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

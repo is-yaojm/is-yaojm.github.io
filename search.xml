@@ -66,7 +66,7 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">TreeNode</span>(<span class="params"> val, left, right </span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">val</span> = ( val === <span class="literal">undefined</span> ? <span class="number">0</span> : val );</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">left</span> = ( left === <span class="literal">undefined</span> ? <span class="literal">null</span> : left );</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">right</span> = ( right === <span class="literal">undefined</span> ? <span class="literal">null</span> : right );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="2-二叉树的递归遍历"><a href="#2-二叉树的递归遍历" class="headerlink" title="2 二叉树的递归遍历"></a>2 二叉树的递归遍历</h2>]]></content>
+]]></content>
       <categories>
         <category>Algorithm</category>
       </categories>
@@ -381,14 +381,14 @@
 <p>相对单位规定相对于另一个长度属性的长度。它在不同渲染介质之间缩放表现更好。<br><img src="%E7%9B%B8%E5%AF%B9%E5%8D%95%E4%BD%8D.png" alt="相对单位"></p>
 </blockquote>
 <h3 id="1-1-em和rem"><a href="#1-1-em和rem" class="headerlink" title="1.1 em和rem"></a>1.1 em和rem</h3><blockquote>
-<p>em : 相对于元素的字体大小.</p>
+<p>em : 相对于元素(父元素)的字体大小.</p>
 </blockquote>
 <ul>
 <li>em：如果自身元素未设置字体大小，那么其根据父元素的字体大小进行计算；如果自身元素设置了字体大小，则基于自身的字体大小进行计算。</li>
 <li>em的值不是固定的</li>
 </ul>
 <blockquote>
-<p>rem : 相对于根元素的字体大小计算。</p>
+<p>rem : 相对于根元素(html)的字体大小计算。</p>
 </blockquote>
 <ul>
 <li><p>rem在处理小数的时候会有误差。</p>
@@ -403,12 +403,13 @@
 <li>使用em应该根据组件的font-size来定；</li>
 <li>rem可以从浏览器字体设置中继承font-size值；</li>
 <li>em可能受任何继承过来的父元素font-size的影响。</li>
+<li>一般在使用em和rem时将font-size的值初始化为100px(<code>font-size: 625%;</code>)，取消默认大小对于字体的影响，若要设置30px，则<code>width: .3rem</code>。 (不能取10px，因为移动端字体最小为12px)</li>
 </ul>
 </li>
 </ul>
-<h3 id="1-2-vh和vm，vmin和vmax"><a href="#1-2-vh和vm，vmin和vmax" class="headerlink" title=".1.2 vh和vm，vmin和vmax"></a>.1.2 vh和vm，vmin和vmax</h3><ul>
-<li>vw：视窗宽度的百分比；</li>
-<li>vh：视窗高度的百分比；</li>
+<h3 id="1-2-vh和vw，vmin和vmax"><a href="#1-2-vh和vw，vmin和vmax" class="headerlink" title=".1.2 vh和vw，vmin和vmax"></a>.1.2 vh和vw，vmin和vmax</h3><ul>
+<li>vw：视窗宽度的百分比；(<code>width: 100vw;</code>   )</li>
+<li>vh：视窗高度的百分比；(<code>height: 100vh;</code>  设置100vh和100vw后div占慢整个屏幕 )</li>
 <li>vmax：较大的 vh 和 vw；</li>
 <li>vmin：较小的 vh 和 vw。</li>
 </ul>
@@ -434,6 +435,12 @@
 </ul>
 <p><img src="%E7%99%BE%E5%88%86%E6%AF%94%E5%8D%95%E4%BD%8D.png" alt="百分比单位"></p>
 <h2 id="4-角度单位-​"><a href="#4-角度单位-​" class="headerlink" title="4 角度单位 ​"></a>4 角度单位 ​</h2><p><img src="%E8%A7%92%E5%BA%A6%E5%8D%95%E4%BD%8D.png" alt="角度单位"></p>
+<ul>
+<li>补充<ul>
+<li>谷歌浏览器默认字体大小为16px，最小为12px。</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>CSS</category>
@@ -2380,7 +2387,8 @@
 </ul>
 <h2 id="3-改变this指向的方法"><a href="#3-改变this指向的方法" class="headerlink" title="3 改变this指向的方法"></a>3 改变this指向的方法</h2><ul>
 <li>call、apply、bind ： 是所有函数都具有的方法</li>
-<li>注意：函数也是对象，函数具有方法</li>
+<li>注意：函数也是对象，函数具有方法;</li>
+<li>apply可以将数组展开：<br>```js<br>  console.log(Math.max.apply(null,[1,2,3,99]));// 99</li>
 </ul>
 <p>*** - 引擎会将函数单独保存在内存中。 </p>
 ]]></content>
@@ -2961,7 +2969,7 @@
       </tags>
   </entry>
   <entry>
-    <title>其他</title>
+    <title>其他问题</title>
     <url>/2022/04/18/%E5%85%B6%E4%BB%96/</url>
     <content><![CDATA[<h2 id="1-函数柯里化"><a href="#1-函数柯里化" class="headerlink" title="1 函数柯里化"></a>1 函数柯里化</h2><ul>
 <li>在计算机科学中，柯里化(<code>Currying</code>)是把<code>接受多个参数的函数</code>变换成<code>接受一个单一参数的函数</code>，并且返回接受余下的参数且返回结果的新函数的技术。</li>
@@ -3844,6 +3852,120 @@
       </categories>
       <tags>
         <tag>知识点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Algorithm-二叉树遍历方式</title>
+    <url>/2022/05/05/Algorithm-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="1-二叉树的递归遍历"><a href="#1-二叉树的递归遍历" class="headerlink" title="1 二叉树的递归遍历"></a>1 二叉树的递归遍历</h1><ul>
+<li><p>递归三要素：</p>
+<ul>
+<li>① <code>确定递归函数的参数和返回值</code> ： 确定哪些参数是递归的过程中需要处理的，那么就在递归函数中加上这个参数，并且要明确每次递归的返回值是什么，进而确定递归函数的返回类型。</li>
+<li>② <code>确定终止条件</code> ： 如果递归的终止条件有问题，会导致操作系统的内存栈溢出的错误。</li>
+<li>③ <code>确定单层递归的逻辑</code> ： 确定每一层递归需要处理的信息。 </li>
+</ul>
+</li>
+<li><p>递归的实现： 每一次递归调用都会把函数的局部变量、参数值和返回地址等压入调用栈中，然后递归返回的时候，从栈顶弹出上一次递归的各项参数。</p>
+</li>
+<li><p>二叉树的前序遍历</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">TreeNode</span>&#125; <span class="variable">root</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number[]</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> preorderTraversal = <span class="keyword">function</span>(<span class="params">root</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> result = [];</span><br><span class="line">    <span class="keyword">let</span> dfs = <span class="keyword">function</span>(<span class="params">root</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>( root === <span class="literal">null</span>) <span class="keyword">return</span> ;</span><br><span class="line">        result.<span class="title function_">push</span>(root.<span class="property">val</span>);</span><br><span class="line">        <span class="title function_">dfs</span>(root.<span class="property">left</span>);</span><br><span class="line">        <span class="title function_">dfs</span>(root.<span class="property">right</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">dfs</span>( root );</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>二叉树的中序遍历</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">TreeNode</span>&#125; <span class="variable">root</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number[]</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> inorderTraversal = <span class="keyword">function</span>(<span class="params">root</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> res =[];</span><br><span class="line">    <span class="keyword">let</span> fn = <span class="keyword">function</span>(<span class="params">root</span>)&#123;</span><br><span class="line">        <span class="comment">// 中序： 左中右</span></span><br><span class="line">        <span class="keyword">if</span>( root === <span class="literal">null</span>) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="title function_">fn</span>(root.<span class="property">left</span>);</span><br><span class="line">        res.<span class="title function_">push</span>(root.<span class="property">val</span>);</span><br><span class="line">        <span class="title function_">fn</span>(root.<span class="property">right</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">fn</span>(root);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>二叉树的后序遍历</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> postorderTraversal = <span class="keyword">function</span>(<span class="params">root</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> res = [];</span><br><span class="line">    <span class="keyword">let</span> fn = <span class="keyword">function</span>(<span class="params">root</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>( root === <span class="literal">null</span>) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="title function_">fn</span>(root.<span class="property">left</span>);<span class="comment">// 左</span></span><br><span class="line">        <span class="title function_">fn</span>(root.<span class="property">right</span>);<span class="comment">// 右</span></span><br><span class="line">        res.<span class="title function_">push</span>(root.<span class="property">val</span>);<span class="comment">//  中</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">fn</span>(root);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="2-二叉树的迭代遍历"><a href="#2-二叉树的迭代遍历" class="headerlink" title="2 二叉树的迭代遍历"></a>2 二叉树的迭代遍历</h1><ul>
+<li><p>前序遍历（迭代法）</p>
+<ul>
+<li>前序遍历的顺序是中左右，先访问的节点是中间节点，要处理的元素也是中间节点。<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  前序遍历 : 入栈（右左），出栈（中左右）</span></span><br><span class="line"><span class="keyword">var</span> preorderTraversal = <span class="keyword">function</span>(<span class="params">root</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> res = [];</span><br><span class="line">    <span class="keyword">const</span> stack = [root]; <span class="comment">//栈 </span></span><br><span class="line">    <span class="keyword">let</span> cur = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span>( !root ) <span class="keyword">return</span> res; <span class="comment">// 如果root为空 则返回res</span></span><br><span class="line">    <span class="comment">// 循环 栈的长度不为0</span></span><br><span class="line">    <span class="keyword">while</span>( stack.<span class="property">length</span>)&#123;</span><br><span class="line">        cur = stack.<span class="title function_">pop</span>(); <span class="comment">//弹出元素</span></span><br><span class="line">        res.<span class="title function_">push</span>(cur.<span class="property">val</span>); </span><br><span class="line">        <span class="keyword">if</span>(cur.<span class="property">right</span>) stack.<span class="title function_">push</span>(cur.<span class="property">right</span>);</span><br><span class="line">        <span class="keyword">if</span>(cur.<span class="property">left</span>)  stack.<span class="title function_">push</span>(cur.<span class="property">left</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>中序遍历（迭代法）</p>
+<ul>
+<li>中序遍历的顺序是左中右，先访问的是二叉树顶部的节点，然后一层层向下访问，直到到达树左面的最底部，再开始处理节点，这会造成处理顺序和访问顺序不一致的问题。所以，再使用迭代法写中序遍历的时候，需要只用指针的遍历来帮助访问节点。栈则用来处理节点上的元素。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  中序遍历： 左中右  入栈（左右），出栈（左中右）</span></span><br><span class="line"><span class="keyword">var</span> inorderTraversal = <span class="keyword">function</span>(<span class="params">root</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> res =[];</span><br><span class="line">    <span class="keyword">const</span> stack = [];</span><br><span class="line">    <span class="keyword">let</span> cur = root; <span class="comment">// 根节点</span></span><br><span class="line">    <span class="keyword">while</span>(cur!= <span class="literal">null</span> || stack.<span class="property">length</span>)&#123;</span><br><span class="line">        <span class="comment">// 指针访问节点，访问到最底层</span></span><br><span class="line">        <span class="keyword">if</span>( cur != <span class="literal">null</span> )&#123;</span><br><span class="line">            stack.<span class="title function_">push</span>(cur);<span class="comment">// 将访问的放入栈中</span></span><br><span class="line">            cur = cur.<span class="property">left</span>; <span class="comment">// 左子树</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            cur = stack.<span class="title function_">pop</span>();<span class="comment">// 从栈中弹出的数据，就是要处理的数据</span></span><br><span class="line">            res.<span class="title function_">push</span>(cur.<span class="property">val</span>);</span><br><span class="line">            cur = cur.<span class="property">right</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>后序遍历（迭代法）<ul>
+<li>后序遍历的顺序是左右中，可以调整一下先序遍历的顺序就可以变成中左右的遍历顺序，然后再反转result数据即可。</li>
+<li>先序中左右 -&gt;(调整代码左右顺序) 中右左 -&gt; (反转result数组) 左右中</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> postorderTraversal = <span class="keyword">function</span>(<span class="params">root</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> res =[];</span><br><span class="line">    <span class="keyword">const</span> stack = [root];</span><br><span class="line">    <span class="keyword">let</span> cur = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(!root) <span class="keyword">return</span> res.<span class="title function_">reverse</span>();</span><br><span class="line">    <span class="keyword">while</span>( stack.<span class="property">length</span>)&#123;</span><br><span class="line">        cur = stack.<span class="title function_">pop</span>();</span><br><span class="line">        res.<span class="title function_">push</span>(cur.<span class="property">val</span>);</span><br><span class="line">        <span class="keyword">if</span>( cur.<span class="property">left</span> )  stack.<span class="title function_">push</span>(cur.<span class="property">left</span>);</span><br><span class="line">        <span class="keyword">if</span>( cur.<span class="property">right</span> ) stack.<span class="title function_">push</span>(cur.<span class="property">right</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res.<span class="title function_">reverse</span>();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="3-二叉树的统一迭代法"><a href="#3-二叉树的统一迭代法" class="headerlink" title="3 二叉树的统一迭代法"></a>3 二叉树的统一迭代法</h1><h1 id="4-二叉树的层序遍历"><a href="#4-二叉树的层序遍历" class="headerlink" title="4 二叉树的层序遍历"></a>4 二叉树的层序遍历</h1>]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+      <tags>
+        <tag>Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS-自适应布局</title>
+    <url>/2022/05/06/CSS-%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS-知识点</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS-对象模式</title>
+    <url>/2022/05/05/JS-%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="JavaScript对象模式"><a href="#JavaScript对象模式" class="headerlink" title="JavaScript对象模式"></a>JavaScript对象模式</h1><h2 id="1-工厂模式"><a href="#1-工厂模式" class="headerlink" title="1 工厂模式"></a>1 工厂模式</h2><blockquote>
+<p>工厂模式：静态工厂方法，由一个工厂对象决定创建某一种产品对象类的实例。主要用来创建同一类对象。</p>
+</blockquote>
+<ul>
+<li>将多个类封装在一个函数中，通过这个函数就可以创建我们需要的对象，这样开发者就不需要再关注这些对象到底依赖于哪个基类。这个函数我们称为工厂函数，这种模式叫做简单工厂模式。</li>
+<li>作用<ul>
+<li>可用于对不同的类进行实例化；</li>
+<li>可创建相似对象；（把多个相似类的相似部分提取出来，不相似部分做针对性处理即可）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-构造函数"><a href="#2-构造函数" class="headerlink" title="2 构造函数"></a>2 构造函数</h2><blockquote>
+<p>构造函数：在JS种，用new关键字来调用的函数称为构造函数，其首字母一般要大写。</p>
+</blockquote>
+<ul>
+<li><p>JS语言使用构造函数作为对象的模板：</p>
+<ul>
+<li>所谓构造函数，就是专门用来生成实例对象的函数。它就是对象的模板，描述实例对象的基本结构。</li>
+</ul>
+</li>
+<li><p>构造函数的两个特点：</p>
+<ul>
+<li>函数体内使用了this关键字，代表了所要生成的对象实例（this指向new出来的对象）；</li>
+<li>生成对象的时候，必须使用new关键字。</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-原型模式"><a href="#3-原型模式" class="headerlink" title="3 原型模式"></a>3 原型模式</h2><blockquote>
+<p><code>prototype属性</code>：这个属性包含一个<code>prototype对象</code>，所有实例对象<code>需要共享</code>的属性和方法放在 <code>prototype对象</code> 中，<code>不需要共享</code>的属性和方法的就放在<code>构造函数</code>中。</p>
+</blockquote>
+<ul>
+<li>注意<ul>
+<li>函数拥有prototype属性|方法；</li>
+<li>共享的属性和方法放在prototype中，不共享的放在构造函数中；</li>
+<li>new的缺点： 无法共享属性和方法。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Fun</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">run</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;跑快点&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// person方法共享</span></span><br><span class="line"><span class="title class_">Fun</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">person</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;人具有的能力&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 写法2</span></span><br><span class="line"><span class="title class_">Fun</span>.<span class="property"><span class="keyword">prototype</span></span> = &#123;</span><br><span class="line">    person : <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;人具有的能力&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o1 = <span class="keyword">new</span> <span class="title class_">Fun</span>();</span><br><span class="line"><span class="keyword">var</span> o2 = <span class="keyword">new</span> <span class="title class_">Fun</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(o1.<span class="property">run</span> === o2.<span class="property">run</span> ); <span class="comment">// false 不共享</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(o1.<span class="property">person</span> === o2.<span class="property">person</span>); <span class="comment">// true  共享</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JS-知识点</tag>
       </tags>
   </entry>
 </search>

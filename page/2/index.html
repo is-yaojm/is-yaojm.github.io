@@ -140,6 +140,552 @@
     
     
     <article
+  id="post-CSS-Grid布局"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/28/CSS-Grid%E5%B8%83%E5%B1%80/"
+    >CSS-Grid布局</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/28/CSS-Grid%E5%B8%83%E5%B1%80/" class="article-date">
+  <time datetime="2022-04-28T10:35:44.000Z" itemprop="datePublished">2022-04-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="CSS-Grid布局"><a href="#CSS-Grid布局" class="headerlink" title="CSS - Grid布局"></a>CSS - Grid布局</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html">CSS-Grid网格布局教程-阮一峰老师</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.runoob.com/try/gridgarden/index.html">CSS-grid小游戏</a>哈哈哈哈 很有意思的小游戏，还可以学习布局</li>
+</ul>
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><blockquote>
+<p>Grid布局： 将容器划分为行和列，产生单元格，然后指定项目所在的单元格。</p>
+</blockquote>
+<ul>
+<li>Flex布局：是轴线布局，只能指定“项目”针对轴线的位置，可看作是一维布局。</li>
+<li>Grid布局：划分行和列，产生单元格，可看作二维布局。</li>
+</ul>
+<h2 id="2-基本概念"><a href="#2-基本概念" class="headerlink" title="2 基本概念"></a>2 基本概念</h2><h3 id="2-1-容器和项目"><a href="#2-1-容器和项目" class="headerlink" title="2.1 容器和项目"></a>2.1 容器和项目</h3><ol>
+<li><p>容器（具有容器属性）<br><a href="container.png">容器</a></p>
+</li>
+<li><p>项目（具有项目属性）<br><a href="item.png">项目</a></p>
+</li>
+<li><p>grid布局中的各种要素<br><a href="grid.png">grid</a></p>
+</li>
+</ol>
+<h2 id="3-容器属性"><a href="#3-容器属性" class="headerlink" title="3 容器属性"></a>3 容器属性</h2><h3 id="3-1-dispaly属性"><a href="#3-1-dispaly属性" class="headerlink" title="3.1 dispaly属性"></a>3.1 dispaly属性</h3><blockquote>
+<p><code>display: grid</code> 指定一个容器采用<code>网格布局</code>。默认情况下，容器元素都是块级元素，但是也可设置为行内元素<code>/* display: inline-grid; */</code>。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>JS Bin<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-tag">span</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">font-size</span>: <span class="number">2em</span>; </span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-id">#container</span>&#123;</span></span><br><span class="line"><span class="language-css">                <span class="comment">/* 网格布局 */</span></span></span><br><span class="line"><span class="language-css">                <span class="attribute">display</span>: grid;</span></span><br><span class="line"><span class="language-css">                <span class="comment">/* 行内网格布局 */</span></span></span><br><span class="line"><span class="language-css">                <span class="comment">/* display: inline-grid; */</span></span></span><br><span class="line"><span class="language-css">                <span class="attribute">grid-template-columns</span>: <span class="number">50px</span> <span class="number">50px</span> <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">grid-template-rows</span>: <span class="number">50px</span> <span class="number">50px</span> <span class="number">50px</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">font-size</span>: <span class="number">2em</span>;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#e5e4e9</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-1</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#ef342a</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-2</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#f68f26</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-3</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#4ba946</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-4</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#0376c2</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-5</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#c077af</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">            <span class="selector-class">.item-6</span> &#123;</span></span><br><span class="line"><span class="language-css">                <span class="attribute">background-color</span>: <span class="number">#f8d29d</span>;</span></span><br><span class="line"><span class="language-css">            &#125;</span></span><br><span class="line"><span class="language-css">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>foo<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-3&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-4&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-5&quot;</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-6&quot;</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-7&quot;</span>&gt;</span>7<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-8&quot;</span>&gt;</span>8<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item item-9&quot;</span>&gt;</span>9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>bar<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意：若容器设置为网格布局之后，容器中的项目的部分属性会失效：<ul>
+<li><code>float</code></li>
+<li><code>display: inline-block </code></li>
+<li><code>display: table-cell</code> </li>
+<li><code>vertical-align</code>和<code>column-*</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-grid-template-columns属性-和-grid-template-rows属性"><a href="#3-2-grid-template-columns属性-和-grid-template-rows属性" class="headerlink" title="3.2 grid-template-columns属性 和 grid-template-rows属性"></a>3.2 grid-template-columns属性 和 grid-template-rows属性</h3><blockquote>
+<p>grid-template-columns属性: 定义每一列列宽；<br>grid-template-rows属性: 定义每一行行高。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="comment">/* 指定一个三行三列的网格，行高和列宽都是100px ，单位可以是绝对单位可以是相对单位，或者百分比*/</span></span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">100px</span> <span class="number">100px</span> <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="number">100px</span> <span class="number">100px</span> <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-2-1-repeat-函数"><a href="#3-2-1-repeat-函数" class="headerlink" title="3.2.1 repeat()函数"></a>3.2.1 repeat()函数</h4><blockquote>
+<p>repeat()函数： 简化重复的值。</p>
+</blockquote>
+<ul>
+<li>两个参数：<ul>
+<li>参数1： 重复的次数（几行，或者几列）；</li>
+<li>参数2： 重复的值</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123; </span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">100px</span>);</span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">100px</span>) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>repeat()定义某种模式：<code>grid-template-columns: repeat(1, 100px 20px 80px);</code></li>
+<li></li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#container</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">1</span>, <span class="number">100px</span> <span class="number">20px</span> <span class="number">80px</span>);</span><br><span class="line">  <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">50px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="repeat1.png">三行</a><br><a href="repeat2.png">二行</a><br><a href="repeat3.png">一行</a></p>
+<h4 id="3-2-2-auto-fill关键字"><a href="#3-2-2-auto-fill关键字" class="headerlink" title="3.2.2 auto-fill关键字"></a>3.2.2 auto-fill关键字</h4><blockquote>
+<p>当单元格的大小固定，但容器的大小不确定时，如果希望每一行（或每一列）容纳尽可能多的单元格，可以使用<code>auto-fill关键字</code>表示自动填充。</p>
+</blockquote>
+<p><a href="autofill.png">auto-fill关键字</a></p>
+<h4 id="3-2-3-fr关键字"><a href="#3-2-3-fr关键字" class="headerlink" title="3.2.3 fr关键字"></a>3.2.3 fr关键字</h4><blockquote>
+<p>fr关键字： 方便表示比例关系。</p>
+</blockquote>
+<ul>
+<li>如果两列的宽度分别为1fr和2fr，就表示后者是前者的两倍。</li>
+<li>fr关键字可以和绝对长度的单位结合使用。</li>
+</ul>
+<p><a href="fr.png">fr关键字</a></p>
+<h4 id="3-2-4-minmax"><a href="#3-2-4-minmax" class="headerlink" title="3.2.4 minmax()"></a>3.2.4 minmax()</h4><blockquote>
+<p>minmax()函数:产生一个长度范围，表示长度就在这个范围之中。它接受两个参数，分别为最小值和最大值。</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="built_in">minmax</span>(<span class="number">100px</span>, <span class="number">1</span>fr);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-gap属性"><a href="#3-3-gap属性" class="headerlink" title="3.3 gap属性"></a>3.3 gap属性</h3><blockquote>
+<p>grid-row-gap 属性:设置行间距<br>grid-column-gap 属性： 设置列间距</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">grid-row</span>-<span class="attribute">gap</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">grid-column</span>-<span class="attribute">gap</span>: <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>grid-gap 属性 ：行列间距的简写形式</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">grid-gap</span>: &lt;grid-row-gap&gt; &lt;grid-column-gap&gt;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-grid-template-areas-属性"><a href="#3-4-grid-template-areas-属性" class="headerlink" title="3.4 grid-template-areas 属性"></a>3.4 grid-template-areas 属性</h3><blockquote>
+<p>grid-template-areas属性 : 用于定义区域</p>
+</blockquote>
+<h3 id="3-4-grid-auto-flow属性"><a href="#3-4-grid-auto-flow属性" class="headerlink" title="3.4 grid-auto-flow属性"></a>3.4 grid-auto-flow属性</h3><blockquote>
+<p>grid-auto-flow属性 : 划分网格线以后，容器的子元素会按照顺序，自动放置在每一个网格。默认的放置顺序是先行后列，即填满第一行，再开始放入第二行（就是子元素的排放顺序）</p>
+</blockquote>
+<ul>
+<li>grid-auto-flow：row（先行后列  默认）</li>
+<li>grid-auto-flow：column （先列后行）</li>
+<li>跟grid-auto-flow相关  dense（提高空间的利用率）</li>
+</ul>
+<h3 id="3-5-单元格内容位置属性"><a href="#3-5-单元格内容位置属性" class="headerlink" title="3.5 单元格内容位置属性"></a>3.5 单元格内容位置属性</h3><blockquote>
+<p>items属性: 单元格里面的内容。</p>
+</blockquote>
+<ul>
+<li><code>justify-items属性</code> : 设置<strong>单元格内容</strong>的<code>水平</code>位置（左中右）；</li>
+<li><code>align-items属性设置</code> : <strong>单元格内容</strong>的<code>垂直</code>位置（上中下）;</li>
+<li><code>place-items属性</code>: 是<code>align-items属性</code>和<code>justify-items属性</code>的合并简写形式。<ul>
+<li><code>place-items: &lt;align-items&gt; &lt;justify-items&gt;;</code>,如果省略第二个值，则浏览器认为与第一个值相等。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-6-整个内容区域位置属性"><a href="#3-6-整个内容区域位置属性" class="headerlink" title="3.6 整个内容区域位置属性"></a>3.6 整个内容区域位置属性</h3><ul>
+<li><code>justify-content属性</code>: 是整个内容区域在容器里面的水平位置（左中右）</li>
+<li><code>align-content属性</code> :是整个内容区域的垂直位置（上中下）。</li>
+</ul>
+<h3 id="3-7-grid-auto-columns-grid-auto-rows"><a href="#3-7-grid-auto-columns-grid-auto-rows" class="headerlink" title="3.7 grid-auto-columns / grid-auto-rows"></a>3.7 grid-auto-columns / grid-auto-rows</h3><ul>
+<li>用来设置多出来的项目的宽和高</li>
+</ul>
+<h2 id="4-项目属性"><a href="#4-项目属性" class="headerlink" title="4 项目属性"></a>4 项目属性</h2><h3 id="4-1-grid-column和grid-row的start属性、end属性"><a href="#4-1-grid-column和grid-row的start属性、end属性" class="headerlink" title="4.1 grid-column和grid-row的start属性、end属性"></a>4.1 grid-column和grid-row的start属性、end属性</h3><ul>
+<li>grid-column-start属性：左边框所在的垂直网格线</li>
+<li>grid-column-end属性：右边框所在的垂直网格线；（结束在x行，但不包括）</li>
+<li>grid-row-start属性：上边框所在的水平网格线</li>
+<li>grid-row-end属性：下边框所在的水平网格线</li>
+</ul>
+<h3 id="4-2-grid-column-属性-grid-row-属性"><a href="#4-2-grid-column-属性-grid-row-属性" class="headerlink" title="4.2 grid-column 属性  , grid-row 属性"></a>4.2 grid-column 属性  , grid-row 属性</h3><ul>
+<li><p>grid-column属性是grid-column-start和grid-column-end的合并简写形式;</p>
+</li>
+<li><p>grid-row属性是grid-row-start属性和grid-row-end的合并简写形式。</p>
+</li>
+<li><p>grid-column 属性定义了网格元素列的开始和结束位置。</p>
+</li>
+<li><p>设置 “item1” 在第 1 列开始，在第 5 列前结束：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item1 &#123;</span><br><span class="line">grid-column: 1 / 5;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4-3-grid-area-属性"><a href="#4-3-grid-area-属性" class="headerlink" title="4.3 grid-area 属性"></a>4.3 grid-area 属性</h3><ul>
+<li>grid-area属性指定项目放在哪一个区域。</li>
+</ul>
+<p><a href="gridarea.png">grid-area</a></p>
+<h3 id="4-4-order属性"><a href="#4-4-order属性" class="headerlink" title="4.4 order属性"></a>4.4 order属性</h3> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">CSS-知识点</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-CSS-响应式布局"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/28/CSS-%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/"
+    >CSS-响应式布局</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/28/CSS-%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" class="article-date">
+  <time datetime="2022-04-28T10:35:32.000Z" itemprop="datePublished">2022-04-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="CSS响应式布局"><a href="#CSS响应式布局" class="headerlink" title="CSS响应式布局"></a>CSS响应式布局</h1><h2 id="1-响应式布局"><a href="#1-响应式布局" class="headerlink" title="1 响应式布局"></a>1 响应式布局</h2><blockquote>
+<p>响应式布局：是同一页面在不同的屏幕上有不同的布局，即只需要一套代码使页面适应不同的屏幕。</p>
+</blockquote>
+<ul>
+<li>采用响应式设计，在不同设备中，网站会重新排列，展现出不同的设计风格，以完美的适配任何尺寸的屏幕。</li>
+</ul>
+<h2 id="2-设计原则"><a href="#2-设计原则" class="headerlink" title="2 设计原则"></a>2 设计原则</h2><h3 id="2-1-响应式设计两个设计原则"><a href="#2-1-响应式设计两个设计原则" class="headerlink" title="2.1 响应式设计两个设计原则"></a>2.1 响应式设计两个设计原则</h3><ul>
+<li>渐进增强：是指基本需求得到满足和实现后，再根据不同浏览器及不同分辨率设备的特点，利用高级浏览器中的新特新提供更好的体检。（由基本到完美）<ul>
+<li><code>移动端</code>响应式布局采用<code>渐进增强</code>原则。</li>
+</ul>
+</li>
+<li>优雅降级：现有功能已经开发完备，但需要向下兼容版本和不支持该功能的浏览器。（向下兼容）</li>
+</ul>
+<h3 id="2-2-常见设备的屏幕像素"><a href="#2-2-常见设备的屏幕像素" class="headerlink" title="2.2 常见设备的屏幕像素"></a>2.2 常见设备的屏幕像素</h3><ul>
+<li>viewport视口设置：<ul>
+<li><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</code></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>屏幕类型</th>
+<th>对应设备</th>
+<th>常见尺寸</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>超小屏幕</td>
+<td>手机</td>
+<td>&lt;768px</td>
+</tr>
+<tr>
+<td>小屏幕</td>
+<td>平板</td>
+<td>&gt;768px</td>
+</tr>
+<tr>
+<td>中等屏幕</td>
+<td>桌面显示器</td>
+<td>&gt;992px</td>
+</tr>
+<tr>
+<td>大屏幕</td>
+<td>超大桌面显示器</td>
+<td>&gt;1200px</td>
+</tr>
+</tbody></table>
+<h2 id="3-实现方法"><a href="#3-实现方法" class="headerlink" title="3 实现方法"></a>3 实现方法</h2><h3 id="3-1-媒体查询"><a href="#3-1-媒体查询" class="headerlink" title="3.1 媒体查询"></a>3.1 媒体查询</h3><blockquote>
+<p>媒体查询</p>
+</blockquote>
+<ul>
+<li>什么是媒体查询 ：<strong>媒体查询可以让CSS更加精确作用于不同的媒体类型和同一媒体的不同条件。</strong></li>
+<li>JS监听媒体查询：<code>MediaQueryList.addListener(func)</code>；</li>
+<li>使用<code>@media查询</code>，可以针对不同的媒体类型定义不同的样式；</li>
+<li><code>@media</code>可以针对不同的屏幕尺寸设置不同的样式，特别是如果需要设置<strong>响应式的页面</strong>，<code>@media</code>是非常有用的。</li>
+<li>当你重置浏览器大小的过程中，页面也会根据浏览器的高度重新渲染页面。</li>
+</ul>
+<blockquote>
+<p>媒体查询的用途</p>
+</blockquote>
+<ul>
+<li><p>使用CSS@media和at规则有条件地应用样式；</p>
+</li>
+<li><p>使用该属性为<code>&lt;style&gt;</code>,<code>&lt;link&gt;</code>,<code>&lt;source&gt;</code>和其他HTML元素定位特定媒体；</p>
+</li>
+<li><p>使用JS方法测试和监控媒体状态。</p>
+<p>  eg:</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">200px</span>; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>:violet;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">980px</span>) <span class="keyword">and</span> (<span class="attribute">min-width</span>:<span class="number">600px</span>) &#123;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>: red;</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    </span></span><br><span class="line"><span class="language-css">    <span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">max-width</span>:<span class="number">499px</span>) &#123;</span></span><br><span class="line"><span class="language-css">        <span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="language-css">            <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">41</span>, <span class="number">119</span>, <span class="number">192</span>);</span></span><br><span class="line"><span class="language-css">        &#125;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p><a href="%E5%AA%92%E4%BD%93%E7%89%B9%E6%80%A7.png">媒体特性</a></p>
+<h3 id="3-2-相对尺寸"><a href="#3-2-相对尺寸" class="headerlink" title="3.2 相对尺寸"></a>3.2 相对尺寸</h3></li>
+</ul>
+<ol>
+<li>百分比</li>
+</ol>
+<ul>
+<li>百分比是相对于包含块的计量单位，通过对属性设置百分比来适应不同的屏幕。</li>
+<li>包含块：<ul>
+<li>有父元素相对于父元素；</li>
+<li>无父元素相对于视口；</li>
+<li>继承父元素；</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>vw/vh</li>
+</ol>
+<ul>
+<li>vw/vh，vmin和vmax是视口单位，可以根据浏览器的窗口大小进行适配。</li>
+<li>eg：文字自适应</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.text</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">248</span>, <span class="number">150</span>, <span class="number">150</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">line-height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-tag">p</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">font-size</span>: <span class="number">2vw</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;text&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">        今天是个好天气 </span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>rem</li>
+</ol>
+<ul>
+<li>rem单位：相对单位，相对于根元素字体大小的单位。</li>
+<li>使用场景：某一元素的宽需要为47px，根元素大小为20px，要求适应不同的终端。<ul>
+<li>设想屏幕宽度为750px，设计稿宽度为750px；</li>
+<li>设置<code>font-size = 1rem = 屏幕宽度×100/设计稿宽度 = 100px</code>；</li>
+<li>使用<code>getBoundingClientRect().width</code>可以获取屏幕宽度，在该宽度下梓蒿为fontsize；</li>
+<li><code> width / ( 750 * fontSize ) = 750 / (750 * 100 )</code>;</li>
+<li>计算得出fontSize的值。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-响应式图片"><a href="#4-响应式图片" class="headerlink" title="4 响应式图片"></a>4 响应式图片</h2><ul>
+<li>使用<code>background</code>属性设置背景图<ul>
+<li>将<code>background-size</code>属性值设置为<code>cover</code>，则会把背景图片扩展至足够大，是背景图片完全覆盖背景区域。</li>
+<li><code>background-size: cover;</code>    /* 让背景图片一起缩放 */</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-移动端事件"><a href="#5-移动端事件" class="headerlink" title="5 移动端事件"></a>5 移动端事件</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43842373/article/details/113397331">移动端响应式开发</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/9e2c202651ea551810a6f524ccbff121dd36c50b.html">CSS-常用分辨率</a></p>
+</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">CSS-知识点</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-CSS-经典布局方案"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/28/CSS-%E7%BB%8F%E5%85%B8%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88/"
+    >CSS-经典布局方案</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/28/CSS-%E7%BB%8F%E5%85%B8%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88/" class="article-date">
+  <time datetime="2022-04-28T10:31:10.000Z" itemprop="datePublished">2022-04-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="CSS布局"><a href="#CSS布局" class="headerlink" title="CSS布局"></a>CSS布局</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li><p>根据宽度是否固定来分，可分为：</p>
+<ul>
+<li>固定宽度布局 ： PC端一般宽度为960/1000/1024px；</li>
+<li>不固定宽度布局 ： 主要靠文档流的原理来布局；</li>
+<li>响应式布局 ： 可以为不同终端的用户提供更加舒适的界面和更好的用户体验。</li>
+</ul>
+</li>
+<li><p>根据栏数区分：</p>
+<ul>
+<li>单列布局 : 头部、内容、底部 （块级元素水平居中：<code>margin:0 auto;</code>）</li>
+<li>两栏布局 ：左边固定，右边自适应 （或 右边固定，左边自适应）</li>
+<li>三栏布局 ：左右固定，中间自适应。</li>
+</ul>
+</li>
+<li><p>响应式布局：<a target="_blank" rel="noopener" href="https://m.php.cn/article/476031.html">四种方式</a></p>
+<ul>
+<li>使用flex布局，优点代码简单、布局方便；</li>
+<li>使用绝对布局，结合使用media媒体查询实现响应式布局；</li>
+<li>使用Grid布局，优点是写法简单；</li>
+<li>使用float布局，优点是兼容性较好；</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-三栏布局"><a href="#1-三栏布局" class="headerlink" title="1 三栏布局"></a>1 三栏布局</h2><h3 id="1-1-圣杯布局"><a href="#1-1-圣杯布局" class="headerlink" title="1.1 圣杯布局"></a>1.1 圣杯布局</h3><blockquote>
+<p>圣杯布局：其核心是左、中、右三栏都通过float进行浮动，然后通过负值magin进行调整。</p>
+</blockquote>
+<ul>
+<li>实现<ul>
+<li>基本布局 - 中左右 </li>
+<li>1 外层div设置内边距</li>
+<li>2 给三个div都添加左浮动；</li>
+<li>3 让三个div位于同一行，给left增加<code>margin-left:-100%;</code> , 给right增加<code>margin-right:-100px;</code>;</li>
+<li>4 将left左移，相对定位+左边盒子的宽度，<code>position: relative;left: -100px;</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"> </span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 三栏布局 - 圣杯布局 */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#con1</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">80%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">306px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">border</span>: <span class="number">3px</span> solid red;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">50px</span> auto; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">100px</span>;<span class="comment">/* 左右内边距*/</span></span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.left2</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">212</span>, <span class="number">145</span>, <span class="number">145</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100px</span>; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">left</span>: -<span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.right2</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">187</span>, <span class="number">137</span>, <span class="number">252</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100px</span>; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin-right</span>: -<span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.content2</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">221</span>, <span class="number">252</span>, <span class="number">137</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">float</span>: left; </span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 三栏布局 - 圣杯布局 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;con1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-双飞翼布局"><a href="#1-2-双飞翼布局" class="headerlink" title="1.2 双飞翼布局"></a>1.2 双飞翼布局</h3><blockquote>
+<p>双飞翼布局：该布局与圣杯布局的区别在于中间部分与左右部分的分离。核心实现方式也是先使用float浮动，然后通过magrin负值调整。</p>
+</blockquote>
+<ul>
+<li>实现<ul>
+<li>基本布局 - 中左右 </li>
+<li>注意：中间center被放在一个div中，container与left和right平级。</li>
+<li>1 给center设置左右宽度的外边距；<code>margin: 0 100px;</code></li>
+<li>2 让container、left和right三个div左浮动，</li>
+<li>3 给left增加<code>margin-left: -100%;</code></li>
+<li>4 给right增加<code>margin-left: -100px;</code></li>
+</ul>
+</li>
+<li>区别：<ul>
+<li>圣杯：三部分同级，大div设置内边距，左中右浮动，根据center改变左右的位置；</li>
+<li>双飞翼：center套在一个盒子中，给center设置外边距，左中右浮动，然后定位。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 三栏布局 - 双飞翼布局 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;con3&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right3&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 三栏布局 - 双飞翼布局 */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#con3</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">80%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">306px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">border</span>: <span class="number">3px</span> solid red;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">50px</span> auto;  </span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.container</span>&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.left3</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">247</span>, <span class="number">181</span>, <span class="number">181</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.right3</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">137</span>, <span class="number">219</span>, <span class="number">252</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">float</span>: left;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin-left</span>: -<span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.content3</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">233</span>, <span class="number">137</span>, <span class="number">252</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0px</span> <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="1-3-flex布局"><a href="#1-3-flex布局" class="headerlink" title="1.3 flex布局"></a>1.3 flex布局</h3><blockquote>
+<p>flex布局：设置容器属性和center属性即可实现，但是需要注意浏览器兼容性问题。</p>
+</blockquote>
+<ul>
+<li>实现<ul>
+<li>基本布局 - 左中右</li>
+<li>1 给大div设置<code>display:flex;</code> 和 <code>justify-content: space-between;</code>属性；</li>
+<li>2 给center设置<code>flex: 1;</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 三栏布局 - flex布局 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;con&quot;</span> <span class="attr">id</span>=<span class="string">&quot;con4&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 三栏布局 - flex */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#con4</span> &#123; </span></span><br><span class="line"><span class="language-css">        <span class="comment">/* 容器属性设置 */</span></span></span><br><span class="line"><span class="language-css">        <span class="attribute">display</span>:flex;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">justify-content</span>: space-between;<span class="comment">/* 两端对齐 */</span></span></span><br><span class="line"><span class="language-css">    &#125; </span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.left4</span> , <span class="selector-class">.right4</span> &#123; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">241</span>, <span class="number">194</span>, <span class="number">150</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100px</span>; </span></span><br><span class="line"><span class="language-css">    &#125; </span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.center4</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="comment">/* 项目属性设置 */</span></span></span><br><span class="line"><span class="language-css">        <span class="attribute">flex</span>: <span class="number">1</span>;<span class="comment">/* 设置项目放大、缩小和分配剩余空间*/</span></span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">237</span>, <span class="number">180</span>, <span class="number">248</span>); </span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-定位布局"><a href="#1-4-定位布局" class="headerlink" title="1.4 定位布局"></a>1.4 定位布局</h3><blockquote>
+<p>定位：子div绝对定位，父div相对定位，左右两侧通过top、left和right固定位置，中间加magin，宽度自适应。</p>
+</blockquote>
+<ul>
+<li>实现<ul>
+<li>基本布局：左中右</li>
+<li>1 给父div设置相对定位；</li>
+<li>2 给left和right设置绝对定位；</li>
+<li>3 给left设置<code>left:0;</code> <code>top：0；</code></li>
+<li>4 给right设置<code>right:0;</code> <code>top：0；</code></li>
+<li>5 给center设置外边距，左右部分的宽度。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 三栏布局 - 定位布局 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;con&quot;</span> <span class="attr">id</span>=<span class="string">&quot;con5&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left5&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;center5&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right5&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 三栏布局 - 定位布局 */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#con5</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.left5</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">247</span>, <span class="number">181</span>, <span class="number">181</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100px</span>; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.right5</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">137</span>, <span class="number">219</span>, <span class="number">252</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100px</span>; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">right</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.center5</span> &#123; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">237</span>, <span class="number">180</span>, <span class="number">248</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5-float布局"><a href="#1-5-float布局" class="headerlink" title="1.5 float布局"></a>1.5 float布局</h3><blockquote>
+<p>采用float浮动，左右大小固定，中间自适应</p>
+</blockquote>
+<ul>
+<li>实现<ul>
+<li>左右两栏：设置宽度，并分别设置左右浮动；</li>
+<li>中间内容：设置左右外边距为左右两栏的宽度；</li>
+<li>注意：div排列时为左右中。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 三栏布局 - float --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;con1&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;content1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="comment">/* 三栏布局 - float */</span></span></span><br><span class="line"><span class="language-css">    <span class="selector-id">#con1</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">80%</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">306px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">border</span>: <span class="number">3px</span> solid red; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span> auto;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.left1</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">252</span>, <span class="number">175</span>, <span class="number">175</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100px</span>; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">float</span>: left; </span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.right1</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">137</span>, <span class="number">191</span>, <span class="number">252</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100px</span>; </span></span><br><span class="line"><span class="language-css">        <span class="attribute">float</span>: right; </span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">    <span class="selector-class">.content1</span> &#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">height</span>: <span class="number">300px</span>;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">137</span>, <span class="number">252</span>, <span class="number">152</span>);</span></span><br><span class="line"><span class="language-css">        <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">100px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-6-BFC规则"><a href="#1-6-BFC规则" class="headerlink" title="1.6 BFC规则"></a>1.6 BFC规则</h3><blockquote>
+<p>BFC : 块级元素格式化上下文。它决定了块级元素如何对它的内容进行布局，以及和其他元素的关系的相互关系。BFC是一个独立的空间，里面的元素和外面的元素不会相互影响。</p>
+</blockquote>
+<ul>
+<li><p>触发条件</p>
+<ul>
+<li>float不为none；</li>
+<li>position属性为absolute和fixed；</li>
+<li>overflow溢出隐藏的值不为visible；</li>
+<li>html根标签；</li>
+</ul>
+</li>
+<li><p>BFC有哪个规则</p>
+<ul>
+<li>浮动的元素会被父级计算高度（父级触发BFC）；</li>
+<li>BFC区域和浮动元素不重叠；</li>
+<li>margin不会传递给父级（父级触发了BFC）；</li>
+<li>两个相邻元素上下margin会重叠；</li>
+<li>BFC盒子内部的子标签按照垂直从上到下排列；</li>
+<li>共用一个BFC盒子的垂直方向上的外边距会发生塌陷现象；</li>
+<li>子标签都会在父盒子的左边界停靠；</li>
+<li>BFC盒子是一个密闭空间，内外互不影响。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>可解决的问题<ul>
+<li>外边距塌陷问题；</li>
+<li>浮动特性；</li>
+<li>清除浮动影响；</li>
+<li>图文不环绕问题。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-Grid-网格-布局"><a href="#2-Grid-网格-布局" class="headerlink" title="2 Grid(网格)布局"></a>2 Grid(网格)布局</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/57713138">CSS-布局</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">CSS-知识点</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-CSS-盒子模型"
   class="article article-type-post"
   itemscope
@@ -999,347 +1545,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">JS-知识点</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-JS-原型与原型链"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/28/JS-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/"
-    >JS-原型与原型链</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/28/JS-%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/" class="article-date">
-  <time datetime="2022-04-28T10:08:15.000Z" itemprop="datePublished">2022-04-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1-原型与原型链"><a href="#1-原型与原型链" class="headerlink" title="1 原型与原型链"></a>1 原型与原型链</h2><h3 id="1-1-原型-prototype"><a href="#1-1-原型-prototype" class="headerlink" title="1.1 原型 prototype"></a>1.1 原型 prototype</h3><blockquote>
-<p>原型：prototype </p>
-</blockquote>
-<ul>
-<li>所有的<code>引用类型</code>都有一个<code>__proto__</code>(隐式原型)属性， 属性值是一个<code>普通的对象</code>；</li>
-<li>所有的<code>函数</code>都有一个<code>prototype属性</code>， 属性值是一个普通的<code>对象</code>；</li>
-<li>所有<code>引用类型的__proto__属性</code>都<code>指向</code>它<code>构造函数的prototype</code>。</li>
-</ul>
-<img src="proto.png" width="50%" height="60%">
-
-<p>注意：</p>
-<ul>
-<li><strong>常规的对象和数组没有原型，原型是函数特有的。</strong></li>
-</ul>
-<blockquote>
-<p>constructor</p>
-</blockquote>
-<ul>
-<li>每个原型对象都有一个 constructor 属性，指向相关联的构造函数，所以构造函数和构造函数的 prototype 是可以相互指向的。<img src="constructor.png" width="50%" height="60%"> </li>
-</ul>
-<h3 id="1-2-原型链-proto"><a href="#1-2-原型链-proto" class="headerlink" title="1.2 原型链 proto"></a>1.2 原型链 <em>proto</em></h3><blockquote>
-<p>当访问一个对象的某个属性时，首先会在这个对象本身的属性上查找，如果没有找到，则会去它的<code>__proto__</code>(隐式原型)上查找，如果还没有找到就会在它的构造函数的<code>prototype</code>的<code>__proto__</code>中查找，这样一层一层向上查找就会形成一个链式结构，称为<code>原型链</code>。<br>谷歌浏览器改版后展示方式：<code>[[prototype]]</code>。<br>所有对象都有原型链。<br><img src="prototype.png" width="50%" height="60%"> </p>
-</blockquote>
-<h3 id="1-3-原型、原型链和继承"><a href="#1-3-原型、原型链和继承" class="headerlink" title="1.3 原型、原型链和继承"></a>1.3 原型、原型链和继承</h3><blockquote>
-<p>原型的属性和方法可以被继承</p>
-</blockquote>
- <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">function</span> <span class="title function_">Person</span>(<span class="params"></span>)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">name</span> = <span class="string">&quot;a&quot;</span>;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">age</span> = <span class="number">18</span>;</span><br><span class="line"><span class="title class_">Person</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">getAge</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">age</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 实例</span></span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person1.<span class="property">name</span>);</span><br><span class="line">person1.<span class="title function_">getAge</span>();</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>原型链的查找规则</p>
-</blockquote>
-<ul>
-<li>从当前实例属性去查找，如果找到就返回，否者顺着原型链一层一层查找，直到找到null为止，若到null都没有找到，则报错。</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 实例</span></span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">person1.<span class="property">age</span> = <span class="number">28</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person1);</span><br><span class="line">person1.<span class="title function_">getAge</span>();</span><br></pre></td></tr></table></figure>
-<p><img src="egPrototype.png" alt="原型链查找规则"></p>
-<blockquote>
-<p>查找自身的私有属性</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">person1.<span class="property">age</span> = <span class="number">28</span></span><br><span class="line">person1.<span class="property">demo</span> = <span class="string">&quot;demo&quot;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person1); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用hasOwnProperty方法查找自身属性</span></span><br><span class="line"><span class="keyword">let</span> item;</span><br><span class="line"><span class="keyword">for</span>(item <span class="keyword">in</span> person1)&#123;</span><br><span class="line">    <span class="keyword">if</span>(person1.<span class="title function_">hasOwnProperty</span>(item))&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(item);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<img src="itemProto.png" width="50%" height="60%"> 
-
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Joe-and-Joan/p/10692844.html">原型与原型链</a></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">JS-知识点</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-JS-this"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/28/JS-this/"
-    >JS-this</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/28/JS-this/" class="article-date">
-  <time datetime="2022-04-28T10:07:57.000Z" itemprop="datePublished">2022-04-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1-JS中的this"><a href="#1-JS中的this" class="headerlink" title="1 JS中的this"></a>1 JS中的this</h2><ul>
-<li>this指向： <code>this指的是函数运行时 所在的“环境”</code></li>
-</ul>
-<blockquote>
-<p>使用情况1 ： 在函数中直接使用</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">get</span>(<span class="params">con</span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(con);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 函数直接使用，get写法就等于get.call ，指向window</span></span><br><span class="line"><span class="title function_">get</span>(<span class="string">&#x27;hhh&#x27;</span>); </span><br><span class="line">get.<span class="title function_">call</span>(<span class="variable language_">window</span>, <span class="string">&#x27;hhh&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>使用情况2 ： 函数作为对象的方法被调用（谁调用，指向谁）</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>:<span class="string">&#x27;zhangsna&#x27;</span>,</span><br><span class="line">    <span class="attr">run</span>: <span class="keyword">function</span>(<span class="params">time</span>)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;<span class="variable language_">this</span>.name&#125;</span>在跑步，最多跑<span class="subst">$&#123;time&#125;</span>min`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 函数方法被调用，谁调用就指向谁</span></span><br><span class="line">person.<span class="title function_">run</span>(<span class="number">30</span>);</span><br><span class="line">person.<span class="property">run</span>.<span class="title function_">call</span>(person, <span class="number">30</span>);</span><br></pre></td></tr></table></figure>
-
-<p>eg：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fun = a.<span class="property">say</span>;</span><br><span class="line"><span class="comment">// var fun = function () &#123;</span></span><br><span class="line"><span class="comment">//     console.log(this.name);</span></span><br><span class="line"><span class="comment">// &#125;;</span></span><br><span class="line"><span class="title function_">fun</span>()   <span class="comment">// 函数直接调用 fun.call(window)  222</span></span><br><span class="line">a.<span class="title function_">say</span>() <span class="comment">// a.say.call(a)  111</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="number">333</span>,</span><br><span class="line">    <span class="attr">say</span>: <span class="keyword">function</span> (<span class="params">fun</span>) &#123;</span><br><span class="line">        <span class="title function_">fun</span>() <span class="comment">// fun.call(window,a.say)  则this指向a  222</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">b.<span class="title function_">say</span>(a.<span class="property">say</span>); <span class="comment">// 函数方法被调用</span></span><br><span class="line">b.<span class="property">say</span> = a.<span class="property">say</span>;</span><br><span class="line"><span class="comment">// b.say = function () &#123;</span></span><br><span class="line"><span class="comment">//     console.log(this.name);</span></span><br><span class="line"><span class="comment">// &#125;;</span></span><br><span class="line">b.<span class="title function_">say</span>();   <span class="comment">// b.say.call(b) 333</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>普通函数的this指向问题：</p>
-</blockquote>
-<ul>
-<li>谁调用这个方法/谁触发事件，this就指向谁<ul>
-<li>事件处理函数 this =&gt; 指向绑定事件的那个dom元素</li>
-<li>定时器中 this =&gt; 指向window</li>
-<li>自定义函数 this =&gt; 指向window</li>
-<li>自定义对象 this =&gt; 指向对象</li>
-<li>在类中的 this   =&gt; 指向new出来的实例化对象</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>箭头函数的 this 指向：</p>
-</blockquote>
-<ul>
-<li>解释一：this指向的是定义时所在的对象，而不是使用时所在的对象。</li>
-<li>解释二：箭头函数没有this，它的父作用域中的this是谁，箭头函数的this就是谁，否则就是window。</li>
-<li>因为箭头函数没有this，所以它不能用作构造函数。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// -----4----- 箭头函数</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">11</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">x</span>:<span class="number">22</span>,</span><br><span class="line">    <span class="attr">say</span>: <span class="function">()=&gt;</span>&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">x</span>); <span class="comment">// 11</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.<span class="title function_">say</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// -----5----- 箭头函数</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    <span class="attr">birth</span>: <span class="number">1990</span>,</span><br><span class="line">    <span class="attr">getAge</span>: <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> b = <span class="variable language_">this</span>.<span class="property">birth</span>;<span class="comment">// 1990</span></span><br><span class="line">        <span class="keyword">var</span> <span class="title function_">fn</span> = (<span class="params"></span>)=&gt; <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getFullYear</span>() - <span class="variable language_">this</span>.<span class="property">birth</span>;<span class="comment">//2022-1990</span></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_">fn</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.<span class="title function_">getAge</span>(); <span class="comment">//32</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="2-了解this"><a href="#2-了解this" class="headerlink" title="2 了解this"></a>2 了解this</h2><ul>
-<li><p>历史原因：</p>
-<ul>
-<li>JS语言设计this是跟内存的数据结构有关。</li>
-</ul>
-</li>
-<li><p>原理</p>
-<ul>
-<li>因为函数可以在不同的环境下执行，所以就需要一种机制，能够在函数体内获取当前的运行环境。</li>
-</ul>
-</li>
-<li><p>设计目的</p>
-<ul>
-<li>this的设计目的就是在函数体内，指向函数当前的运行环境。</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-改变this指向的方法"><a href="#3-改变this指向的方法" class="headerlink" title="3 改变this指向的方法"></a>3 改变this指向的方法</h2><ul>
-<li>call、apply、bind ： 是所有函数都具有的方法</li>
-<li>注意：函数也是对象，函数具有方法</li>
-</ul>
-<p>*** - 引擎会将函数单独保存在内存中。 </p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">JS-知识点</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-HTML-input标签"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/28/HTML-input%E6%A0%87%E7%AD%BE/"
-    >HTML-input标签</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/28/HTML-input%E6%A0%87%E7%AD%BE/" class="article-date">
-  <time datetime="2022-04-28T10:06:11.000Z" itemprop="datePublished">2022-04-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/HTML/">HTML</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="HTML中的input标签的type"><a href="#HTML中的input标签的type" class="headerlink" title="HTML中的input标签的type"></a>HTML中的input标签的type</h2><blockquote>
-<p>input标签： 用于搜集用户信息，根据不同的type属性值，输入字段拥有很多种形式。</p>
-</blockquote>
-<ul>
-<li>HTML5中增加的新类型：<ul>
-<li>color、date、datetime、datetime-local、month、week、time、email、number、range、search、tel 和 url。</li>
-<li>语法：<code>&lt;input type=&quot; value &quot;&gt;</code></li>
-</ul>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>type值</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>color</td>
-<td>定义拾色器。</td>
-</tr>
-<tr>
-<td>date</td>
-<td>定义 date 控件（包括年、月、日，不包括时间）。</td>
-</tr>
-<tr>
-<td>datetime</td>
-<td>定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，基于 UTC 时区）。</td>
-</tr>
-<tr>
-<td>datetime-local</td>
-<td>定义 date 和 time 控件（包括年、月、日、时、分、秒、几分之一秒，不带时区）。</td>
-</tr>
-<tr>
-<td>email</td>
-<td>定义用于 e-mail 地址的字段。</td>
-</tr>
-<tr>
-<td>month</td>
-<td>定义 month 和 year 控件（不带时区）。</td>
-</tr>
-<tr>
-<td>number</td>
-<td>定义用于输入数字的字段。</td>
-</tr>
-<tr>
-<td>range</td>
-<td>定义用于精确值不重要的输入数字的控件（比如 slider 控件）。</td>
-</tr>
-<tr>
-<td>search</td>
-<td>定义用于输入搜索字符串的文本字段。</td>
-</tr>
-<tr>
-<td>tel</td>
-<td>定义用于输入电话号码的字段。</td>
-</tr>
-<tr>
-<td>time</td>
-<td>定义用于输入时间的控件（不带时区）。</td>
-</tr>
-<tr>
-<td>url</td>
-<td>定义用于输入 URL 的字段。</td>
-</tr>
-<tr>
-<td>week</td>
-<td>定义 week 和 year 控件（不带时区）。</td>
-</tr>
-</tbody></table>
-<ul>
-<li>常见：<ul>
-<li>text(默认) ：文本框</li>
-<li>password：密码框</li>
-<li>checkbox：多选框</li>
-<li>radio：单选框</li>
-<li>submit：提交按钮,  reset：重置按钮, image：图片按钮, button：普通按钮</li>
-<li>file：选择文件的控件</li>
-<li>search：搜索框</li>
-<li>hidden： 不显示的控件</li>
-</ul>
-</li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">HTML-知识点</a></li></ul>
 
     </footer>
   </div>
