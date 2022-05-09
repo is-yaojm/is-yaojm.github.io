@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">861</span>
+            <span class="post-count">928</span>
         </span>
     </span>
 
@@ -152,7 +152,15 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> postorderTraversal = <span class="keyword">function</span>(<span class="params">root</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> res =[];</span><br><span class="line">    <span class="keyword">const</span> stack = [root];</span><br><span class="line">    <span class="keyword">let</span> cur = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(!root) <span class="keyword">return</span> res.<span class="title function_">reverse</span>();</span><br><span class="line">    <span class="keyword">while</span>( stack.<span class="property">length</span>)&#123;</span><br><span class="line">        cur = stack.<span class="title function_">pop</span>();</span><br><span class="line">        res.<span class="title function_">push</span>(cur.<span class="property">val</span>);</span><br><span class="line">        <span class="keyword">if</span>( cur.<span class="property">left</span> )  stack.<span class="title function_">push</span>(cur.<span class="property">left</span>);</span><br><span class="line">        <span class="keyword">if</span>( cur.<span class="property">right</span> ) stack.<span class="title function_">push</span>(cur.<span class="property">right</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res.<span class="title function_">reverse</span>();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="3-二叉树的统一迭代法"><a href="#3-二叉树的统一迭代法" class="headerlink" title="3 二叉树的统一迭代法"></a>3 二叉树的统一迭代法</h1><h1 id="4-二叉树的层序遍历"><a href="#4-二叉树的层序遍历" class="headerlink" title="4 二叉树的层序遍历"></a>4 二叉树的层序遍历</h1> 
+
+<ul>
+<li>递归与迭代：<ul>
+<li>从时间复杂度上来讲，迭代法和递归法差不多（在不考虑函数调用开销和函数调用产生的堆栈开销）。但是，空间复杂度上，递归开销较大。</li>
+<li>递归容易理解，但是收敛不好，容易栈溢出。</li>
+</ul>
+</li>
+</ul>
+<h1 id="4-二叉树的层序遍历"><a href="#4-二叉树的层序遍历" class="headerlink" title="4 二叉树的层序遍历"></a>4 二叉树的层序遍历</h1> 
       <!-- reward -->
       
       <div id="reword-out">

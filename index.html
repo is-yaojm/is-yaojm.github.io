@@ -140,6 +140,140 @@
     
     
     <article
+  id="post-JS-深拷贝和浅拷贝"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/05/07/JS-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D/"
+    >JS-深拷贝和浅拷贝</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/05/07/JS-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="article-date">
+  <time datetime="2022-05-07T11:27:02.000Z" itemprop="datePublished">2022-05-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="JS-深拷贝和浅拷贝"><a href="#JS-深拷贝和浅拷贝" class="headerlink" title="JS-深拷贝和浅拷贝"></a>JS-深拷贝和浅拷贝</h1><h2 id="1-浅拷贝"><a href="#1-浅拷贝" class="headerlink" title="1 浅拷贝"></a>1 浅拷贝</h2><blockquote>
+<p>浅拷贝：只复制一层对象，当对象的属性是引用类型时，实质上复制的是其引用。当引用指向的值发生改变时，原对象的属性值也会跟着变化。</p>
+</blockquote>
+<ul>
+<li>新旧对象：相互影响。</li>
+<li>浅拷贝的实现<ul>
+<li>引用类型对象的属性值发生变化时；</li>
+<li>Object.assign();</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-深拷贝"><a href="#2-深拷贝" class="headerlink" title="2 深拷贝"></a>2 深拷贝</h2><blockquote>
+<p>深拷贝： 在拷贝的时候创建新的对象，并把原对象所有的属性都深拷贝到新对象。原属性如果是对象，也会重新创建新的对象并拷贝到新对象属性中。深拷贝旧对象和新对象是相互独立的。</p>
+</blockquote>
+<ul>
+<li>新旧对象：互不影响。</li>
+<li>深拷贝的实现<ul>
+<li>JSON.parse() + JSON.stringify();</li>
+<li>递归实现深拷贝</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 深拷贝方法封装</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">b</span>: &#123;</span><br><span class="line">        <span class="attr">c</span>: <span class="string">&#x27;hhh&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> oCopy = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj == <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">            <span class="keyword">if</span> (obj.<span class="title function_">hasOwnProperty</span>(k)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">typeof</span> obj[k] == <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">                    <span class="comment">// 递归实现</span></span><br><span class="line">                    oCopy[k] = <span class="title function_">fun</span>(obj[k]);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    oCopy[k] = obj[k];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> oCopy;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> createObj = <span class="title function_">fun</span>(obj);</span><br><span class="line"><span class="comment">// console.log(obj, createObj);</span></span><br><span class="line"></span><br><span class="line">createObj.<span class="property">b</span>.<span class="property">c</span> = <span class="string">&#x27;123455&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj, createObj);</span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">JS-知识点</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-JS-面试总结2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/05/07/JS-%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%932/"
+    >JS-面试总结2</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/05/07/JS-%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%932/" class="article-date">
+  <time datetime="2022-05-07T11:21:24.000Z" itemprop="datePublished">2022-05-07</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="JS-面试总结2"><a href="#JS-面试总结2" class="headerlink" title="JS-面试总结2"></a>JS-面试总结2</h1><h2 id="1-new操作符具体做了什么？"><a href="#1-new操作符具体做了什么？" class="headerlink" title="1 new操作符具体做了什么？"></a>1 new操作符具体做了什么？</h2><ul>
+<li>1 创建了一个对象 new Object();</li>
+<li>2 原型赋值【指向共同一个原型对象】; <code>对象.__proto__ = Fun.prototype</code></li>
+<li>3 改变this指向。<code>Fun.call(obj)</code></li>
+</ul>
+<h2 id="2-封装一个对象深拷贝的方法"><a href="#2-封装一个对象深拷贝的方法" class="headerlink" title="2 封装一个对象深拷贝的方法"></a>2 封装一个对象深拷贝的方法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 深拷贝方法封装</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">b</span>: &#123;</span><br><span class="line">        <span class="attr">c</span>: <span class="string">&#x27;hhh&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> oCopy = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj == <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">            <span class="keyword">if</span> (obj.<span class="title function_">hasOwnProperty</span>(k)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">typeof</span> obj[k] == <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">                    <span class="comment">// 递归实现</span></span><br><span class="line">                    oCopy[k] = <span class="title function_">fun</span>(obj[k]);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    oCopy[k] = obj[k];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> oCopy;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> createObj = <span class="title function_">fun</span>(obj);</span><br><span class="line"><span class="comment">// console.log(obj, createObj);</span></span><br><span class="line"></span><br><span class="line">createObj.<span class="property">b</span>.<span class="property">c</span> = <span class="string">&#x27;123455&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj, createObj);</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-CSS-自适应布局"
   class="article article-type-post"
   itemscope
@@ -264,7 +398,15 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> postorderTraversal = <span class="keyword">function</span>(<span class="params">root</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> res =[];</span><br><span class="line">    <span class="keyword">const</span> stack = [root];</span><br><span class="line">    <span class="keyword">let</span> cur = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(!root) <span class="keyword">return</span> res.<span class="title function_">reverse</span>();</span><br><span class="line">    <span class="keyword">while</span>( stack.<span class="property">length</span>)&#123;</span><br><span class="line">        cur = stack.<span class="title function_">pop</span>();</span><br><span class="line">        res.<span class="title function_">push</span>(cur.<span class="property">val</span>);</span><br><span class="line">        <span class="keyword">if</span>( cur.<span class="property">left</span> )  stack.<span class="title function_">push</span>(cur.<span class="property">left</span>);</span><br><span class="line">        <span class="keyword">if</span>( cur.<span class="property">right</span> ) stack.<span class="title function_">push</span>(cur.<span class="property">right</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res.<span class="title function_">reverse</span>();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="3-二叉树的统一迭代法"><a href="#3-二叉树的统一迭代法" class="headerlink" title="3 二叉树的统一迭代法"></a>3 二叉树的统一迭代法</h1><h1 id="4-二叉树的层序遍历"><a href="#4-二叉树的层序遍历" class="headerlink" title="4 二叉树的层序遍历"></a>4 二叉树的层序遍历</h1> 
+
+<ul>
+<li>递归与迭代：<ul>
+<li>从时间复杂度上来讲，迭代法和递归法差不多（在不考虑函数调用开销和函数调用产生的堆栈开销）。但是，空间复杂度上，递归开销较大。</li>
+<li>递归容易理解，但是收敛不好，容易栈溢出。</li>
+</ul>
+</li>
+</ul>
+<h1 id="4-二叉树的层序遍历"><a href="#4-二叉树的层序遍历" class="headerlink" title="4 二叉树的层序遍历"></a>4 二叉树的层序遍历</h1> 
       <!-- reward -->
       
     </div>
@@ -356,6 +498,26 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Fun</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">run</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;跑快点&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// person方法共享</span></span><br><span class="line"><span class="title class_">Fun</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">person</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;人具有的能力&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 写法2</span></span><br><span class="line"><span class="title class_">Fun</span>.<span class="property"><span class="keyword">prototype</span></span> = &#123;</span><br><span class="line">    person : <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;人具有的能力&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o1 = <span class="keyword">new</span> <span class="title class_">Fun</span>();</span><br><span class="line"><span class="keyword">var</span> o2 = <span class="keyword">new</span> <span class="title class_">Fun</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(o1.<span class="property">run</span> === o2.<span class="property">run</span> ); <span class="comment">// false 不共享</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(o1.<span class="property">person</span> === o2.<span class="property">person</span>); <span class="comment">// true  共享</span></span><br></pre></td></tr></table></figure>
 
+
+<h2 id="4-函数和对象关系"><a href="#4-函数和对象关系" class="headerlink" title="4 函数和对象关系"></a>4 函数和对象关系</h2><ul>
+<li>函数有： <code>prototype</code></li>
+<li>对象有： <code>__proto__</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过构造函数创建对象</span></span><br><span class="line">  <span class="keyword">var</span> obj =<span class="keyword">new</span> <span class="title class_">Fun</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Fun</span>.<span class="property"><span class="keyword">prototype</span></span> === obj.<span class="property">__proto__</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>原型与原型链</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj =<span class="keyword">new</span> <span class="title class_">Fun</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">__proto__</span>); </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    constructor: ƒ  </span></span><br><span class="line"><span class="comment">    [[Prototype]]: Object </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">__proto__</span>.<span class="property">__proto__</span>); </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    constructor: ƒ,</span></span><br><span class="line"><span class="comment">    __defineGetter__: ƒ, </span></span><br><span class="line"><span class="comment">    __defineSetter__: ƒ, </span></span><br><span class="line"><span class="comment">    hasOwnProperty: ƒ, </span></span><br><span class="line"><span class="comment">    __lookupGetter__: ƒ, </span></span><br><span class="line"><span class="comment">    …</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-new关键字"><a href="#5-new关键字" class="headerlink" title="5 new关键字"></a>5 new关键字</h2><ul>
+<li>new操作符具体做了什么？<ul>
+<li>1 创建了一个对象 new Object();</li>
+<li>2 原型赋值【指向共同一个原型对象】; <code>对象.__proto__ = Fun.prototype</code></li>
+<li>3 改变this指向。<code>Fun.call(obj)</code></li>
+</ul>
+</li>
+</ul>
  
       <!-- reward -->
       
@@ -1356,187 +1518,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-eslintrc中的问题"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/29/eslintrc%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"
-    >eslintrc中的问题</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/29/eslintrc%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
-  <time datetime="2022-04-29T13:19:33.000Z" itemprop="datePublished">2022-04-29</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <ol>
-<li><p>报错：Vue运行出现Missing semicolon错误</p>
-<ul>
-<li>增加分号</li>
-</ul>
-</li>
-<li><p>报错：Strings must use singlequote.</p>
-<ul>
-<li>/* eslint-disable */</li>
-</ul>
-</li>
-<li><p>报错：eslint报错Expected linebreaks to be ‘LF’ but found ‘CRLF’的解决方案</p>
-<ul>
-<li>在.eslintrc文件 rules 里面 配置<code>&quot;linebreak-style&quot;: [0 ,&quot;error&quot;, &quot;windows&quot;], </code></li>
-</ul>
-</li>
-</ol>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%97%AE%E9%A2%98/" rel="tag">问题</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-CSS-单位"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/28/CSS-%E5%8D%95%E4%BD%8D/"
-    >CSS-单位</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/28/CSS-%E5%8D%95%E4%BD%8D/" class="article-date">
-  <time datetime="2022-04-28T10:49:46.000Z" itemprop="datePublished">2022-04-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="CSS单位"><a href="#CSS单位" class="headerlink" title="CSS单位"></a>CSS单位</h1><h2 id="1-相对单位"><a href="#1-相对单位" class="headerlink" title="1 相对单位"></a>1 相对单位</h2><blockquote>
-<p>相对单位规定相对于另一个长度属性的长度。它在不同渲染介质之间缩放表现更好。<br><img src="%E7%9B%B8%E5%AF%B9%E5%8D%95%E4%BD%8D.png" alt="相对单位"></p>
-</blockquote>
-<h3 id="1-1-em和rem"><a href="#1-1-em和rem" class="headerlink" title="1.1 em和rem"></a>1.1 em和rem</h3><blockquote>
-<p>em : 相对于元素(父元素)的字体大小.</p>
-</blockquote>
-<ul>
-<li>em：如果自身元素未设置字体大小，那么其根据父元素的字体大小进行计算；如果自身元素设置了字体大小，则基于自身的字体大小进行计算。</li>
-<li>em的值不是固定的</li>
-</ul>
-<blockquote>
-<p>rem : 相对于根元素(html)的字体大小计算。</p>
-</blockquote>
-<ul>
-<li><p>rem在处理小数的时候会有误差。</p>
-</li>
-<li><p>不支持iframe，并且这里存在一个理念问题，大屏是为了更大更清晰，还是为了承载更多内容。</p>
-</li>
-<li><p><code>em</code>与<code>rem</code>的选择情况：</p>
-<ul>
-<li>两者在客户端中计算出来的样式都会以px的形式显示；</li>
-<li><code>rem</code>是<code>相对根元素</code>html的字体大小计算，<code>em</code>是<code>相对于元素</code>的字体大小进行计算；</li>
-<li>当需要根据<code>浏览器的font-size设置缩放</code>时，使用<code>rem</code>；</li>
-<li>使用em应该根据组件的font-size来定；</li>
-<li>rem可以从浏览器字体设置中继承font-size值；</li>
-<li>em可能受任何继承过来的父元素font-size的影响。</li>
-<li>一般在使用em和rem时将font-size的值初始化为100px(<code>font-size: 625%;</code>)，取消默认大小对于字体的影响，若要设置30px，则<code>width: .3rem</code>。 (不能取10px，因为移动端字体最小为12px)</li>
-</ul>
-</li>
-</ul>
-<h3 id="1-2-vh和vw，vmin和vmax"><a href="#1-2-vh和vw，vmin和vmax" class="headerlink" title=".1.2 vh和vw，vmin和vmax"></a>.1.2 vh和vw，vmin和vmax</h3><ul>
-<li>vw：视窗宽度的百分比；(<code>width: 100vw;</code>   )</li>
-<li>vh：视窗高度的百分比；(<code>height: 100vh;</code>  设置100vh和100vw后div占慢整个屏幕 )</li>
-<li>vmax：较大的 vh 和 vw；</li>
-<li>vmin：较小的 vh 和 vw。</li>
-</ul>
-<p>eg:</p>
-<ul>
-<li>若一个浏览器高度为500px，宽度为1200px，<ul>
-<li>1vh = 5px;</li>
-<li>1vw = 12px;</li>
-<li>1vmin = 5px;</li>
-<li>1vmax = 12px.</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-绝对单位"><a href="#2-绝对单位" class="headerlink" title="2 绝对单位"></a>2 绝对单位</h2><blockquote>
-<p>绝对单位是固定的，用任何一个绝对长度表示的长度都将恰好显示为这个尺寸。</p>
-</blockquote>
-<ul>
-<li>不建议在屏幕上使用绝对长度单位，因为屏幕尺寸变化较大。</li>
-</ul>
-<p><img src="%E7%BB%9D%E5%AF%B9%E5%8D%95%E4%BD%8D.png" alt="绝对单位"></p>
-<h2 id="3-百分比单位"><a href="#3-百分比单位" class="headerlink" title="3 百分比单位"></a>3 百分比单位</h2><ul>
-<li>百分比（%）是较常用的单位之一，所有接受长度值的属性都可以使用百分比单位。但是不同属性使用该单位的效果可能并不一样。但是都需要有一个参照值，也就是说百分比值是一个相对的值。 ​</li>
-</ul>
-<p><img src="%E7%99%BE%E5%88%86%E6%AF%94%E5%8D%95%E4%BD%8D.png" alt="百分比单位"></p>
-<h2 id="4-角度单位-​"><a href="#4-角度单位-​" class="headerlink" title="4 角度单位 ​"></a>4 角度单位 ​</h2><p><img src="%E8%A7%92%E5%BA%A6%E5%8D%95%E4%BD%8D.png" alt="角度单位"></p>
-<ul>
-<li>补充<ul>
-<li>谷歌浏览器默认字体大小为16px，最小为12px。</li>
-</ul>
-</li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">CSS-知识点</a></li></ul>
 
     </footer>
   </div>

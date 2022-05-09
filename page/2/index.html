@@ -140,6 +140,187 @@
     
     
     <article
+  id="post-eslintrc中的问题"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/29/eslintrc%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"
+    >eslintrc中的问题</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/29/eslintrc%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2022-04-29T13:19:33.000Z" itemprop="datePublished">2022-04-29</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <ol>
+<li><p>报错：Vue运行出现Missing semicolon错误</p>
+<ul>
+<li>增加分号</li>
+</ul>
+</li>
+<li><p>报错：Strings must use singlequote.</p>
+<ul>
+<li>/* eslint-disable */</li>
+</ul>
+</li>
+<li><p>报错：eslint报错Expected linebreaks to be ‘LF’ but found ‘CRLF’的解决方案</p>
+<ul>
+<li>在.eslintrc文件 rules 里面 配置<code>&quot;linebreak-style&quot;: [0 ,&quot;error&quot;, &quot;windows&quot;], </code></li>
+</ul>
+</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%97%AE%E9%A2%98/" rel="tag">问题</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
+  id="post-CSS-单位"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/28/CSS-%E5%8D%95%E4%BD%8D/"
+    >CSS-单位</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/28/CSS-%E5%8D%95%E4%BD%8D/" class="article-date">
+  <time datetime="2022-04-28T10:49:46.000Z" itemprop="datePublished">2022-04-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="CSS单位"><a href="#CSS单位" class="headerlink" title="CSS单位"></a>CSS单位</h1><h2 id="1-相对单位"><a href="#1-相对单位" class="headerlink" title="1 相对单位"></a>1 相对单位</h2><blockquote>
+<p>相对单位规定相对于另一个长度属性的长度。它在不同渲染介质之间缩放表现更好。<br><img src="%E7%9B%B8%E5%AF%B9%E5%8D%95%E4%BD%8D.png" alt="相对单位"></p>
+</blockquote>
+<h3 id="1-1-em和rem"><a href="#1-1-em和rem" class="headerlink" title="1.1 em和rem"></a>1.1 em和rem</h3><blockquote>
+<p>em : 相对于元素(父元素)的字体大小.</p>
+</blockquote>
+<ul>
+<li>em：如果自身元素未设置字体大小，那么其根据父元素的字体大小进行计算；如果自身元素设置了字体大小，则基于自身的字体大小进行计算。</li>
+<li>em的值不是固定的</li>
+</ul>
+<blockquote>
+<p>rem : 相对于根元素(html)的字体大小计算。</p>
+</blockquote>
+<ul>
+<li><p>rem在处理小数的时候会有误差。</p>
+</li>
+<li><p>不支持iframe，并且这里存在一个理念问题，大屏是为了更大更清晰，还是为了承载更多内容。</p>
+</li>
+<li><p><code>em</code>与<code>rem</code>的选择情况：</p>
+<ul>
+<li>两者在客户端中计算出来的样式都会以px的形式显示；</li>
+<li><code>rem</code>是<code>相对根元素</code>html的字体大小计算，<code>em</code>是<code>相对于元素</code>的字体大小进行计算；</li>
+<li>当需要根据<code>浏览器的font-size设置缩放</code>时，使用<code>rem</code>；</li>
+<li>使用em应该根据组件的font-size来定；</li>
+<li>rem可以从浏览器字体设置中继承font-size值；</li>
+<li>em可能受任何继承过来的父元素font-size的影响。</li>
+<li>一般在使用em和rem时将font-size的值初始化为100px(<code>font-size: 625%;</code>)，取消默认大小对于字体的影响，若要设置30px，则<code>width: .3rem</code>。 (不能取10px，因为移动端字体最小为12px)</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-vh和vw，vmin和vmax"><a href="#1-2-vh和vw，vmin和vmax" class="headerlink" title=".1.2 vh和vw，vmin和vmax"></a>.1.2 vh和vw，vmin和vmax</h3><ul>
+<li>vw：视窗宽度的百分比；(<code>width: 100vw;</code>   )</li>
+<li>vh：视窗高度的百分比；(<code>height: 100vh;</code>  设置100vh和100vw后div占慢整个屏幕 )</li>
+<li>vmax：较大的 vh 和 vw；</li>
+<li>vmin：较小的 vh 和 vw。</li>
+</ul>
+<p>eg:</p>
+<ul>
+<li>若一个浏览器高度为500px，宽度为1200px，<ul>
+<li>1vh = 5px;</li>
+<li>1vw = 12px;</li>
+<li>1vmin = 5px;</li>
+<li>1vmax = 12px.</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-绝对单位"><a href="#2-绝对单位" class="headerlink" title="2 绝对单位"></a>2 绝对单位</h2><blockquote>
+<p>绝对单位是固定的，用任何一个绝对长度表示的长度都将恰好显示为这个尺寸。</p>
+</blockquote>
+<ul>
+<li>不建议在屏幕上使用绝对长度单位，因为屏幕尺寸变化较大。</li>
+</ul>
+<p><img src="%E7%BB%9D%E5%AF%B9%E5%8D%95%E4%BD%8D.png" alt="绝对单位"></p>
+<h2 id="3-百分比单位"><a href="#3-百分比单位" class="headerlink" title="3 百分比单位"></a>3 百分比单位</h2><ul>
+<li>百分比（%）是较常用的单位之一，所有接受长度值的属性都可以使用百分比单位。但是不同属性使用该单位的效果可能并不一样。但是都需要有一个参照值，也就是说百分比值是一个相对的值。 ​</li>
+</ul>
+<p><img src="%E7%99%BE%E5%88%86%E6%AF%94%E5%8D%95%E4%BD%8D.png" alt="百分比单位"></p>
+<h2 id="4-角度单位-​"><a href="#4-角度单位-​" class="headerlink" title="4 角度单位 ​"></a>4 角度单位 ​</h2><p><img src="%E8%A7%92%E5%BA%A6%E5%8D%95%E4%BD%8D.png" alt="角度单位"></p>
+<ul>
+<li>补充<ul>
+<li>谷歌浏览器默认字体大小为16px，最小为12px。</li>
+</ul>
+</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">CSS-知识点</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-CSS-Grid布局"
   class="article article-type-post"
   itemscope
@@ -1372,167 +1553,6 @@
 
 <h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><ul>
 <li>防抖和节流都是用来防止高频率的JS代码的执行。</li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">JS-知识点</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-JS-闭包"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/28/JS-%E9%97%AD%E5%8C%85/"
-    >JS-闭包</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/28/JS-%E9%97%AD%E5%8C%85/" class="article-date">
-  <time datetime="2022-04-28T10:08:28.000Z" itemprop="datePublished">2022-04-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="闭包与递归"><a href="#闭包与递归" class="headerlink" title="闭包与递归"></a>闭包与递归</h1><h2 id="1-闭包"><a href="#1-闭包" class="headerlink" title="1 闭包"></a>1 闭包</h2><blockquote>
-<p>闭包： 可以在一个内层函数中访问到其外层函数的作用域。</p>
-</blockquote>
-<ul>
-<li><p>闭包是<code>一个函数</code>加上到<code>创建函数</code>的<code>作用域的连接</code>，闭包“关闭”了函数的自由变量。</p>
-</li>
-<li><p>简单来讲：闭包就是指有权访问另一个函数作用域中的变量的函数。（b带着a的ao出去了。）</p>
-<ul>
-<li>1 : 有两个函数，作用域有连接关系；</li>
-<li>2 ：变量不自由==》 会停留在内存中，不会销毁。 </li>
-</ul>
-</li>
-<li><p>理解：外部函数调用之后其变量对象本应该销毁，但是闭包的存在是我们仍然可以访问外部函数的变量对象。</p>
-</li>
-<li><p>闭包的特性：</p>
-<ul>
-<li>函数嵌套函数；</li>
-<li>函数内部引用了函数外部的参数和变量；</li>
-<li>参数和变量不会被垃圾回收机制收回。</li>
-</ul>
-</li>
-<li><p>闭包的优点：</p>
-<ul>
-<li>保护函数内的变量安全，实现封装，防止变量流入其他环境发生命名冲突；</li>
-<li>在内存中维持一个变量，可以做缓存；</li>
-<li>匿名自执行函数可以减少内存消耗。</li>
-</ul>
-</li>
-<li><h2 id="闭包的作用-使用"><a href="#闭包的作用-使用" class="headerlink" title="闭包的作用/使用"></a>闭包的作用/使用</h2></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> name =<span class="string">&quot;asd&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="title function_">a</span>();</span><br></pre></td></tr></table></figure>
-<ul>
-<li>JS的防抖和节流使用了闭包。</li>
-</ul>
-<h2 id="2-递归"><a href="#2-递归" class="headerlink" title="2 递归"></a>2 递归</h2><blockquote>
-<p>递归函数： 自己调用自己。</p>
-</blockquote>
-<ul>
-<li><p>注意</p>
-<ul>
-<li>必须有结束条件，如果没有结束条件就会变成死循环。</li>
-</ul>
-</li>
-<li><p>作用</p>
-<ul>
-<li>累加，阶乘；</li>
-<li>数组扁平化：把多维数组变成一维数组；</li>
-<li>dom树的递归；</li>
-<li>斐波那契数列。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 累加器</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> n + <span class="title function_">add</span>(n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="title function_">add</span>(<span class="number">10</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 阶乘</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">factorial</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> n * <span class="title function_">add</span>(n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="title function_">factorial</span>(<span class="number">10</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组扁平化</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">arr</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> result = [];</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">let</span> i=<span class="number">0</span> ; i&lt; arr.<span class="property">length</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> arr[i]==<span class="string">&#x27;object&#x27;</span>)&#123;</span><br><span class="line">            result = result.<span class="title function_">concat</span>( <span class="title function_">fun</span>(arr[i]));</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            result.<span class="title function_">push</span>(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr1 = <span class="title function_">fun</span>([<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,[<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;f&#x27;</span>,[<span class="string">&#x27;o&#x27;</span>,<span class="string">&#x27;p&#x27;</span>]]]);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Dom树的递归</span></span><br><span class="line"><span class="keyword">var</span> arrDom = [];</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">dom</span>) &#123;</span><br><span class="line">    <span class="comment">// node保存父元素</span></span><br><span class="line">    <span class="keyword">let</span> node = dom.<span class="property">parentNode</span>;</span><br><span class="line">    <span class="comment">// 判断条件： 如果父节点存在</span></span><br><span class="line">    <span class="keyword">if</span> (node) &#123;</span><br><span class="line">        arrDom.<span class="title function_">push</span>(node);</span><br><span class="line">        <span class="title function_">fun</span>(node);</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fun</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;aaa&#x27;</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arrDom);</span><br></pre></td></tr></table></figure> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">JS-知识点</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-JS-Promise"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/28/JS-Promise/"
-    >JS-Promise</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/28/JS-Promise/" class="article-date">
-  <time datetime="2022-04-28T10:08:22.000Z" itemprop="datePublished">2022-04-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1 2 4 3 </span></span><br><span class="line"><span class="keyword">const</span> promise = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="title function_">resolve</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">2</span>);</span><br><span class="line">&#125;)</span><br><span class="line">promise.<span class="title function_">then</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">3</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="number">4</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Promise的构造函数是同步执行</li>
-<li>.then()是异步执行的</li>
 </ul>
  
       <!-- reward -->

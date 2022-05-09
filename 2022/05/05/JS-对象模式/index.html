@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">518</span>
+            <span class="post-count">637</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -151,6 +151,26 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">Fun</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">run</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;跑快点&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// person方法共享</span></span><br><span class="line"><span class="title class_">Fun</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">person</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;人具有的能力&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 写法2</span></span><br><span class="line"><span class="title class_">Fun</span>.<span class="property"><span class="keyword">prototype</span></span> = &#123;</span><br><span class="line">    person : <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;人具有的能力&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o1 = <span class="keyword">new</span> <span class="title class_">Fun</span>();</span><br><span class="line"><span class="keyword">var</span> o2 = <span class="keyword">new</span> <span class="title class_">Fun</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(o1.<span class="property">run</span> === o2.<span class="property">run</span> ); <span class="comment">// false 不共享</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(o1.<span class="property">person</span> === o2.<span class="property">person</span>); <span class="comment">// true  共享</span></span><br></pre></td></tr></table></figure>
 
+
+<h2 id="4-函数和对象关系"><a href="#4-函数和对象关系" class="headerlink" title="4 函数和对象关系"></a>4 函数和对象关系</h2><ul>
+<li>函数有： <code>prototype</code></li>
+<li>对象有： <code>__proto__</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过构造函数创建对象</span></span><br><span class="line">  <span class="keyword">var</span> obj =<span class="keyword">new</span> <span class="title class_">Fun</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Fun</span>.<span class="property"><span class="keyword">prototype</span></span> === obj.<span class="property">__proto__</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>原型与原型链</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj =<span class="keyword">new</span> <span class="title class_">Fun</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">__proto__</span>); </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    constructor: ƒ  </span></span><br><span class="line"><span class="comment">    [[Prototype]]: Object </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">__proto__</span>.<span class="property">__proto__</span>); </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    constructor: ƒ,</span></span><br><span class="line"><span class="comment">    __defineGetter__: ƒ, </span></span><br><span class="line"><span class="comment">    __defineSetter__: ƒ, </span></span><br><span class="line"><span class="comment">    hasOwnProperty: ƒ, </span></span><br><span class="line"><span class="comment">    __lookupGetter__: ƒ, </span></span><br><span class="line"><span class="comment">    …</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5-new关键字"><a href="#5-new关键字" class="headerlink" title="5 new关键字"></a>5 new关键字</h2><ul>
+<li>new操作符具体做了什么？<ul>
+<li>1 创建了一个对象 new Object();</li>
+<li>2 原型赋值【指向共同一个原型对象】; <code>对象.__proto__ = Fun.prototype</code></li>
+<li>3 改变this指向。<code>Fun.call(obj)</code></li>
+</ul>
+</li>
+</ul>
  
       <!-- reward -->
       
