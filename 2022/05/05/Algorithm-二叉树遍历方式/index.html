@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">928</span>
+            <span class="post-count">1k</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">4 分钟</span>
         </span>
     </span>
 </div>
@@ -160,7 +160,29 @@
 </ul>
 </li>
 </ul>
-<h1 id="4-二叉树的层序遍历"><a href="#4-二叉树的层序遍历" class="headerlink" title="4 二叉树的层序遍历"></a>4 二叉树的层序遍历</h1> 
+<h1 id="4-二叉树的层序遍历"><a href="#4-二叉树的层序遍历" class="headerlink" title="4 二叉树的层序遍历"></a>4 二叉树的层序遍历</h1><pre><code class="js">var levelOrder = function(root) &#123;
+    //二叉树的层序遍历
+    let res=[],queue=[];
+    queue.push(root); 
+    while(queue.length &amp;&amp; root!==null)&#123;
+        // 记录当前层级节点数
+        let length=queue.length;
+        //存放每一层的节点 
+        let cur=[];
+        for(let i=0;i&lt;length;i++)&#123;
+            let node=queue.shift();
+            cur.push(node.val);
+            // 存放当前层下一层的节点
+            if(node.left) queue.push(node.left);
+           if(node.right) queue.push(node.right);
+        &#125;
+        //把每一层的结果放到结果数组
+        res.push(cur);
+    &#125;
+    return res;
+&#125;;
+</code></pre>
+ 
       <!-- reward -->
       
       <div id="reword-out">
