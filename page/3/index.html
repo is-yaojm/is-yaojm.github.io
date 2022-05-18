@@ -140,6 +140,71 @@
     
     
     <article
+  id="post-eslintrc中的问题"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/29/eslintrc%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"
+    >eslintrc中的问题</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/29/eslintrc%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2022-04-29T13:19:33.000Z" itemprop="datePublished">2022-04-29</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <ol>
+<li><p>报错：Vue运行出现Missing semicolon错误</p>
+<ul>
+<li>增加分号</li>
+</ul>
+</li>
+<li><p>报错：Strings must use singlequote.</p>
+<ul>
+<li>/* eslint-disable */</li>
+</ul>
+</li>
+<li><p>报错：eslint报错Expected linebreaks to be ‘LF’ but found ‘CRLF’的解决方案</p>
+<ul>
+<li>在.eslintrc文件 rules 里面 配置<code>&quot;linebreak-style&quot;: [0 ,&quot;error&quot;, &quot;windows&quot;], </code></li>
+</ul>
+</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%97%AE%E9%A2%98/" rel="tag">问题</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-CSS-单位"
   class="article article-type-post"
   itemscope
@@ -1499,110 +1564,6 @@
 <li>防抖和节流都是用来防止高频率的JS代码的执行。</li>
 </ul>
  
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">JS-知识点</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-JS-闭包"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/28/JS-%E9%97%AD%E5%8C%85/"
-    >JS-闭包</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/28/JS-%E9%97%AD%E5%8C%85/" class="article-date">
-  <time datetime="2022-04-28T10:08:28.000Z" itemprop="datePublished">2022-04-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="闭包与递归"><a href="#闭包与递归" class="headerlink" title="闭包与递归"></a>闭包与递归</h1><h2 id="1-闭包"><a href="#1-闭包" class="headerlink" title="1 闭包"></a>1 闭包</h2><blockquote>
-<p>闭包： 可以在一个内层函数中访问到其外层函数的作用域。</p>
-</blockquote>
-<ul>
-<li><p>闭包是<code>一个函数</code>加上到<code>创建函数</code>的<code>作用域的连接</code>，闭包“关闭”了函数的自由变量。</p>
-</li>
-<li><p>简单来讲：闭包就是指有权访问另一个函数作用域中的变量的函数。（b带着a的ao出去了。）</p>
-<ul>
-<li>1 : 有两个函数，作用域有连接关系；</li>
-<li>2 ：变量不自由==》 会停留在内存中，不会销毁。 </li>
-</ul>
-</li>
-<li><p>理解：外部函数调用之后其变量对象本应该销毁，但是闭包的存在是我们仍然可以访问外部函数的变量对象。</p>
-</li>
-<li><p>闭包的特性：</p>
-<ul>
-<li>函数嵌套函数；</li>
-<li>函数内部引用了函数外部的参数和变量；</li>
-<li>参数和变量不会被垃圾回收机制收回。</li>
-</ul>
-</li>
-<li><p>闭包的优点：</p>
-<ul>
-<li>保护函数内的变量安全，实现封装，防止变量流入其他环境发生命名冲突；</li>
-<li>在内存中维持一个变量，可以做缓存；</li>
-<li>匿名自执行函数可以减少内存消耗。</li>
-</ul>
-</li>
-<li><h2 id="闭包的作用-使用"><a href="#闭包的作用-使用" class="headerlink" title="闭包的作用/使用"></a>闭包的作用/使用</h2></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> name =<span class="string">&quot;asd&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="title function_">a</span>();</span><br></pre></td></tr></table></figure>
-<ul>
-<li>JS的防抖和节流使用了闭包。</li>
-</ul>
-<h2 id="2-递归"><a href="#2-递归" class="headerlink" title="2 递归"></a>2 递归</h2><blockquote>
-<p>递归函数： 自己调用自己。</p>
-</blockquote>
-<ul>
-<li><p>注意</p>
-<ul>
-<li>必须有结束条件，如果没有结束条件就会变成死循环。</li>
-</ul>
-</li>
-<li><p>作用</p>
-<ul>
-<li>累加，阶乘；</li>
-<li>数组扁平化：把多维数组变成一维数组；</li>
-<li>dom树的递归；</li>
-<li>斐波那契数列。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 累加器</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> n + <span class="title function_">add</span>(n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="title function_">add</span>(<span class="number">10</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 阶乘</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">factorial</span>(<span class="params">n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (n === <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> n * <span class="title function_">add</span>(n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="title function_">factorial</span>(<span class="number">10</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组扁平化</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">arr</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> result = [];</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">let</span> i=<span class="number">0</span> ; i&lt; arr.<span class="property">length</span>; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> arr[i]==<span class="string">&#x27;object&#x27;</span>)&#123;</span><br><span class="line">            result = result.<span class="title function_">concat</span>( <span class="title function_">fun</span>(arr[i]));</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            result.<span class="title function_">push</span>(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr1 = <span class="title function_">fun</span>([<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="string">&#x27;d&#x27;</span>,[<span class="string">&#x27;e&#x27;</span>,<span class="string">&#x27;f&#x27;</span>,[<span class="string">&#x27;o&#x27;</span>,<span class="string">&#x27;p&#x27;</span>]]]);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Dom树的递归</span></span><br><span class="line"><span class="keyword">var</span> arrDom = [];</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">dom</span>) &#123;</span><br><span class="line">    <span class="comment">// node保存父元素</span></span><br><span class="line">    <span class="keyword">let</span> node = dom.<span class="property">parentNode</span>;</span><br><span class="line">    <span class="comment">// 判断条件： 如果父节点存在</span></span><br><span class="line">    <span class="keyword">if</span> (node) &#123;</span><br><span class="line">        arrDom.<span class="title function_">push</span>(node);</span><br><span class="line">        <span class="title function_">fun</span>(node);</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fun</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;aaa&#x27;</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arrDom);</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
     </div>

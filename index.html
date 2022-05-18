@@ -140,6 +140,131 @@
     
     
     <article
+  id="post-移动端小案例-垃圾分类"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/05/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B0%8F%E6%A1%88%E4%BE%8B-%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB/"
+    >移动端小案例-垃圾分类</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/05/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B0%8F%E6%A1%88%E4%BE%8B-%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB/" class="article-date">
+  <time datetime="2022-05-17T12:35:52.000Z" itemprop="datePublished">2022-05-17</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-MUI-（移动端UI框架）"><a href="#1-MUI-（移动端UI框架）" class="headerlink" title="1 MUI （移动端UI框架）"></a>1 MUI （移动端UI框架）</h2><blockquote>
+<p>MUI是Dcloud官方推出的一个基于html5+标准的框架，同时拥有h5组件和原生组件，是最接近原生APP体验的高性能前端框架。</p>
+</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://dev.dcloud.net.cn/mui/ui/">MUI官网</a></li>
+</ul>
+<h2 id="2-垃圾分类app基本介绍"><a href="#2-垃圾分类app基本介绍" class="headerlink" title="2 垃圾分类app基本介绍"></a>2 垃圾分类app基本介绍</h2><ul>
+<li><p>产品定位： 垃圾分类查询的APP</p>
+</li>
+<li><p>功能</p>
+<ul>
+<li>语音识别</li>
+<li>垃圾分类</li>
+<li>查询功能</li>
+<li>历史搜索记录</li>
+</ul>
+</li>
+<li><p>前期准表</p>
+<ul>
+<li>下载项目需要的图标并引入<ul>
+<li>使用的是<a target="_blank" rel="noopener" href="https://www.iconfont.cn/">iconfont图标</a></li>
+</ul>
+</li>
+<li>引入<code>flexible.js</code>文件</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-首页布局"><a href="#3-首页布局" class="headerlink" title="3 首页布局"></a>3 首页布局</h2><ul>
+<li><p><img src="%E9%A6%96%E9%A1%B5.png" alt="垃圾分类首页"></p>
+</li>
+<li><p>首页布局</p>
+<ul>
+<li>引入图标css</li>
+<li>页面布局<ul>
+<li>html布局</li>
+<li>css样式</li>
+</ul>
+</li>
+<li>设置状态栏（在真机上可能会出现导航栏颜色有问题的情况，需要解决） </li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>header：</p>
+</blockquote>
+<ul>
+<li>header：边距</li>
+<li>header中的ul要设置flex布局，并且设置内容的排列方式，设置内边距与标题保持距离。</li>
+<li>header &gt; ul &gt; li : flex布局，列排列，存在外边距，并且文字居中（块级元素居中）；</li>
+<li> header &gt; ul &gt; li &gt; i : icon图标可以设置宽，高，行高和字体大小，字体大小必须加<code>!important</code>提高优先级，并给图标加样式；</li>
+<li> header &gt; ul &gt; li &gt; span： 边距，字体大小，加粗。</li>
+</ul>
+<blockquote>
+<p>footer：</p>
+</blockquote>
+<ul>
+<li>footer：定位在最下面，使用fixed布局，宽度100%；</li>
+<li>footer &gt; i： 绝对定位</li>
+<li>footer &gt; ul: flex布局，内容两端对齐</li>
+<li>设置里面内容的字体大小和间距。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* header start */</span></span><br><span class="line"><span class="selector-tag">header</span> <span class="selector-tag">h1</span>&#123;</span><br><span class="line">	<span class="attribute">padding-top</span>: <span class="number">1.125rem</span>;</span><br><span class="line">	<span class="attribute">padding-left</span>: <span class="number">0.875rem</span>; 	</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">header</span> <span class="selector-tag">ul</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">	<span class="attribute">justify-content</span>: space-around;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">1.25rem</span> <span class="number">0.625rem</span> <span class="number">1.25rem</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">header</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">	<span class="attribute">flex-direction</span>: column;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0.675rem</span>;</span><br><span class="line">	<span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">header</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">i</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">1.8rem</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">1.8rem</span>;</span><br><span class="line">	<span class="attribute">line-height</span>: <span class="number">1.8rem</span>;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">1rem</span> <span class="meta">!important</span>;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">box-shadow</span>: -<span class="number">0.053333rem</span> -<span class="number">0.053333rem</span> <span class="number">0.625rem</span> <span class="number">#ccc</span> ;	</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">header</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">span</span>&#123;</span><br><span class="line">	<span class="attribute">margin-top</span>: <span class="number">0.625rem</span>;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">0.435rem</span>;</span><br><span class="line">	<span class="attribute">font-weight</span>: <span class="number">500</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* header end */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* footer start */</span></span><br><span class="line"><span class="selector-tag">footer</span>&#123; </span><br><span class="line">	<span class="comment">/* 定位在最下面 */</span></span><br><span class="line">	<span class="attribute">position</span>: fixed; </span><br><span class="line">	<span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;  </span><br><span class="line">	<span class="attribute">height</span>: <span class="number">2.25rem</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">footer</span> &gt; <span class="selector-tag">i</span>&#123;</span><br><span class="line">	<span class="attribute">position</span>: absolute; <span class="comment">/* 定位*/</span></span><br><span class="line">	<span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">	<span class="attribute">top</span>:  -<span class="number">2.45rem</span>; <span class="comment">/* 位置设置*/</span></span><br><span class="line">	<span class="attribute">width</span>: <span class="number">1.8rem</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">1.8rem</span>;</span><br><span class="line">	<span class="attribute">margin-left</span>: -<span class="number">0.9rem</span>; </span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">1rem</span> <span class="meta">!important</span>;</span><br><span class="line">	<span class="attribute">line-height</span>: <span class="number">1.8rem</span>;</span><br><span class="line">	<span class="attribute">text-align</span>: center;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#fff</span>;	</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">box-shadow</span>: -<span class="number">0.053333rem</span> -<span class="number">0.053333rem</span> <span class="number">0.625rem</span> <span class="number">#ccc</span> ;	</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">footer</span> <span class="selector-tag">ul</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">	<span class="attribute">justify-content</span>: space-around;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">footer</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">i</span>&#123;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">0.4555rem</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">footer</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">span</span>&#123;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">0.4rem</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* footer end */</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h4 id="1-状态栏颜色的设置"><a href="#1-状态栏颜色的设置" class="headerlink" title="1 状态栏颜色的设置"></a>1 状态栏颜色的设置</h4><p><code>setStatusBarBackground</code> : 设置系统状态栏背景颜色。</p>
+<ul>
+<li>说明：   <ul>
+<li>设置应用在前台运行时系统状态栏的背景颜色，默认使用系统状态栏默认背景色（由系统状态栏样式及应用的主题决定）。 </li>
+<li>通常系统状态栏的前景色为白色或黑色，所以避免设置接近白色或黑色的颜色值。 </li>
+<li>注意：如果应用设置为沉浸式状态栏样式，则无法设置状态栏的背景颜色。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> plus.<span class="property">navigator</span>.<span class="title function_">setStatusBarBackground</span>(color);</span><br></pre></td></tr></table></figure>
+
+<p>-<a target="_blank" rel="noopener" href="https://www.html5plus.org/doc/h5p.html">H5 + 规范</a><br>-<a target="_blank" rel="noopener" href="https://www.html5plus.org/doc/zh_cn/nativeui.html">nativeUI - 导航栏</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-HTML-移动端开发"
   class="article article-type-post"
   itemscope
@@ -1094,82 +1219,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">CSS-知识点</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
-    <article
-  id="post-JS-深拷贝和浅拷贝"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/05/07/JS-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D/"
-    >JS-深拷贝和浅拷贝</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/05/07/JS-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="article-date">
-  <time datetime="2022-05-07T11:27:02.000Z" itemprop="datePublished">2022-05-07</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="JS-深拷贝和浅拷贝"><a href="#JS-深拷贝和浅拷贝" class="headerlink" title="JS-深拷贝和浅拷贝"></a>JS-深拷贝和浅拷贝</h1><h2 id="1-浅拷贝"><a href="#1-浅拷贝" class="headerlink" title="1 浅拷贝"></a>1 浅拷贝</h2><blockquote>
-<p>浅拷贝：只复制一层对象，当对象的属性是引用类型时，实质上复制的是其引用。当引用指向的值发生改变时，原对象的属性值也会跟着变化。</p>
-</blockquote>
-<ul>
-<li>新旧对象：相互影响；</li>
-<li>复制引用；</li>
-<li>浅拷贝的实现<ul>
-<li>引用类型对象的属性值发生变化时；</li>
-<li>Object.assign();(es6新增)</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-深拷贝"><a href="#2-深拷贝" class="headerlink" title="2 深拷贝"></a>2 深拷贝</h2><blockquote>
-<p>深拷贝： 在拷贝的时候创建新的对象，并把原对象所有的属性都深拷贝到新对象。原属性如果是对象，也会重新创建新的对象并拷贝到新对象属性中。深拷贝旧对象和新对象是相互独立的。</p>
-</blockquote>
-<ul>
-<li>新旧对象：互不影响。</li>
-<li>深拷贝的实现<ul>
-<li>JSON.parse() + JSON.stringify();</li>
-<li>递归实现深拷贝</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 深拷贝方法封装</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">b</span>: &#123;</span><br><span class="line">        <span class="attr">c</span>: <span class="string">&#x27;hhh&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> oCopy = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj == <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">            <span class="keyword">if</span> (obj.<span class="title function_">hasOwnProperty</span>(k)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">typeof</span> obj[k] == <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">                    <span class="comment">// 递归实现</span></span><br><span class="line">                    oCopy[k] = <span class="title function_">fun</span>(obj[k]);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    oCopy[k] = obj[k];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> oCopy;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> createObj = <span class="title function_">fun</span>(obj);</span><br><span class="line"><span class="comment">// console.log(obj, createObj);</span></span><br><span class="line"></span><br><span class="line">createObj.<span class="property">b</span>.<span class="property">c</span> = <span class="string">&#x27;123455&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj, createObj);</span><br></pre></td></tr></table></figure>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">JS-知识点</a></li></ul>
 
     </footer>
   </div>
