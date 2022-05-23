@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">189</span>
+            <span class="post-count">972</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">4 分钟</span>
         </span>
     </span>
 </div>
@@ -112,16 +112,85 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="JS-面试总结2"><a href="#JS-面试总结2" class="headerlink" title="JS-面试总结2"></a>JS-面试总结2</h1><h2 id="1-new操作符具体做了什么？"><a href="#1-new操作符具体做了什么？" class="headerlink" title="1 new操作符具体做了什么？"></a>1 new操作符具体做了什么？</h2><ul>
-<li>1 创建了一个对象 new Object();</li>
-<li>2 原型赋值【指向共同一个原型对象】; <code>对象.__proto__ = Fun.prototype</code></li>
-<li>3 改变this指向。<code>Fun.call(obj)</code></li>
+<li><p>1 创建了一个对象 new Object();</p>
+</li>
+<li><p>2 原型赋值【指向共同一个原型对象】; <code>对象.__proto__ = Fun.prototype</code></p>
+</li>
+<li><p>3 改变this指向<code>Fun.call(obj)</code>； （将空对象作为构造函数的上下文）</p>
+</li>
+<li><p>4 对构造函数有返回值的处理判断。</p>
+</li>
 </ul>
 <h2 id="2-封装一个对象深拷贝的方法"><a href="#2-封装一个对象深拷贝的方法" class="headerlink" title="2 封装一个对象深拷贝的方法"></a>2 封装一个对象深拷贝的方法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 深拷贝方法封装</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">b</span>: &#123;</span><br><span class="line">        <span class="attr">c</span>: <span class="string">&#x27;hhh&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> oCopy = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj == <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">            <span class="keyword">if</span> (obj.<span class="title function_">hasOwnProperty</span>(k)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">typeof</span> obj[k] == <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">                    <span class="comment">// 递归实现</span></span><br><span class="line">                    oCopy[k] = <span class="title function_">fun</span>(obj[k]);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    oCopy[k] = obj[k];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> oCopy;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> createObj = <span class="title function_">fun</span>(obj);</span><br><span class="line"><span class="comment">// console.log(obj, createObj);</span></span><br><span class="line"></span><br><span class="line">createObj.<span class="property">b</span>.<span class="property">c</span> = <span class="string">&#x27;123455&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj, createObj);</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-合并数组的方法"><a href="#3-合并数组的方法" class="headerlink" title="3 合并数组的方法"></a>3 合并数组的方法</h2><h2 id="4-数组去重"><a href="#4-数组去重" class="headerlink" title="4 数组去重"></a>4 数组去重</h2><ul>
-<li>ES6中的new Set();</li>
-<li>filter</li>
-<li>判断逻辑的形式</li>
+<li><p>ES6中的new Set();</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1 使用set</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">54</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">3</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="keyword">new</span> <span class="title class_">Set</span>(arr)); <span class="comment">// 对象形式</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( [...<span class="keyword">new</span> <span class="title class_">Set</span>(arr)] ); <span class="comment">// 转化为数组  [1, 2, 3, 4, 54, 5]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> [...<span class="keyword">new</span> <span class="title class_">Set</span>(arr)];</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr));</span><br></pre></td></tr></table></figure></li>
+<li><p>判断逻辑的形式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2 自己实现</span></span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">24</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">45</span>];</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">unique2</span>(<span class="params">arr</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> brr =[];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span> ; i&lt;arr.<span class="property">length</span>; ++i)&#123;</span><br><span class="line">        <span class="comment">// 遍历 使用indexOf判断</span></span><br><span class="line">        <span class="keyword">if</span>(brr.<span class="title function_">indexOf</span>(arr[i]) == -<span class="number">1</span>)&#123;</span><br><span class="line">            brr.<span class="title function_">push</span>(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> brr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique2</span>(arr2));</span><br></pre></td></tr></table></figure></li>
+<li><p>filter</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3 filter数组去重 ： filter用于对数组进行过滤，它创建一个新数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。</span></span><br><span class="line"><span class="keyword">var</span> arr3 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">8</span>];</span><br><span class="line"><span class="keyword">var</span> arr4 = [];</span><br><span class="line">arr4 = arr3.<span class="title function_">filter</span>(<span class="function">(<span class="params">item, index, self</span>) =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> self.<span class="title function_">indexOf</span>(item) === index ;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr4);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="5-延迟加载JS有哪些方式？"><a href="#5-延迟加载JS有哪些方式？" class="headerlink" title="5 延迟加载JS有哪些方式？"></a>5 延迟加载JS有哪些方式？</h2><blockquote>
+<p>async 和 defer 可用来实现延迟加载JS。</p>
+</blockquote>
+<ul>
+<li>前提：<ul>
+<li>script标签用于加载与执行脚本，直接使用script脚本的话，html会按照顺序来加载并执行脚本，在脚本加载及执行分过程中，会阻塞后续的DOM渲染。</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-1-async"><a href="#5-1-async" class="headerlink" title="5.1 async"></a>5.1 async</h3><ul>
+<li>async 加载和渲染后续文档元素的过程将和script.js的加载与执行过程并行进行。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="keyword">async</span> src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-defer"><a href="#5-2-defer" class="headerlink" title="5.2 defer"></a>5.2 defer</h3><ul>
+<li>加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</li>
+<li>推迟的脚本原则上按照它们被列出的次序执行。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script defer src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><a href="async%E5%92%8Cdefer.png">async与defer</a></p>
+</li>
+<li><p>两者的区别：</p>
+<ul>
+<li>defer ： 等html全部解析完成才会执行JS代码，并且JS脚本顺序执行；</li>
+<li>async ： async是和html解析同步的，不是顺序执行JS脚本（谁先加载完先执行谁）。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>使用场景<ul>
+<li>defer： 若脚本代码依赖于页面中的dom元素，或者被其他脚本文件依赖使用defer。（评论框等）</li>
+<li>async： 若脚本并不关心页面中的dom元素，并且也不会产生其他脚本需要的数据。（百度统计等）</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-JS的数据类型考点"><a href="#6-JS的数据类型考点" class="headerlink" title="6 JS的数据类型考点"></a>6 JS的数据类型考点</h2><ul>
+<li>基本数据类型：String、Number、Null、Undefined、Boolean、Symbol（ES6）</li>
+<li>引用数据类型：object</li>
+</ul>
+<h3 id="6-1-数据类型的隐式转换"><a href="#6-1-数据类型的隐式转换" class="headerlink" title="6.1 数据类型的隐式转换"></a>6.1 数据类型的隐式转换</h3><ul>
+<li>字符串和其他类型 相加， 都会变成连接的形式。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="literal">true</span> + <span class="number">1</span>);           <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="string">&#x27;name&#x27;</span> + <span class="literal">true</span>);      <span class="comment">// nametrue</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="literal">undefined</span> + <span class="number">1</span>);      <span class="comment">// NaN </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="title function_">typeof</span>(<span class="title class_">NaN</span>));        <span class="comment">// Number</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="title function_">typeof</span>(<span class="literal">undefined</span>));  <span class="comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="title function_">typeof</span>(<span class="literal">null</span>));       <span class="comment">// object</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-null和undefined的区别"><a href="#6-2-null和undefined的区别" class="headerlink" title="6.2 null和undefined的区别"></a>6.2 null和undefined的区别</h3><ul>
+<li><p>设计之初</p>
+<ul>
+<li>在JS中先出现的是null，它在最初设计时借鉴了java；</li>
+<li>null在运算或操作时会隐式转化为0，很不容易发现错误；</li>
+<li>先有null后出现undefined，出现undefined是为了填补之前的坑。</li>
+</ul>
+</li>
+<li><p>具体区别：</p>
+<ul>
+<li><code>null</code>是一个表示“无”的<code>对象</code>（空对象指针），转化为数值时为<code>0</code>；</li>
+<li><code>undefined</code>是一个表示“无”的<code>基本数据类型</code>，转化为数值是<code>NaN</code>。</li>
+</ul>
+</li>
 </ul>
  
       <!-- reward -->

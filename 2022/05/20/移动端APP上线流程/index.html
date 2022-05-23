@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>JS-作用域 |  小姚同学今天学习了吗</title>
+      <title>移动端APP上线流程 |  小姚同学今天学习了吗</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -56,7 +56,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-JS-作用域"
+  id="post-移动端APP上线流程"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -67,7 +67,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  JS-作用域
+  移动端APP上线流程
 </h1>
  
 
@@ -75,11 +75,11 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2022/05/04/JS-%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="article-date">
-  <time datetime="2022-05-04T11:37:24.000Z" itemprop="datePublished">2022-05-04</time>
+      <a href="/2022/05/20/%E7%A7%BB%E5%8A%A8%E7%AB%AFAPP%E4%B8%8A%E7%BA%BF%E6%B5%81%E7%A8%8B/" class="article-date">
+  <time datetime="2022-05-20T09:10:09.000Z" itemprop="datePublished">2022-05-20</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+    <a class="article-category-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a>
   </div>
   
 <div class="word_count">
@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">861</span>
+            <span class="post-count">212</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">3 分钟</span>
+            <span class="post-count">1 分钟</span>
         </span>
     </span>
 </div>
@@ -111,77 +111,43 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><h2 id="1-作用域常见类型"><a href="#1-作用域常见类型" class="headerlink" title="1 作用域常见类型"></a>1 作用域常见类型</h2><blockquote>
-<p>全局作用域</p>
-</blockquote>
-<ul>
-<li>全局作用域在一面打开时被创建，页面关闭时被销毁。</li>
-<li>写在script标签中的变量和函数，作用域为全局，在页面的任意位置都可以访问到。</li>
-<li>在全局作用域中有全局对象window，由浏览器创建，可以直接调用。</li>
-<li>全局作用域中声明的变量和函数会作为window对象的属性和方法保存。</li>
+  <h2 id="移动端APP上线流程"><a href="#移动端APP上线流程" class="headerlink" title="移动端APP上线流程"></a>移动端APP上线流程</h2><ul>
+<li>跨平台开发</li>
 </ul>
-<blockquote>
-<p>函数作用域</p>
-</blockquote>
-<ul>
-<li>调用函数时被创建，执行完毕被销毁。</li>
-<li>每调用一次函数就会创建一个新的函数作用域，他们之间相互独立。</li>
-<li>函数作用域可以访问到全局作用域的变量，在函数外无法访问到函数作用域内的变量。</li>
-<li>在函数作用域中访问变量、函数时，会现在自身作用域中寻找，若没找到，则会到上一级寻找， 一直到全局作用域。</li>
-</ul>
-<p>注意：</p>
-<ul>
-<li>JS没有块级作用域，但是可以模拟块级作用域。</li>
-<li>不是有<code>&#123;&#125;</code>就是作用域。</li>
-</ul>
-<h2 id="2-作用域的深层次理解"><a href="#2-作用域的深层次理解" class="headerlink" title="2 作用域的深层次理解"></a>2 作用域的深层次理解</h2><ul>
-<li><p>执行期的上下文</p>
-<ul>
-<li>当函数代码执行的前期会创建一个执行期上下文的内部对象(<code>AO</code>)(局部作用域)；</li>
-<li>这个内部对象是在预编译的时候创建出来的，因为当函数被调用的时候，会先进行预编译；</li>
-<li>在全局代码执行的前期会创建一个执行期的上下文的对象<code>GO</code>(全局作用域)。</li>
-</ul>
+<ol>
+<li><p>在本地测试APP是否存在问题；</p>
 </li>
-<li><p>作用域链</p>
-<ul>
-<li>作用域链会被保存到一个隐式的属性中[[scope]]。这个属性是用户无法访问的，但是JS引擎将会访问它，这里面存储的是作用域链。</li>
-<li>从内部向外链接。作用域链从当前作用域开始找，如果找不到则向外作用域找，找到返回，找不到报错。</li>
-<li>从内部逐级向上查找。</li>
-<li><code>AO</code>和<code>GO</code>的集合</li>
-</ul>
+<li><p>配置相关内容 ：<code>manifest.json</code></p>
+<ol>
+<li>基础配置（应用标识、名称、版本号等）</li>
+<li>图标配置（图标）</li>
+<li>启动页面配置（广告）</li>
+<li>模块配置</li>
+</ol>
 </li>
-</ul>
-<ul>
-<li><p>变量提升（悬挂变量声明）</p>
-<ul>
-<li>JS提升所有变量声明（var，函数），将他们移到其作用域的开头;</li>
-<li>注意：JS除了函数外没有块级作用域！！！</li>
-<li>执行顺序、优先级<ul>
-<li><code>声明变量</code> &gt; <code>普通函数</code> &gt; <code>参数</code> &gt; <code>变量提升</code></li>
-</ul>
+<li><p>运行 -&gt; 运行到手机或模拟器 -&gt; 制作自定义调试基座</p>
 </li>
-</ul>
+<li><p>生成证书 <a target="_blank" rel="noopener" href="https://www.yunedit.com/">https://www.yunedit.com/</a></p>
+<ol>
+<li>安卓证书生成</li>
+<li>创建安卓证书</li>
+<li>填写内容，下载证书</li>
+</ol>
 </li>
-<li><p>eg:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// var变量提升 JS不存在块级作用域</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// undefined</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">if</span>( <span class="literal">false</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> x = <span class="number">1</span> ; </span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// undefined</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>执行顺序、优先级</p>
-<ul>
-<li><code>变量</code> &gt; <code>函数</code> &gt; <code>参数</code> &gt; <code>变量提升</code></li>
-</ul>
+<li><p>打成自定义包</p>
+<ol>
+<li>打包完成后会生成路径</li>
+</ol>
 </li>
-</ul>
-<h2 id="3-面试题"><a href="#3-面试题" class="headerlink" title="3 面试题"></a>3 面试题</h2><ul>
-<li><p>eg1：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;123&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// var str  变量提升</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str);<span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">var</span> str =<span class="string">&#x27;234&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>eg2：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn1</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str1); <span class="comment">// 报错 未定义</span></span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">str1</span> =<span class="string">&#x27;2343&#x27;</span>; <span class="comment">// 全局变量 没有进行变量提升 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn1</span>();</span><br></pre></td></tr></table></figure></li>
-<li><p>eg3:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn2</span>(<span class="params">str2</span>)&#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">str2</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str2);<span class="comment">// f str2()&#123; return &#x27;2&#x27;; &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn2</span>(<span class="string">&#x27;222&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn3</span>(<span class="params">str3</span>)&#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">str3</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> str3 =<span class="string">&#x27;999&#x27;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str3);<span class="comment">// 999</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn3</span>(<span class="string">&#x27;23332&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
-<li><p>eg4:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">c</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// undefinded</span></span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// 2</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">a</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(b);<span class="comment">//1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">c</span>();</span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// window.b = 10</span></span><br><span class="line">    <span class="keyword">var</span> a= b =<span class="number">10</span> ;</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);<span class="comment">// 10</span></span><br></pre></td></tr></table></figure></li>
-<li><p>eg5:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name =<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// var name ;</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> name ==<span class="string">&#x27;undefined&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> name =<span class="string">&#x27;b&#x27;</span>;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;111&#x27;</span>+name); <span class="comment">// 111b</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;222&#x27;</span>+ name );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行优先级</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">a</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> a =<span class="number">10</span> ;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;&#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a);<span class="comment">// 10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fun</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure></li>
-</ul>
+<li><p>打包测试后遇到语音识别的问题，无法实现</p>
+<ol>
+<li><code>punctuation: false</code> 语音识别处有问题（讯飞）</li>
+<li>百度语音识别 <a target="_blank" rel="noopener" href="https://cloud.baidu.com/">https://cloud.baidu.com/</a> （使用百度语音识别需要申请id）</li>
+</ol>
+</li>
+<li><p>打包正式包<br>上架商店，提供对应的信息等即可。（上线需要软件著作权）</p>
+</li>
+</ol>
  
       <!-- reward -->
       
@@ -252,32 +218,30 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://is-yaojm.github.io/2022/05/04/JS-%E4%BD%9C%E7%94%A8%E5%9F%9F/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://is-yaojm.github.io/2022/05/20/%E7%A7%BB%E5%8A%A8%E7%AB%AFAPP%E4%B8%8A%E7%BA%BF%E6%B5%81%E7%A8%8B/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">知识点</a></li></ul>
-
     </footer>
   </div>
 
    
   <nav class="article-nav">
     
-      <a href="/2022/05/05/JS-%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F/" class="article-nav-link">
+      <a href="/2022/05/20/%E7%A7%BB%E5%8A%A8%E7%AB%AFAPP%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            JS-对象模式
+            移动端APP常用功能
           
         </div>
       </a>
     
     
-      <a href="/2022/05/01/JS%E4%B9%A6%E5%86%99%E8%A7%84%E8%8C%83/" class="article-nav-link">
+      <a href="/2022/05/17/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B0%8F%E6%A1%88%E4%BE%8B-%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">JS书写规范</div>
+        <div class="article-nav-title">移动端小案例-垃圾分类</div>
       </a>
     
   </nav>

@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">579</span>
+            <span class="post-count">658</span>
         </span>
     </span>
 
@@ -139,12 +139,24 @@
 <li>匿名自执行函数可以减少内存消耗。</li>
 </ul>
 </li>
-<li><h2 id="闭包的作用-使用"><a href="#闭包的作用-使用" class="headerlink" title="闭包的作用/使用"></a>闭包的作用/使用</h2></li>
+<li><p>闭包的缺点： </p>
+<ul>
+<li>变量会驻留在内存中，造成内存损耗问题；（解决：把闭包的函数设置为null）</li>
+<li>内存泄漏（存在在IE浏览器中）。</li>
+</ul>
+</li>
+<li><p>闭包的作用/使用</p>
+<ul>
+<li>定时器；</li>
+<li>设计私有的方法和变量；</li>
+<li>JS的防抖和节流使用了闭包；</li>
+<li>ul和li的点击事件，可使用闭包解决事件冒泡问题。</li>
+</ul>
+</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> name =<span class="string">&quot;asd&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="title function_">a</span>();</span><br></pre></td></tr></table></figure>
-<ul>
-<li>JS的防抖和节流使用了闭包。</li>
-</ul>
+
+
 <h2 id="2-递归"><a href="#2-递归" class="headerlink" title="2 递归"></a>2 递归</h2><blockquote>
 <p>递归函数： 自己调用自己。</p>
 </blockquote>

@@ -13,9 +13,15 @@
 <p>二叉搜索树是一个有序数。</p>
 </blockquote>
 <ul>
-<li>规则：<ul>
+<li><p>规则：</p>
+<ul>
 <li>每一个结点都是左小右大；</li>
 <li>左子树的值小于根结点，右子树的值大于根节点。</li>
+</ul>
+</li>
+<li><p>leetcode98： 验证二叉搜索树</p>
+<ul>
+<li>二叉搜索树在中序遍历下，输出的二叉搜索树节点的数值是有序序列。且二叉搜索树中不能有重复的元素。</li>
 </ul>
 </li>
 </ul>
@@ -2567,12 +2573,24 @@
 <li>匿名自执行函数可以减少内存消耗。</li>
 </ul>
 </li>
-<li><h2 id="闭包的作用-使用"><a href="#闭包的作用-使用" class="headerlink" title="闭包的作用/使用"></a>闭包的作用/使用</h2></li>
+<li><p>闭包的缺点： </p>
+<ul>
+<li>变量会驻留在内存中，造成内存损耗问题；（解决：把闭包的函数设置为null）</li>
+<li>内存泄漏（存在在IE浏览器中）。</li>
+</ul>
+</li>
+<li><p>闭包的作用/使用</p>
+<ul>
+<li>定时器；</li>
+<li>设计私有的方法和变量；</li>
+<li>JS的防抖和节流使用了闭包；</li>
+<li>ul和li的点击事件，可使用闭包解决事件冒泡问题。</li>
+</ul>
+</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> name =<span class="string">&quot;asd&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="title function_">a</span>();</span><br></pre></td></tr></table></figure>
-<ul>
-<li>JS的防抖和节流使用了闭包。</li>
-</ul>
+
+
 <h2 id="2-递归"><a href="#2-递归" class="headerlink" title="2 递归"></a>2 递归</h2><blockquote>
 <p>递归函数： 自己调用自己。</p>
 </blockquote>
@@ -4028,10 +4046,16 @@
 <ul>
 <li><p>变量提升（悬挂变量声明）</p>
 <ul>
-<li>JS提升所有变量声明（var，函数），将他们移到其作用域的开头</li>
-<li>eg:<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// var变量提升 JS不存在块级作用域</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// undefined</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">if</span>( <span class="literal">false</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> x = <span class="number">1</span> ; </span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// undefined</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>JS提升所有变量声明（var，函数），将他们移到其作用域的开头;</li>
+<li>注意：JS除了函数外没有块级作用域！！！</li>
+<li>执行顺序、优先级<ul>
+<li><code>声明变量</code> &gt; <code>普通函数</code> &gt; <code>参数</code> &gt; <code>变量提升</code></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><p>eg:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// var变量提升 JS不存在块级作用域</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// undefined</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">if</span>( <span class="literal">false</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> x = <span class="number">1</span> ; </span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// undefined</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 <li><p>执行顺序、优先级</p>
 <ul>
 <li><code>变量</code> &gt; <code>函数</code> &gt; <code>参数</code> &gt; <code>变量提升</code></li>
@@ -4045,6 +4069,10 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn1</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str1); <span class="comment">// 报错 未定义</span></span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">str1</span> =<span class="string">&#x27;2343&#x27;</span>; <span class="comment">// 全局变量 没有进行变量提升 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn1</span>();</span><br></pre></td></tr></table></figure></li>
 <li><p>eg3:</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn2</span>(<span class="params">str2</span>)&#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">str2</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str2);<span class="comment">// f str2()&#123; return &#x27;2&#x27;; &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn2</span>(<span class="string">&#x27;222&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn3</span>(<span class="params">str3</span>)&#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">str3</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> str3 =<span class="string">&#x27;999&#x27;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str3);<span class="comment">// 999</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn3</span>(<span class="string">&#x27;23332&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>eg4:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">c</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// undefinded</span></span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// 2</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">a</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(b);<span class="comment">//1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">c</span>();</span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// window.b = 10</span></span><br><span class="line">    <span class="keyword">var</span> a= b =<span class="number">10</span> ;</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);<span class="comment">// 10</span></span><br></pre></td></tr></table></figure></li>
+<li><p>eg5:</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name =<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// var name ;</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> name ==<span class="string">&#x27;undefined&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> name =<span class="string">&#x27;b&#x27;</span>;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;111&#x27;</span>+name); <span class="comment">// 111b</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;222&#x27;</span>+ name );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行优先级</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">a</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> a =<span class="number">10</span> ;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;&#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a);<span class="comment">// 10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fun</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
       <categories>
@@ -4257,16 +4285,85 @@
     <title>JS-面试总结2</title>
     <url>/2022/05/07/JS-%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%932/</url>
     <content><![CDATA[<h1 id="JS-面试总结2"><a href="#JS-面试总结2" class="headerlink" title="JS-面试总结2"></a>JS-面试总结2</h1><h2 id="1-new操作符具体做了什么？"><a href="#1-new操作符具体做了什么？" class="headerlink" title="1 new操作符具体做了什么？"></a>1 new操作符具体做了什么？</h2><ul>
-<li>1 创建了一个对象 new Object();</li>
-<li>2 原型赋值【指向共同一个原型对象】; <code>对象.__proto__ = Fun.prototype</code></li>
-<li>3 改变this指向。<code>Fun.call(obj)</code></li>
+<li><p>1 创建了一个对象 new Object();</p>
+</li>
+<li><p>2 原型赋值【指向共同一个原型对象】; <code>对象.__proto__ = Fun.prototype</code></p>
+</li>
+<li><p>3 改变this指向<code>Fun.call(obj)</code>； （将空对象作为构造函数的上下文）</p>
+</li>
+<li><p>4 对构造函数有返回值的处理判断。</p>
+</li>
 </ul>
 <h2 id="2-封装一个对象深拷贝的方法"><a href="#2-封装一个对象深拷贝的方法" class="headerlink" title="2 封装一个对象深拷贝的方法"></a>2 封装一个对象深拷贝的方法</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 深拷贝方法封装</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">b</span>: &#123;</span><br><span class="line">        <span class="attr">c</span>: <span class="string">&#x27;hhh&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> oCopy = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj == <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> obj) &#123;</span><br><span class="line">            <span class="keyword">if</span> (obj.<span class="title function_">hasOwnProperty</span>(k)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">typeof</span> obj[k] == <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">                    <span class="comment">// 递归实现</span></span><br><span class="line">                    oCopy[k] = <span class="title function_">fun</span>(obj[k]);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    oCopy[k] = obj[k];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> oCopy;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> createObj = <span class="title function_">fun</span>(obj);</span><br><span class="line"><span class="comment">// console.log(obj, createObj);</span></span><br><span class="line"></span><br><span class="line">createObj.<span class="property">b</span>.<span class="property">c</span> = <span class="string">&#x27;123455&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj, createObj);</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-合并数组的方法"><a href="#3-合并数组的方法" class="headerlink" title="3 合并数组的方法"></a>3 合并数组的方法</h2><h2 id="4-数组去重"><a href="#4-数组去重" class="headerlink" title="4 数组去重"></a>4 数组去重</h2><ul>
-<li>ES6中的new Set();</li>
-<li>filter</li>
-<li>判断逻辑的形式</li>
+<li><p>ES6中的new Set();</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1 使用set</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">54</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">3</span>];</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="keyword">new</span> <span class="title class_">Set</span>(arr)); <span class="comment">// 对象形式</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( [...<span class="keyword">new</span> <span class="title class_">Set</span>(arr)] ); <span class="comment">// 转化为数组  [1, 2, 3, 4, 54, 5]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">unique</span>(<span class="params">arr</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> [...<span class="keyword">new</span> <span class="title class_">Set</span>(arr)];</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique</span>(arr));</span><br></pre></td></tr></table></figure></li>
+<li><p>判断逻辑的形式</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 2 自己实现</span></span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">24</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">45</span>];</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">unique2</span>(<span class="params">arr</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> brr =[];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span> ; i&lt;arr.<span class="property">length</span>; ++i)&#123;</span><br><span class="line">        <span class="comment">// 遍历 使用indexOf判断</span></span><br><span class="line">        <span class="keyword">if</span>(brr.<span class="title function_">indexOf</span>(arr[i]) == -<span class="number">1</span>)&#123;</span><br><span class="line">            brr.<span class="title function_">push</span>(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> brr;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">unique2</span>(arr2));</span><br></pre></td></tr></table></figure></li>
+<li><p>filter</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 3 filter数组去重 ： filter用于对数组进行过滤，它创建一个新数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。</span></span><br><span class="line"><span class="keyword">var</span> arr3 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">8</span>];</span><br><span class="line"><span class="keyword">var</span> arr4 = [];</span><br><span class="line">arr4 = arr3.<span class="title function_">filter</span>(<span class="function">(<span class="params">item, index, self</span>) =&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> self.<span class="title function_">indexOf</span>(item) === index ;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(arr4);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="5-延迟加载JS有哪些方式？"><a href="#5-延迟加载JS有哪些方式？" class="headerlink" title="5 延迟加载JS有哪些方式？"></a>5 延迟加载JS有哪些方式？</h2><blockquote>
+<p>async 和 defer 可用来实现延迟加载JS。</p>
+</blockquote>
+<ul>
+<li>前提：<ul>
+<li>script标签用于加载与执行脚本，直接使用script脚本的话，html会按照顺序来加载并执行脚本，在脚本加载及执行分过程中，会阻塞后续的DOM渲染。</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-1-async"><a href="#5-1-async" class="headerlink" title="5.1 async"></a>5.1 async</h3><ul>
+<li>async 加载和渲染后续文档元素的过程将和script.js的加载与执行过程并行进行。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script <span class="keyword">async</span> src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-defer"><a href="#5-2-defer" class="headerlink" title="5.2 defer"></a>5.2 defer</h3><ul>
+<li>加载后续文档元素的过程将和 script.js 的加载并行进行（异步），但是 script.js 的执行要在所有元素解析完成之后，DOMContentLoaded 事件触发之前完成。</li>
+<li>推迟的脚本原则上按照它们被列出的次序执行。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;script defer src=<span class="string">&quot;script.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><a href="async%E5%92%8Cdefer.png">async与defer</a></p>
+</li>
+<li><p>两者的区别：</p>
+<ul>
+<li>defer ： 等html全部解析完成才会执行JS代码，并且JS脚本顺序执行；</li>
+<li>async ： async是和html解析同步的，不是顺序执行JS脚本（谁先加载完先执行谁）。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>使用场景<ul>
+<li>defer： 若脚本代码依赖于页面中的dom元素，或者被其他脚本文件依赖使用defer。（评论框等）</li>
+<li>async： 若脚本并不关心页面中的dom元素，并且也不会产生其他脚本需要的数据。（百度统计等）</li>
+</ul>
+</li>
+</ul>
+<h2 id="6-JS的数据类型考点"><a href="#6-JS的数据类型考点" class="headerlink" title="6 JS的数据类型考点"></a>6 JS的数据类型考点</h2><ul>
+<li>基本数据类型：String、Number、Null、Undefined、Boolean、Symbol（ES6）</li>
+<li>引用数据类型：object</li>
+</ul>
+<h3 id="6-1-数据类型的隐式转换"><a href="#6-1-数据类型的隐式转换" class="headerlink" title="6.1 数据类型的隐式转换"></a>6.1 数据类型的隐式转换</h3><ul>
+<li>字符串和其他类型 相加， 都会变成连接的形式。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="literal">true</span> + <span class="number">1</span>);           <span class="comment">// 2</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="string">&#x27;name&#x27;</span> + <span class="literal">true</span>);      <span class="comment">// nametrue</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="literal">undefined</span> + <span class="number">1</span>);      <span class="comment">// NaN </span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="title function_">typeof</span>(<span class="title class_">NaN</span>));        <span class="comment">// Number</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="title function_">typeof</span>(<span class="literal">undefined</span>));  <span class="comment">// undefined</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="title function_">typeof</span>(<span class="literal">null</span>));       <span class="comment">// object</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-null和undefined的区别"><a href="#6-2-null和undefined的区别" class="headerlink" title="6.2 null和undefined的区别"></a>6.2 null和undefined的区别</h3><ul>
+<li><p>设计之初</p>
+<ul>
+<li>在JS中先出现的是null，它在最初设计时借鉴了java；</li>
+<li>null在运算或操作时会隐式转化为0，很不容易发现错误；</li>
+<li>先有null后出现undefined，出现undefined是为了填补之前的坑。</li>
+</ul>
+</li>
+<li><p>具体区别：</p>
+<ul>
+<li><code>null</code>是一个表示“无”的<code>对象</code>（空对象指针），转化为数值时为<code>0</code>；</li>
+<li><code>undefined</code>是一个表示“无”的<code>基本数据类型</code>，转化为数值是<code>NaN</code>。</li>
+</ul>
+</li>
 </ul>
 ]]></content>
       <categories>
@@ -4891,52 +4988,33 @@
 <li>历史搜索记录</li>
 </ul>
 </li>
-<li><p>前期准表</p>
+<li><p>前期准备</p>
 <ul>
 <li>下载项目需要的图标并引入<ul>
 <li>使用的是<a href="https://www.iconfont.cn/">iconfont图标</a></li>
 </ul>
 </li>
 <li>引入<code>flexible.js</code>文件</li>
+<li>页面布局</li>
 </ul>
 </li>
 </ul>
-<h2 id="3-首页布局"><a href="#3-首页布局" class="headerlink" title="3 首页布局"></a>3 首页布局</h2><ul>
-<li><p><img src="%E9%A6%96%E9%A1%B5.png" alt="垃圾分类首页"></p>
-</li>
-<li><p>首页布局</p>
-<ul>
-<li>引入图标css</li>
-<li>页面布局<ul>
-<li>html布局</li>
-<li>css样式</li>
-</ul>
-</li>
-<li>设置状态栏（在真机上可能会出现导航栏颜色有问题的情况，需要解决） </li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>header：</p>
+<h2 id="3-页面逻辑"><a href="#3-页面逻辑" class="headerlink" title="3 页面逻辑"></a>3 页面逻辑</h2><blockquote>
+<p>首页</p>
 </blockquote>
-<ul>
-<li>header：边距</li>
-<li>header中的ul要设置flex布局，并且设置内容的排列方式，设置内边距与标题保持距离。</li>
-<li>header &gt; ul &gt; li : flex布局，列排列，存在外边距，并且文字居中（块级元素居中）；</li>
-<li> header &gt; ul &gt; li &gt; i : icon图标可以设置宽，高，行高和字体大小，字体大小必须加<code>!important</code>提高优先级，并给图标加样式；</li>
-<li> header &gt; ul &gt; li &gt; span： 边距，字体大小，加粗。</li>
-</ul>
+<p><img src="%E9%A6%96%E9%A1%B5%E9%80%BB%E8%BE%91.png" alt="首页JS代码结构"></p>
 <blockquote>
-<p>footer：</p>
+<p>匹配结果页面</p>
 </blockquote>
-<ul>
-<li>footer：定位在最下面，使用fixed布局，宽度100%；</li>
-<li>footer &gt; i： 绝对定位</li>
-<li>footer &gt; ul: flex布局，内容两端对齐</li>
-<li>设置里面内容的字体大小和间距。</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* header start */</span></span><br><span class="line"><span class="selector-tag">header</span> <span class="selector-tag">h1</span>&#123;</span><br><span class="line">	<span class="attribute">padding-top</span>: <span class="number">1.125rem</span>;</span><br><span class="line">	<span class="attribute">padding-left</span>: <span class="number">0.875rem</span>; 	</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">header</span> <span class="selector-tag">ul</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">	<span class="attribute">justify-content</span>: space-around;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">1.25rem</span> <span class="number">0.625rem</span> <span class="number">1.25rem</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">header</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">	<span class="attribute">flex-direction</span>: column;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0.675rem</span>;</span><br><span class="line">	<span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">header</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">i</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">1.8rem</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">1.8rem</span>;</span><br><span class="line">	<span class="attribute">line-height</span>: <span class="number">1.8rem</span>;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">1rem</span> <span class="meta">!important</span>;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">box-shadow</span>: -<span class="number">0.053333rem</span> -<span class="number">0.053333rem</span> <span class="number">0.625rem</span> <span class="number">#ccc</span> ;	</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">header</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">span</span>&#123;</span><br><span class="line">	<span class="attribute">margin-top</span>: <span class="number">0.625rem</span>;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">0.435rem</span>;</span><br><span class="line">	<span class="attribute">font-weight</span>: <span class="number">500</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* header end */</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* footer start */</span></span><br><span class="line"><span class="selector-tag">footer</span>&#123; </span><br><span class="line">	<span class="comment">/* 定位在最下面 */</span></span><br><span class="line">	<span class="attribute">position</span>: fixed; </span><br><span class="line">	<span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;  </span><br><span class="line">	<span class="attribute">height</span>: <span class="number">2.25rem</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">footer</span> &gt; <span class="selector-tag">i</span>&#123;</span><br><span class="line">	<span class="attribute">position</span>: absolute; <span class="comment">/* 定位*/</span></span><br><span class="line">	<span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">	<span class="attribute">top</span>:  -<span class="number">2.45rem</span>; <span class="comment">/* 位置设置*/</span></span><br><span class="line">	<span class="attribute">width</span>: <span class="number">1.8rem</span>;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">1.8rem</span>;</span><br><span class="line">	<span class="attribute">margin-left</span>: -<span class="number">0.9rem</span>; </span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">1rem</span> <span class="meta">!important</span>;</span><br><span class="line">	<span class="attribute">line-height</span>: <span class="number">1.8rem</span>;</span><br><span class="line">	<span class="attribute">text-align</span>: center;</span><br><span class="line">	<span class="attribute">background</span>: <span class="number">#fff</span>;	</span><br><span class="line">	<span class="attribute">border-radius</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">box-shadow</span>: -<span class="number">0.053333rem</span> -<span class="number">0.053333rem</span> <span class="number">0.625rem</span> <span class="number">#ccc</span> ;	</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">footer</span> <span class="selector-tag">ul</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>: flex;</span><br><span class="line">	<span class="attribute">justify-content</span>: space-around;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">footer</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">i</span>&#123;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">0.4555rem</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">footer</span> <span class="selector-tag">ul</span> <span class="selector-tag">li</span> <span class="selector-tag">span</span>&#123;</span><br><span class="line">	<span class="attribute">font-size</span>: <span class="number">0.4rem</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* footer end */</span></span><br></pre></td></tr></table></figure>
-
+<p><img src="%E5%8C%B9%E9%85%8D%E7%BB%93%E6%9E%9C%E9%A1%B5%E9%9D%A2%E9%80%BB%E8%BE%91.png" alt="匹配结果JS代码结构"></p>
+<blockquote>
+<p>垃圾分类页面</p>
+</blockquote>
+<p><img src="%E5%9E%83%E5%9C%BE%E5%88%86%E7%B1%BB%E9%80%BB%E8%BE%91.png" alt="垃圾分类S代码结构"></p>
+<blockquote>
+<p>搜索查询页面</p>
+</blockquote>
+<p><img src="%E6%90%9C%E7%B4%A2%E9%A1%B5%E9%9D%A2%E9%80%BB%E8%BE%91.png" alt="搜索查询JS代码结构"></p>
 <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h4 id="1-状态栏颜色的设置"><a href="#1-状态栏颜色的设置" class="headerlink" title="1 状态栏颜色的设置"></a>1 状态栏颜色的设置</h4><p><code>setStatusBarBackground</code> : 设置系统状态栏背景颜色。</p>
 <ul>
 <li>说明：   <ul>
@@ -4949,6 +5027,136 @@
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> plus.<span class="property">navigator</span>.<span class="title function_">setStatusBarBackground</span>(color);</span><br></pre></td></tr></table></figure>
 
 <p>-<a href="https://www.html5plus.org/doc/h5p.html">H5 + 规范</a><br>-<a href="https://www.html5plus.org/doc/zh_cn/nativeui.html">nativeUI - 导航栏</a></p>
+]]></content>
+      <categories>
+        <category>项目</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JS-面试总结3</title>
+    <url>/2022/05/20/JS-%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%933/</url>
+    <content><![CDATA[<h2 id="1-统计字符次数"><a href="#1-统计字符次数" class="headerlink" title="1 统计字符次数"></a>1 统计字符次数</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// 最终返回一个对象</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> str  = <span class="string">&#x27;aaavvvvrrrrtttt&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">fUnique</span>(<span class="params">str</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> obj =&#123;&#125;;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span> ; i&lt; str.<span class="property">length</span>;i++)&#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> k =str[i];</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 如果obj[k]为空，则设置为空</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span>( !obj[k] )&#123;</span></span><br><span class="line"><span class="language-javascript">                obj[k] = <span class="number">1</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 多次出现 递增</span></span></span><br><span class="line"><span class="language-javascript">                obj[k]++;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span> obj;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fUnique</span>(str));</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>移动端</title>
+    <url>/2022/05/21/%E7%A7%BB%E5%8A%A8%E7%AB%AF/</url>
+    <content><![CDATA[<h2 id="1-移动端"><a href="#1-移动端" class="headerlink" title="1 移动端"></a>1 移动端</h2><h3 id="1-1-reset和Normalize"><a href="#1-1-reset和Normalize" class="headerlink" title="1.1 reset和Normalize"></a>1.1 reset和Normalize</h3><blockquote>
+<p>reset.css文件： 是一个css样式文件，用来覆盖浏览器的默认样式，从而实现网页在所有浏览器中都具有一致的表现效果。</p>
+</blockquote>
+<ul>
+<li>淘宝的css reset文件：</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">overflow-x</span>:auto;</span><br><span class="line">    <span class="attribute">overflow-y</span>:scroll;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span>, <span class="selector-tag">dl</span>, <span class="selector-tag">dt</span>, <span class="selector-tag">dd</span>, <span class="selector-tag">ul</span>, <span class="selector-tag">ol</span>, <span class="selector-tag">li</span>, pre, <span class="selector-tag">form</span>, <span class="selector-tag">fieldset</span>, <span class="selector-tag">input</span>, <span class="selector-tag">p</span>, <span class="selector-tag">blockquote</span>, <span class="selector-tag">th</span>, <span class="selector-tag">td</span> &#123;</span><br><span class="line">    <span class="attribute">font-weight</span>:<span class="number">400</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h1</span>, <span class="selector-tag">h2</span>, <span class="selector-tag">h3</span>, <span class="selector-tag">h4</span>, <span class="selector-tag">h4</span>, <span class="selector-tag">h5</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>:<span class="number">#FFFFFF</span>;</span><br><span class="line">    <span class="attribute">color</span>:<span class="number">#666666</span>;</span><br><span class="line">    <span class="attribute">font-family</span>:Helvetica,Arial,sans-serif;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">12px</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span> <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">text-align</span><span class="selector-pseudo">:left</span>;</span><br><span class="line">&#125;</span><br><span class="line">select &#123;</span><br><span class="line">    <span class="attribute">font-size</span>:<span class="number">12px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    <span class="attribute">border-collapse</span>:collapse;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">fieldset</span>, <span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">0</span> none;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">fieldset</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">fieldset</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">8px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">legend</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>:none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">address</span>, <span class="selector-tag">caption</span>, <span class="selector-tag">em</span>, <span class="selector-tag">strong</span>, <span class="selector-tag">th</span>, <span class="selector-tag">i</span> &#123;</span><br><span class="line">    <span class="attribute">font-style</span>:normal;</span><br><span class="line">    <span class="attribute">font-weight</span>:<span class="number">400</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">table</span> <span class="selector-tag">caption</span> &#123;</span><br><span class="line">    <span class="attribute">margin-left</span>:-<span class="number">1px</span>;</span><br><span class="line">&#125;</span><br><span class="line">hr &#123;</span><br><span class="line">    <span class="attribute">border-bottom</span>:<span class="number">1px</span> solid <span class="number">#FFFFFF</span>;</span><br><span class="line">    <span class="attribute">border-top</span>:<span class="number">1px</span> solid <span class="number">#E4E4E4</span>;</span><br><span class="line">    <span class="attribute">border-width</span>:<span class="number">1px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">clear</span>:both;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">2px</span>;</span><br><span class="line">    <span class="attribute">margin</span>:<span class="number">5px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">overflow</span>:hidden;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ol</span>, <span class="selector-tag">ul</span> &#123;</span><br><span class="line">    <span class="attribute">list-style-image</span>:none;</span><br><span class="line">    <span class="attribute">list-style-position</span>:outside;</span><br><span class="line">    <span class="attribute">list-style-type</span>:none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">caption</span>, <span class="selector-tag">th</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span><span class="selector-pseudo">:left</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">q</span><span class="selector-pseudo">:before</span>, <span class="selector-tag">q</span><span class="selector-pseudo">:after</span>, <span class="selector-tag">blockquote</span><span class="selector-pseudo">:before</span>, <span class="selector-tag">blockquote</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>:””;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Normalize.css文件： 是一个很小的CSS文件（V5.0.0版本大小8KB），但它在默认的HTML元素样式上提供了跨浏览器的高度一致性。相比于传统的</p>
+</blockquote>
+<ul>
+<li>优点 <ul>
+<li>可以解决跨浏览器的一致性的问题；</li>
+<li>保留有用的浏览器默认样式而不是像一些初始化代码一样删除它们；</li>
+<li>规范化大部分HTML元素；</li>
+<li>更正浏览器自身的bug并保证各浏览器的一致性；</li>
+<li>用一些小技巧优化CSS可用性；</li>
+<li>用注释和详细的文档来解释代码。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-1-布局单位"><a href="#2-1-布局单位" class="headerlink" title="2.1 布局单位"></a>2.1 布局单位</h3><h2 id="2-移动端兼容"><a href="#2-移动端兼容" class="headerlink" title="2 移动端兼容"></a>2 移动端兼容</h2><h2 id="3-移动端性能优化"><a href="#3-移动端性能优化" class="headerlink" title="3 移动端性能优化"></a>3 移动端性能优化</h2>]]></content>
+      <categories>
+        <category>移动端</category>
+      </categories>
+      <tags>
+        <tag>移动端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>移动端APP常用功能</title>
+    <url>/2022/05/20/%E7%A7%BB%E5%8A%A8%E7%AB%AFAPP%E5%B8%B8%E7%94%A8%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<h2 id="移动端APP常用功能"><a href="#移动端APP常用功能" class="headerlink" title="移动端APP常用功能"></a>移动端APP常用功能</h2><h3 id="1-定位"><a href="#1-定位" class="headerlink" title="1 定位"></a>1 定位</h3><ul>
+<li><p><a href="https://www.html5plus.org/doc/zh_cn/geolocation.html">Geolocation模块 - 定位</a></p>
+</li>
+<li><p>常用方法</p>
+<ul>
+<li>getCurrentPosition: 获取当前设备位置信息 （饿了吗常用）</li>
+<li>watchPosition: 监听设备位置变化信息 （滴滴使用监听）</li>
+<li>clearWatch: 关闭监听设备位置信息</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-通讯录"><a href="#2-通讯录" class="headerlink" title="2 通讯录"></a>2 通讯录</h3><ul>
+<li><p><a href="https://www.html5plus.org/doc/zh_cn/contacts.html">Contacts模块管理 - 通讯录</a></p>
+</li>
+<li><p>常用方法</p>
+<ul>
+<li>getAddressBook: 获取通讯录对象</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> plus.<span class="property">contacts</span>.<span class="title function_">getAddressBook</span>( type, succesCB, errorCB );</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-调用摄像头拍照"><a href="#3-调用摄像头拍照" class="headerlink" title="3 调用摄像头拍照"></a>3 调用摄像头拍照</h3><ul>
+<li><a href="https://www.html5plus.org/doc/zh_cn/camera.html">Camera模块管理 - 拍照</a></li>
+</ul>
+<h4 id="3-1-拍照"><a href="#3-1-拍照" class="headerlink" title="3.1 拍照"></a>3.1 拍照</h4><ul>
+<li>获取摄像头管理对象 : getCamera，<code>plus.camera.getCamera( index );</code></li>
+<li>进行拍照 ： <code>对象.captureImage(successCB, errorCB, options);</code></li>
+</ul>
+<h4 id="3-2-路径转换-获取显示图片"><a href="#3-2-路径转换-获取显示图片" class="headerlink" title="3.2 路径转换(获取显示图片)"></a>3.2 路径转换(获取显示图片)</h4><ul>
+<li><a href="https://www.html5plus.org/doc/zh_cn/io.html">IO模块管理本地文件系统</a></li>
+<li>本地转换为平台的url：<code>plus.io.convertLocalFileSystemURL( url );</code></li>
+</ul>
+<h3 id="4-调取相册"><a href="#4-调取相册" class="headerlink" title="4 调取相册"></a>4 调取相册</h3><ul>
+<li><a href="https://www.html5plus.org/doc/zh_cn/gallery.html">Gallery模块管理系统相册</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>移动端APP上线流程</title>
+    <url>/2022/05/20/%E7%A7%BB%E5%8A%A8%E7%AB%AFAPP%E4%B8%8A%E7%BA%BF%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="移动端APP上线流程"><a href="#移动端APP上线流程" class="headerlink" title="移动端APP上线流程"></a>移动端APP上线流程</h2><ul>
+<li>跨平台开发</li>
+</ul>
+<ol>
+<li><p>在本地测试APP是否存在问题；</p>
+</li>
+<li><p>配置相关内容 ：<code>manifest.json</code></p>
+<ol>
+<li>基础配置（应用标识、名称、版本号等）</li>
+<li>图标配置（图标）</li>
+<li>启动页面配置（广告）</li>
+<li>模块配置</li>
+</ol>
+</li>
+<li><p>运行 -&gt; 运行到手机或模拟器 -&gt; 制作自定义调试基座</p>
+</li>
+<li><p>生成证书 <a href="https://www.yunedit.com/">https://www.yunedit.com/</a></p>
+<ol>
+<li>安卓证书生成</li>
+<li>创建安卓证书</li>
+<li>填写内容，下载证书</li>
+</ol>
+</li>
+<li><p>打成自定义包</p>
+<ol>
+<li>打包完成后会生成路径</li>
+</ol>
+</li>
+<li><p>打包测试后遇到语音识别的问题，无法实现</p>
+<ol>
+<li><code>punctuation: false</code> 语音识别处有问题（讯飞）</li>
+<li>百度语音识别 <a href="https://cloud.baidu.com/">https://cloud.baidu.com/</a> （使用百度语音识别需要申请id）</li>
+</ol>
+</li>
+<li><p>打包正式包<br>上架商店，提供对应的信息等即可。（上线需要软件著作权）</p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>项目</category>
