@@ -140,6 +140,82 @@
     
     
     <article
+  id="post-Vue-生命周期"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/05/12/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"
+    >Vue-生命周期</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/05/12/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="article-date">
+  <time datetime="2022-05-12T07:29:37.000Z" itemprop="datePublished">2022-05-12</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-生命周期"><a href="#1-生命周期" class="headerlink" title="1 生命周期"></a>1 生命周期</h2><h3 id="1-1-是什么？"><a href="#1-1-是什么？" class="headerlink" title="1.1 是什么？"></a>1.1 是什么？</h3><blockquote>
+<p>vue中每一个组件都是独立的，每一个组件都有自己的生命周期，从一个组件创建、数据初始化、挂载、更新和销毁。</p>
+</blockquote>
+<ul>
+<li>接口数据请求写在：created()方法中。</li>
+</ul>
+<h3 id="1-2-有哪些？"><a href="#1-2-有哪些？" class="headerlink" title="1.2 有哪些？"></a>1.2 有哪些？</h3><h4 id="1-2-1-beforeCreate-和-created"><a href="#1-2-1-beforeCreate-和-created" class="headerlink" title="1.2.1 beforeCreate() 和 created()"></a>1.2.1 beforeCreate() 和 created()</h4><blockquote>
+<p>vue实例初始化，以及事件初始化</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Vue实例初始化之后，以及事件初始化 实例创建之前调用</span></span><br><span class="line"><span class="title function_">beforeCreate</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------1.beforeCreate--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);<span class="comment">//undefined</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);<span class="comment">//undefined</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>);<span class="comment">//  &lt;p&gt; &#123;&#123; count &#125;&#125; &lt;/p&gt; </span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    实例创建成功 </span></span><br><span class="line"><span class="comment">    在调用该方法前，初始化会被用到的状态包括：props、methods、data、computed、watch等。</span></span><br><span class="line"><span class="comment">    在这个阶段，会实现对data中属性的监听，也就是当data中的属性值发生变化时，视图也会发生变化。</span></span><br><span class="line"><span class="comment">    created：</span></span><br><span class="line"><span class="comment">        可以：所有状态都初始化完成，可以在该阶段发送异步ajax请求获取数据</span></span><br><span class="line"><span class="comment">        不可以：无法获取到对应的$el选项（无法获取到dom）</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="title function_">created</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------2.Created--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);<span class="comment">//undefined</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);<span class="comment">//count: 1</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>);<span class="comment">// &lt;p&gt; &#123;&#123; count &#125;&#125; &lt;/p&gt; </span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-2-beforeMount-和-mounted"><a href="#1-2-2-beforeMount-和-mounted" class="headerlink" title="1.2.2 beforeMount() 和 mounted()"></a>1.2.2 beforeMount() 和 mounted()</h4><blockquote>
+<p>创建虚拟dom和真正的dom。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    虚拟dom已经创建完成，马上进行渲染</span></span><br><span class="line"><span class="comment">    在这里可以更改data中的数据，但是不会触发updated</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="title function_">beforeMount</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------3.beforeMount--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);<span class="comment">// &#123;&#123; count &#125;&#125; </span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);<span class="comment">//count: 1</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>); <span class="comment">// &lt;p&gt; &#123;&#123; count &#125;&#125; &lt;/p&gt; </span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">    初始化阶段结束，真正的DOM已经创建，可以发送异步请求获取数据，也可以访问dom元素</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="title function_">mounted</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------4.mounted--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>); <span class="comment">//&lt;p&gt;  1 &lt;/p&gt; </span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);<span class="comment">//count: 1</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>); <span class="comment">//&lt;p&gt;  1 &lt;/p&gt; </span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">//  页面已完成全部渲染 - 完成状态 -mounted</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-3-beforeUpdate-和-updated"><a href="#1-2-3-beforeUpdate-和-updated" class="headerlink" title="1.2.3 beforeUpdate() 和 updated()"></a>1.2.3 beforeUpdate() 和 updated()</h4><blockquote>
+<p>数据更新</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当data数据发生,执行5-6</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    更新前，可用于获取更新前各种状态数据</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="title function_">beforeUpdate</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------5.beforeUpdate--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);                </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>);</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    更新后执行该钩子函数，所有的状态数据都是最新的</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="title function_">updated</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------6.updated--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>); </span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-4-beforeDestroy-和-destroyed"><a href="#1-2-4-beforeDestroy-和-destroyed" class="headerlink" title="1.2.4 beforeDestroy() 和 destroyed()"></a>1.2.4 beforeDestroy() 和 destroyed()</h4><blockquote>
+<p>组件销毁</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 销毁时进行7-8 */</span> </span><br><span class="line"><span class="comment">// 在Vue实例销毁之前调用，此时实例仍然可用</span></span><br><span class="line"><span class="title function_">beforeDestroy</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------7.beforeDestroy--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>); </span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    组件已经销毁，事件监听器被移除， 所有的子实例也会被销毁</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="title function_">destroyed</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------8.destroyed--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-Vue-面试题1"
   class="article article-type-post"
   itemscope
@@ -183,8 +259,11 @@
 </ul>
 </li>
 </ul>
-<h2 id="2-Vue-js中引入组件有几种方式？简述步骤"><a href="#2-Vue-js中引入组件有几种方式？简述步骤" class="headerlink" title="2 Vue.js中引入组件有几种方式？简述步骤"></a>2 Vue.js中引入组件有几种方式？简述步骤</h2><h2 id="3-vue数据双向绑定的原理"><a href="#3-vue数据双向绑定的原理" class="headerlink" title="3 vue数据双向绑定的原理"></a>3 vue数据双向绑定的原理</h2><blockquote>
-<p>vue数据双向绑定是通过<code>v-model</code>来实现的。<br>双向数据绑定是通过<code>数据劫持</code>结合<code>发布订阅者模式</code>的方式来实现的，通过 <code>Object.defineProperty()</code> 来劫持各个属性的<code>setter</code>和<code>getter</code>，在数据发生变化时，发布消息给订阅者，触发相应的监听回调来渲染视图。</p>
+<h2 id="2-Vue数据双向绑定"><a href="#2-Vue数据双向绑定" class="headerlink" title="2 Vue数据双向绑定"></a>2 Vue数据双向绑定</h2><h3 id="2-1-Vue2数据双向绑定的原理是什么？"><a href="#2-1-Vue2数据双向绑定的原理是什么？" class="headerlink" title="2.1 Vue2数据双向绑定的原理是什么？"></a>2.1 Vue2数据双向绑定的原理是什么？</h3><blockquote>
+<p>vue数据双向绑定是通过<code>v-model</code>来实现的。</p>
+</blockquote>
+<blockquote>
+<p>双向数据绑定是通过<code>数据劫持</code>结合<code>发布订阅者模式</code>的方式来实现的，通过 <code>Object.defineProperty()</code> 来劫持各个属性的<code>setter</code>和<code>getter</code>，在数据发生变化时，发布消息给订阅者，触发相应的监听回调来渲染视图。</p>
 </blockquote>
 <ul>
 <li>原理：<ul>
@@ -197,7 +276,93 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">Book</span> = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Book</span>, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">set</span>: <span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">    name = value;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;你取了一个书名叫做&#x27;</span> + value);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">get</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;《&#x27;</span> + name + <span class="string">&#x27;》&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="title class_">Book</span>.<span class="property">name</span> = <span class="string">&#x27;vue权威指南&#x27;</span>;  <span class="comment">// 你取了一个书名叫做vue权威指南</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Book</span>.<span class="property">name</span>);  <span class="comment">// 《vue权威指南》</span></span><br></pre></td></tr></table></figure> 
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">Book</span> = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Book</span>, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">set</span>: <span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">    name = value;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;你取了一个书名叫做&#x27;</span> + value);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">get</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;《&#x27;</span> + name + <span class="string">&#x27;》&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="title class_">Book</span>.<span class="property">name</span> = <span class="string">&#x27;vue权威指南&#x27;</span>;  <span class="comment">// 你取了一个书名叫做vue权威指南</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Book</span>.<span class="property">name</span>);  <span class="comment">// 《vue权威指南》</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-Object-defineProperty-方法有什么问题？"><a href="#2-2-Object-defineProperty-方法有什么问题？" class="headerlink" title="2.2 Object.defineProperty() 方法有什么问题？"></a>2.2 Object.defineProperty() 方法有什么问题？</h3><blockquote>
+<p>Vue2 : 双向数据绑定是利用<code>ES5</code>的<code>Object.definePropert()</code>对数据进行劫持， 结合发布订阅模式的方式来实现。</p>
+</blockquote>
+<ul>
+<li><p>实现过程中的问题：</p>
+<ul>
+<li>劫持要循环；</li>
+<li>要劫持多层需要递归，耗费性能。</li>
+</ul>
+</li>
+<li><p>改进： 在Vue3中，数据双向绑定使用的是<code>Proxy</code>，可以省去for in，闭包等内容来提升效率(直接绑定整个对象即可)。</p>
+</li>
+</ul>
+<h2 id="3-Webpack与Vite"><a href="#3-Webpack与Vite" class="headerlink" title="3 Webpack与Vite"></a>3 Webpack与Vite</h2><blockquote>
+<p>基于webpack构建与基于vite构建的vue项目有什么什么区别？ 这两种方式的优缺点有什么？</p>
+</blockquote>
+<h3 id="3-1-基于Webpack构建的Vue项目"><a href="#3-1-基于Webpack构建的Vue项目" class="headerlink" title="3.1 基于Webpack构建的Vue项目"></a>3.1 基于Webpack构建的Vue项目</h3><blockquote>
+<p>Webapck: 是一个前端资源加载/打包工具，它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。</p>
+</blockquote>
+<ul>
+<li>webpack先打包再启动开发服务器，请求服务器时直接给予打包后的结果。</li>
+</ul>
+<p><img src="webpack.png" alt="webpack"></p>
+<h3 id="3-2-基于Vite构建的Vue项目"><a href="#3-2-基于Vite构建的Vue项目" class="headerlink" title="3.2 基于Vite构建的Vue项目"></a>3.2 基于Vite构建的Vue项目</h3><blockquote>
+<p>Vite： 是一个基于原生ES-Module的前端构建工具。Vite 的构建指令是通过 rollup 来打包你的代码。</p>
+</blockquote>
+<ul>
+<li>特点<ul>
+<li>快速的冷启动；</li>
+<li>即时的模块热更新；</li>
+<li>真正的按需编译</li>
+</ul>
+</li>
+</ul>
+<p><img src="vite.png" alt="vite"></p>
+<h3 id="3-3-两者的区别"><a href="#3-3-两者的区别" class="headerlink" title="3.3 两者的区别"></a>3.3 两者的区别</h3><ul>
+<li><p>Webpack：</p>
+<ul>
+<li>webpack的流程是先entry然后逐步加载，等到所有模块加载完毕，然后再bundle，最后服务器才能准备好启动（serverReady）。</li>
+<li>基于webpack的vue项目，在编译过程非常慢。</li>
+</ul>
+</li>
+<li><p>Vite优点</p>
+<ul>
+<li>采用了更快的冷启动效果实现在本地开发时使用原生的ES Module特性导入你的代码，把build的过程让浏览器完成，大大提升了开发效率，更快的冷启动和模块热更新的结合几乎可以达到页面实时改变。</li>
+<li>在开发环境中，无需打包操作，可快速的冷启动；</li>
+<li>轻量快速的热重载；</li>
+<li>真正的按需编译，不再等待整个应用编译完成。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-Vue2与Vue3的区别"><a href="#4-Vue2与Vue3的区别" class="headerlink" title="4 Vue2与Vue3的区别"></a>4 <code>Vue2</code>与<code>Vue3</code>的区别</h2><h3 id="4-1-双向数据绑定原理的区别"><a href="#4-1-双向数据绑定原理的区别" class="headerlink" title="4.1 双向数据绑定原理的区别"></a>4.1 双向数据绑定原理的区别</h3><blockquote>
+<p>Vue2 : 双向数据绑定是利用<code>ES5</code>的<code>Object.definePropert()</code>对数据进行劫持， 结合发布订阅模式的方式来实现。</p>
+</blockquote>
+<ul>
+<li>实现过程中的问题：<ul>
+<li>劫持要循环；</li>
+<li>要劫持多层需要递归，耗费性能。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Vue3 : 使用<code>proxy</code>替换<code>Object.defineProert</code>.</p>
+</blockquote>
+<ul>
+<li>使用<code>proxy</code>的优点：<ul>
+<li><code>defineProperty</code>只能监听某个属性，不能对全对象监听;</li>
+<li>可以省去for in，闭包等内容来提升效率(直接绑定整个对象即可);</li>
+<li>可以监听数组，不用再去单独的对数组做特异性操作<code>vue3.x</code>可以检测到数组内部数据的变化。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-2-根节点的不同"><a href="#4-2-根节点的不同" class="headerlink" title="4.2 根节点的不同"></a>4.2 根节点的不同</h3><ul>
+<li>vue3在组件中支持多个根节点。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;&lt;/h1&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;span&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4-3-组合API"><a href="#4-3-组合API" class="headerlink" title="4.3 组合API"></a>4.3 组合API</h3><blockquote>
+<p>setup 将作为组合式API的入口。</p>
+</blockquote>
+<ul>
+<li><p>写法1：这种写法类似于vue2与vue3的结合版本，在setup处如果有要return的数据，必须使用return。（这种写法使得vue3向下兼容）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123; <span class="title class_">RepositoriesFilters</span>, <span class="title class_">RepositoriesSortBy</span>, <span class="title class_">RepositoriesList</span> &#125;,</span><br><span class="line">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">  <span class="title function_">setup</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(props) <span class="comment">// &#123; user: &#x27;&#x27; &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;&#125; <span class="comment">// 这里返回的任何内容都可以用于组件的其余部分</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 组件的“其余部分”</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>写法2：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">let str = &#x27;123&#x27;;</span><br><span class="line">let str2 = &#x27;ddd&#x27;;</span><br><span class="line">const btn = function()&#123;&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="5-Vue3中定义数据的方式"><a href="#5-Vue3中定义数据的方式" class="headerlink" title="5 Vue3中定义数据的方式"></a>5 <code>Vue3</code>中定义数据的方式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="number">111</span>;     <span class="comment">//不响应的数据</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="title function_">ref</span>(<span class="number">11</span>); <span class="comment">//是一个响应式数据	</span></span><br><span class="line">  <span class="comment">// 修改值需要: str.value = &#x27;xxx&#x27;;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> str = <span class="title function_">reactive</span>( &#123;&#125; );<span class="comment">//是一个响应式数据	,可直接修改值，但是在reactive中放入的是引用类型数据</span></span><br><span class="line">  <span class="comment">//修改值需要: str = &#x27;xxx&#x27;;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  使用上： </span></span><br><span class="line"><span class="comment">    基本类型：  ref （包括数组）</span></span><br><span class="line"><span class="comment">    object类型：reactive</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
     </div>
@@ -1142,136 +1307,13 @@
 </article>
 
     
-    <article
-  id="post-JS-作用域"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/05/04/JS-%E4%BD%9C%E7%94%A8%E5%9F%9F/"
-    >JS-作用域</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/05/04/JS-%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="article-date">
-  <time datetime="2022-05-04T11:37:24.000Z" itemprop="datePublished">2022-05-04</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><h2 id="1-作用域常见类型"><a href="#1-作用域常见类型" class="headerlink" title="1 作用域常见类型"></a>1 作用域常见类型</h2><blockquote>
-<p>全局作用域</p>
-</blockquote>
-<ul>
-<li>全局作用域在一面打开时被创建，页面关闭时被销毁。</li>
-<li>写在script标签中的变量和函数，作用域为全局，在页面的任意位置都可以访问到。</li>
-<li>在全局作用域中有全局对象window，由浏览器创建，可以直接调用。</li>
-<li>全局作用域中声明的变量和函数会作为window对象的属性和方法保存。</li>
-</ul>
-<blockquote>
-<p>函数作用域</p>
-</blockquote>
-<ul>
-<li>调用函数时被创建，执行完毕被销毁。</li>
-<li>每调用一次函数就会创建一个新的函数作用域，他们之间相互独立。</li>
-<li>函数作用域可以访问到全局作用域的变量，在函数外无法访问到函数作用域内的变量。</li>
-<li>在函数作用域中访问变量、函数时，会现在自身作用域中寻找，若没找到，则会到上一级寻找， 一直到全局作用域。</li>
-</ul>
-<p>注意：</p>
-<ul>
-<li>JS没有块级作用域，但是可以模拟块级作用域。</li>
-<li>不是有<code>&#123;&#125;</code>就是作用域。</li>
-</ul>
-<h2 id="2-作用域的深层次理解"><a href="#2-作用域的深层次理解" class="headerlink" title="2 作用域的深层次理解"></a>2 作用域的深层次理解</h2><ul>
-<li><p>执行期的上下文</p>
-<ul>
-<li>当函数代码执行的前期会创建一个执行期上下文的内部对象(<code>AO</code>)(局部作用域)；</li>
-<li>这个内部对象是在预编译的时候创建出来的，因为当函数被调用的时候，会先进行预编译；</li>
-<li>在全局代码执行的前期会创建一个执行期的上下文的对象<code>GO</code>(全局作用域)。</li>
-</ul>
-</li>
-<li><p>作用域链</p>
-<ul>
-<li>作用域链会被保存到一个隐式的属性中[[scope]]。这个属性是用户无法访问的，但是JS引擎将会访问它，这里面存储的是作用域链。</li>
-<li>从内部向外链接。作用域链从当前作用域开始找，如果找不到则向外作用域找，找到返回，找不到报错。</li>
-<li>从内部逐级向上查找。</li>
-<li><code>AO</code>和<code>GO</code>的集合</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>变量提升（悬挂变量声明）</p>
-<ul>
-<li>JS提升所有变量声明（var，函数），将他们移到其作用域的开头;</li>
-<li>注意：JS除了函数外没有块级作用域！！！</li>
-<li>执行顺序、优先级<ul>
-<li><code>声明变量</code> &gt; <code>普通函数</code> &gt; <code>参数</code> &gt; <code>变量提升</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>eg:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// var变量提升 JS不存在块级作用域</span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// undefined</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">if</span>( <span class="literal">false</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> x = <span class="number">1</span> ; </span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x); <span class="comment">// undefined</span></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>执行顺序、优先级</p>
-<ul>
-<li><code>变量</code> &gt; <code>函数</code> &gt; <code>参数</code> &gt; <code>变量提升</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="3-面试题"><a href="#3-面试题" class="headerlink" title="3 面试题"></a>3 面试题</h2><ul>
-<li><p>eg1：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&#x27;123&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// var str  变量提升</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str);<span class="comment">// undefined</span></span><br><span class="line">    <span class="keyword">var</span> str =<span class="string">&#x27;234&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>eg2：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn1</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str1); <span class="comment">// 报错 未定义</span></span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">str1</span> =<span class="string">&#x27;2343&#x27;</span>; <span class="comment">// 全局变量 没有进行变量提升 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn1</span>();</span><br></pre></td></tr></table></figure></li>
-<li><p>eg3:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">fn2</span>(<span class="params">str2</span>)&#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">str2</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str2);<span class="comment">// f str2()&#123; return &#x27;2&#x27;; &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn2</span>(<span class="string">&#x27;222&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fn3</span>(<span class="params">str3</span>)&#123;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">str3</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;3&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> str3 =<span class="string">&#x27;999&#x27;</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(str3);<span class="comment">// 999</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fn3</span>(<span class="string">&#x27;23332&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
-<li><p>eg4:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">c</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// undefinded</span></span><br><span class="line">        <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(b); <span class="comment">// 2</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">a</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(b);<span class="comment">//1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">c</span>();</span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// window.b = 10</span></span><br><span class="line">    <span class="keyword">var</span> a= b =<span class="number">10</span> ;</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);<span class="comment">// 10</span></span><br></pre></td></tr></table></figure></li>
-<li><p>eg5:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name =<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="comment">// var name ;</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> name ==<span class="string">&#x27;undefined&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> name =<span class="string">&#x27;b&#x27;</span>;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;111&#x27;</span>+name); <span class="comment">// 111b</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;222&#x27;</span>+ name );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行优先级</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params">a</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> a =<span class="number">10</span> ;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>)&#123;&#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(a);<span class="comment">// 10</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fun</span>(<span class="number">100</span>);</span><br></pre></td></tr></table></figure></li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">知识点</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
   </nav>
   
 </section>

@@ -140,6 +140,75 @@
     
     
     <article
+  id="post-Vue-面试题2"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/05/24/Vue-%E9%9D%A2%E8%AF%95%E9%A2%982/"
+    >Vue-面试题2</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/05/24/Vue-%E9%9D%A2%E8%AF%95%E9%A2%982/" class="article-date">
+  <time datetime="2022-05-24T07:10:07.000Z" itemprop="datePublished">2022-05-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="1-key-39-index-39-在使用时有什么问题？"><a href="#1-key-39-index-39-在使用时有什么问题？" class="headerlink" title="1 :key=&#39;index&#39;在使用时有什么问题？"></a>1 <code>:key=&#39;index&#39;</code>在使用时有什么问题？</h2><ul>
+<li><p>问题： 下标修改，后面的元素会重新创建，对性能有影响。</p>
+</li>
+<li><p>若对数据进行：逆序添加、逆序删除等破坏顺序操作:<br>  会产生没有必要的真实DOM更新 ==&gt; 界面效果没问题, 但效率低。</p>
+</li>
+<li><p>如果结构中还包含输入类的DOM：<br>  会产生错误DOM更新 ==&gt; 界面有问题。</p>
+</li>
+<li><p>注意！如果不存在对数据的逆序添加、逆序删除等破坏顺序操作，<br>  仅用于渲染列表用于展示，使用index作为key是没有问题的。</p>
+</li>
+<li><p>最好使用每条数据的唯一标识作为key, 比如id、手机号、身份证号、学号等唯一值。如果确定只是简单的展示数据，用index也是可以的。 </p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6999932053466644517">index作为key引发的事情</a></p>
+</li>
+</ul>
+<h2 id="2-给你1000条数据，如何不用循环，找到想要的值？"><a href="#2-给你1000条数据，如何不用循环，找到想要的值？" class="headerlink" title="2 给你1000条数据，如何不用循环，找到想要的值？"></a>2 给你1000条数据，如何不用循环，找到想要的值？</h2><ul>
+<li>不用for循环如何实现数组基本功能操作。</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-移动端"
   class="article article-type-post"
   itemscope
@@ -901,6 +970,18 @@
 <li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/muzidigbig/article/details/122121002">Vue性能提升之Object.freeze()</a></p>
 </li>
 </ul>
+<h2 id="2-你在项目中做过哪些性能优化？"><a href="#2-你在项目中做过哪些性能优化？" class="headerlink" title="2 你在项目中做过哪些性能优化？"></a>2 你在项目中做过哪些性能优化？</h2><ul>
+<li><p>提升开发效率</p>
+<ul>
+<li>可以将webpack构建工具换成vite</li>
+</ul>
+</li>
+<li><p>提升页面加载时间</p>
+<ul>
+<li>vue3异步组件 + 按需加载组件</li>
+</ul>
+</li>
+</ul>
  
       <!-- reward -->
       
@@ -921,89 +1002,13 @@
 </article>
 
     
-    <article
-  id="post-Vue-生命周期"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/05/12/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"
-    >Vue-生命周期</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/05/12/Vue-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="article-date">
-  <time datetime="2022-05-12T07:29:37.000Z" itemprop="datePublished">2022-05-12</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Vue/">Vue</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="1-生命周期"><a href="#1-生命周期" class="headerlink" title="1 生命周期"></a>1 生命周期</h2><h3 id="1-1-是什么？"><a href="#1-1-是什么？" class="headerlink" title="1.1 是什么？"></a>1.1 是什么？</h3><blockquote>
-<p>vue中每一个组件都是独立的，每一个组件都有自己的生命周期，从一个组件创建、数据初始化、挂载、更新和销毁。</p>
-</blockquote>
-<ul>
-<li>接口数据请求写在：created()方法中。</li>
-</ul>
-<h3 id="1-2-有哪些？"><a href="#1-2-有哪些？" class="headerlink" title="1.2 有哪些？"></a>1.2 有哪些？</h3><h4 id="1-2-1-beforeCreate-和-created"><a href="#1-2-1-beforeCreate-和-created" class="headerlink" title="1.2.1 beforeCreate() 和 created()"></a>1.2.1 beforeCreate() 和 created()</h4><blockquote>
-<p>vue实例初始化，以及事件初始化</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Vue实例初始化之后，以及事件初始化 实例创建之前调用</span></span><br><span class="line"><span class="title function_">beforeCreate</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------1.beforeCreate--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);<span class="comment">//undefined</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);<span class="comment">//undefined</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>);<span class="comment">//  &lt;p&gt; &#123;&#123; count &#125;&#125; &lt;/p&gt; </span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    实例创建成功 </span></span><br><span class="line"><span class="comment">    在调用该方法前，初始化会被用到的状态包括：props、methods、data、computed、watch等。</span></span><br><span class="line"><span class="comment">    在这个阶段，会实现对data中属性的监听，也就是当data中的属性值发生变化时，视图也会发生变化。</span></span><br><span class="line"><span class="comment">    created：</span></span><br><span class="line"><span class="comment">        可以：所有状态都初始化完成，可以在该阶段发送异步ajax请求获取数据</span></span><br><span class="line"><span class="comment">        不可以：无法获取到对应的$el选项（无法获取到dom）</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="title function_">created</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------2.Created--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);<span class="comment">//undefined</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);<span class="comment">//count: 1</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>);<span class="comment">// &lt;p&gt; &#123;&#123; count &#125;&#125; &lt;/p&gt; </span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-2-2-beforeMount-和-mounted"><a href="#1-2-2-beforeMount-和-mounted" class="headerlink" title="1.2.2 beforeMount() 和 mounted()"></a>1.2.2 beforeMount() 和 mounted()</h4><blockquote>
-<p>创建虚拟dom和真正的dom。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    虚拟dom已经创建完成，马上进行渲染</span></span><br><span class="line"><span class="comment">    在这里可以更改data中的数据，但是不会触发updated</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="title function_">beforeMount</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------3.beforeMount--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);<span class="comment">// &#123;&#123; count &#125;&#125; </span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);<span class="comment">//count: 1</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>); <span class="comment">// &lt;p&gt; &#123;&#123; count &#125;&#125; &lt;/p&gt; </span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">    初始化阶段结束，真正的DOM已经创建，可以发送异步请求获取数据，也可以访问dom元素</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="title function_">mounted</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------4.mounted--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>); <span class="comment">//&lt;p&gt;  1 &lt;/p&gt; </span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);<span class="comment">//count: 1</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>); <span class="comment">//&lt;p&gt;  1 &lt;/p&gt; </span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">//  页面已完成全部渲染 - 完成状态 -mounted</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="1-2-3-beforeUpdate-和-updated"><a href="#1-2-3-beforeUpdate-和-updated" class="headerlink" title="1.2.3 beforeUpdate() 和 updated()"></a>1.2.3 beforeUpdate() 和 updated()</h4><blockquote>
-<p>数据更新</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当data数据发生,执行5-6</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    更新前，可用于获取更新前各种状态数据</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="title function_">beforeUpdate</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------5.beforeUpdate--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);                </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>);</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    更新后执行该钩子函数，所有的状态数据都是最新的</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="title function_">updated</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------6.updated--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>); </span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-2-4-beforeDestroy-和-destroyed"><a href="#1-2-4-beforeDestroy-和-destroyed" class="headerlink" title="1.2.4 beforeDestroy() 和 destroyed()"></a>1.2.4 beforeDestroy() 和 destroyed()</h4><blockquote>
-<p>组件销毁</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 销毁时进行7-8 */</span> </span><br><span class="line"><span class="comment">// 在Vue实例销毁之前调用，此时实例仍然可用</span></span><br><span class="line"><span class="title function_">beforeDestroy</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------7.beforeDestroy--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>); </span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    组件已经销毁，事件监听器被移除， 所有的子实例也会被销毁</span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="title function_">destroyed</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;--------8.destroyed--------&#x27;</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;el&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$el</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data&#x27;</span>,<span class="variable language_">this</span>.<span class="property">$data</span>);</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;innerHTML&#x27;</span>,<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;app&#x27;</span>).<span class="property">innerHTML</span>);</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>

@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">336</span>
+            <span class="post-count">1.3k</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">5 分钟</span>
         </span>
     </span>
 </div>
@@ -123,8 +123,11 @@
 </ul>
 </li>
 </ul>
-<h2 id="2-Vue-js中引入组件有几种方式？简述步骤"><a href="#2-Vue-js中引入组件有几种方式？简述步骤" class="headerlink" title="2 Vue.js中引入组件有几种方式？简述步骤"></a>2 Vue.js中引入组件有几种方式？简述步骤</h2><h2 id="3-vue数据双向绑定的原理"><a href="#3-vue数据双向绑定的原理" class="headerlink" title="3 vue数据双向绑定的原理"></a>3 vue数据双向绑定的原理</h2><blockquote>
-<p>vue数据双向绑定是通过<code>v-model</code>来实现的。<br>双向数据绑定是通过<code>数据劫持</code>结合<code>发布订阅者模式</code>的方式来实现的，通过 <code>Object.defineProperty()</code> 来劫持各个属性的<code>setter</code>和<code>getter</code>，在数据发生变化时，发布消息给订阅者，触发相应的监听回调来渲染视图。</p>
+<h2 id="2-Vue数据双向绑定"><a href="#2-Vue数据双向绑定" class="headerlink" title="2 Vue数据双向绑定"></a>2 Vue数据双向绑定</h2><h3 id="2-1-Vue2数据双向绑定的原理是什么？"><a href="#2-1-Vue2数据双向绑定的原理是什么？" class="headerlink" title="2.1 Vue2数据双向绑定的原理是什么？"></a>2.1 Vue2数据双向绑定的原理是什么？</h3><blockquote>
+<p>vue数据双向绑定是通过<code>v-model</code>来实现的。</p>
+</blockquote>
+<blockquote>
+<p>双向数据绑定是通过<code>数据劫持</code>结合<code>发布订阅者模式</code>的方式来实现的，通过 <code>Object.defineProperty()</code> 来劫持各个属性的<code>setter</code>和<code>getter</code>，在数据发生变化时，发布消息给订阅者，触发相应的监听回调来渲染视图。</p>
 </blockquote>
 <ul>
 <li>原理：<ul>
@@ -137,7 +140,93 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">Book</span> = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Book</span>, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">set</span>: <span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">    name = value;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;你取了一个书名叫做&#x27;</span> + value);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">get</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;《&#x27;</span> + name + <span class="string">&#x27;》&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="title class_">Book</span>.<span class="property">name</span> = <span class="string">&#x27;vue权威指南&#x27;</span>;  <span class="comment">// 你取了一个书名叫做vue权威指南</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Book</span>.<span class="property">name</span>);  <span class="comment">// 《vue权威指南》</span></span><br></pre></td></tr></table></figure> 
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title class_">Book</span> = &#123;&#125;</span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(<span class="title class_">Book</span>, <span class="string">&#x27;name&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">set</span>: <span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">    name = value;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;你取了一个书名叫做&#x27;</span> + value);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">get</span>: <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;《&#x27;</span> + name + <span class="string">&#x27;》&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="title class_">Book</span>.<span class="property">name</span> = <span class="string">&#x27;vue权威指南&#x27;</span>;  <span class="comment">// 你取了一个书名叫做vue权威指南</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Book</span>.<span class="property">name</span>);  <span class="comment">// 《vue权威指南》</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-Object-defineProperty-方法有什么问题？"><a href="#2-2-Object-defineProperty-方法有什么问题？" class="headerlink" title="2.2 Object.defineProperty() 方法有什么问题？"></a>2.2 Object.defineProperty() 方法有什么问题？</h3><blockquote>
+<p>Vue2 : 双向数据绑定是利用<code>ES5</code>的<code>Object.definePropert()</code>对数据进行劫持， 结合发布订阅模式的方式来实现。</p>
+</blockquote>
+<ul>
+<li><p>实现过程中的问题：</p>
+<ul>
+<li>劫持要循环；</li>
+<li>要劫持多层需要递归，耗费性能。</li>
+</ul>
+</li>
+<li><p>改进： 在Vue3中，数据双向绑定使用的是<code>Proxy</code>，可以省去for in，闭包等内容来提升效率(直接绑定整个对象即可)。</p>
+</li>
+</ul>
+<h2 id="3-Webpack与Vite"><a href="#3-Webpack与Vite" class="headerlink" title="3 Webpack与Vite"></a>3 Webpack与Vite</h2><blockquote>
+<p>基于webpack构建与基于vite构建的vue项目有什么什么区别？ 这两种方式的优缺点有什么？</p>
+</blockquote>
+<h3 id="3-1-基于Webpack构建的Vue项目"><a href="#3-1-基于Webpack构建的Vue项目" class="headerlink" title="3.1 基于Webpack构建的Vue项目"></a>3.1 基于Webpack构建的Vue项目</h3><blockquote>
+<p>Webapck: 是一个前端资源加载/打包工具，它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。</p>
+</blockquote>
+<ul>
+<li>webpack先打包再启动开发服务器，请求服务器时直接给予打包后的结果。</li>
+</ul>
+<p><img src="webpack.png" alt="webpack"></p>
+<h3 id="3-2-基于Vite构建的Vue项目"><a href="#3-2-基于Vite构建的Vue项目" class="headerlink" title="3.2 基于Vite构建的Vue项目"></a>3.2 基于Vite构建的Vue项目</h3><blockquote>
+<p>Vite： 是一个基于原生ES-Module的前端构建工具。Vite 的构建指令是通过 rollup 来打包你的代码。</p>
+</blockquote>
+<ul>
+<li>特点<ul>
+<li>快速的冷启动；</li>
+<li>即时的模块热更新；</li>
+<li>真正的按需编译</li>
+</ul>
+</li>
+</ul>
+<p><img src="vite.png" alt="vite"></p>
+<h3 id="3-3-两者的区别"><a href="#3-3-两者的区别" class="headerlink" title="3.3 两者的区别"></a>3.3 两者的区别</h3><ul>
+<li><p>Webpack：</p>
+<ul>
+<li>webpack的流程是先entry然后逐步加载，等到所有模块加载完毕，然后再bundle，最后服务器才能准备好启动（serverReady）。</li>
+<li>基于webpack的vue项目，在编译过程非常慢。</li>
+</ul>
+</li>
+<li><p>Vite优点</p>
+<ul>
+<li>采用了更快的冷启动效果实现在本地开发时使用原生的ES Module特性导入你的代码，把build的过程让浏览器完成，大大提升了开发效率，更快的冷启动和模块热更新的结合几乎可以达到页面实时改变。</li>
+<li>在开发环境中，无需打包操作，可快速的冷启动；</li>
+<li>轻量快速的热重载；</li>
+<li>真正的按需编译，不再等待整个应用编译完成。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-Vue2与Vue3的区别"><a href="#4-Vue2与Vue3的区别" class="headerlink" title="4 Vue2与Vue3的区别"></a>4 <code>Vue2</code>与<code>Vue3</code>的区别</h2><h3 id="4-1-双向数据绑定原理的区别"><a href="#4-1-双向数据绑定原理的区别" class="headerlink" title="4.1 双向数据绑定原理的区别"></a>4.1 双向数据绑定原理的区别</h3><blockquote>
+<p>Vue2 : 双向数据绑定是利用<code>ES5</code>的<code>Object.definePropert()</code>对数据进行劫持， 结合发布订阅模式的方式来实现。</p>
+</blockquote>
+<ul>
+<li>实现过程中的问题：<ul>
+<li>劫持要循环；</li>
+<li>要劫持多层需要递归，耗费性能。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Vue3 : 使用<code>proxy</code>替换<code>Object.defineProert</code>.</p>
+</blockquote>
+<ul>
+<li>使用<code>proxy</code>的优点：<ul>
+<li><code>defineProperty</code>只能监听某个属性，不能对全对象监听;</li>
+<li>可以省去for in，闭包等内容来提升效率(直接绑定整个对象即可);</li>
+<li>可以监听数组，不用再去单独的对数组做特异性操作<code>vue3.x</code>可以检测到数组内部数据的变化。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-2-根节点的不同"><a href="#4-2-根节点的不同" class="headerlink" title="4.2 根节点的不同"></a>4.2 根节点的不同</h3><ul>
+<li>vue3在组件中支持多个根节点。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;&lt;/h1&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;span&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4-3-组合API"><a href="#4-3-组合API" class="headerlink" title="4.3 组合API"></a>4.3 组合API</h3><blockquote>
+<p>setup 将作为组合式API的入口。</p>
+</blockquote>
+<ul>
+<li><p>写法1：这种写法类似于vue2与vue3的结合版本，在setup处如果有要return的数据，必须使用return。（这种写法使得vue3向下兼容）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">components</span>: &#123; <span class="title class_">RepositoriesFilters</span>, <span class="title class_">RepositoriesSortBy</span>, <span class="title class_">RepositoriesList</span> &#125;,</span><br><span class="line">  <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">  <span class="title function_">setup</span>(<span class="params">props</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(props) <span class="comment">// &#123; user: &#x27;&#x27; &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;&#125; <span class="comment">// 这里返回的任何内容都可以用于组件的其余部分</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 组件的“其余部分”</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>写法2：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">let str = &#x27;123&#x27;;</span><br><span class="line">let str2 = &#x27;ddd&#x27;;</span><br><span class="line">const btn = function()&#123;&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="5-Vue3中定义数据的方式"><a href="#5-Vue3中定义数据的方式" class="headerlink" title="5 Vue3中定义数据的方式"></a>5 <code>Vue3</code>中定义数据的方式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="number">111</span>;     <span class="comment">//不响应的数据</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="title function_">ref</span>(<span class="number">11</span>); <span class="comment">//是一个响应式数据	</span></span><br><span class="line">  <span class="comment">// 修改值需要: str.value = &#x27;xxx&#x27;;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> str = <span class="title function_">reactive</span>( &#123;&#125; );<span class="comment">//是一个响应式数据	,可直接修改值，但是在reactive中放入的是引用类型数据</span></span><br><span class="line">  <span class="comment">//修改值需要: str = &#x27;xxx&#x27;;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  使用上： </span></span><br><span class="line"><span class="comment">    基本类型：  ref （包括数组）</span></span><br><span class="line"><span class="comment">    object类型：reactive</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
       <div id="reword-out">

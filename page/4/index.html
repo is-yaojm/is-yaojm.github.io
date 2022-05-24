@@ -140,6 +140,293 @@
     
     
     <article
+  id="post-CSS-盒子模型"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2022/04/28/CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/"
+    >CSS-盒子模型</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2022/04/28/CSS-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="article-date">
+  <time datetime="2022-04-28T10:29:58.000Z" itemprop="datePublished">2022-04-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="CSS-盒子模型"><a href="#CSS-盒子模型" class="headerlink" title="CSS_盒子模型"></a>CSS_盒子模型</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li>盒子中的区域<ul>
+<li>一个盒子有5个重要属性： <code>width(宽度)</code>、<code>height(高度)</code>、<code>padding(内边距)</code>、<code>border(边框)</code>、<code>margin(外边距)</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-标准盒模型"><a href="#1-标准盒模型" class="headerlink" title="1 标准盒模型"></a>1 标准盒模型</h2><p><img src="%E6%A0%87%E5%87%86box.png" alt="标准盒子模型"></p>
+<ul>
+<li><p>标准盒子模型中“盒子”尺寸计算公式为：</p>
+<ul>
+<li><code>盒子实际尺寸</code> = <code>内容尺寸</code> + <code>内边距</code> + <code>边框宽度</code></li>
+</ul>
+</li>
+<li><p>外边距合并问题：</p>
+<ul>
+<li>发生条件： 只有普通文档流中的块级元素的垂直外边距才会发生外边距合并。</li>
+<li>外边距合并：是指当两个垂直外边距相遇时，它们将形成一个外边距。合并后的外边距 = 两个发生合并外边距的高度中的较大值</li>
+<li>合并情况<ul>
+<li>当两个元素均有外边距时，它们将合成一个外边距，高度为元素外边距较大的那个值<br><img src="margin1.jpg" alt="垂直元素合并"></li>
+<li>当一个元素包含在另一个元素中，它们的上下外边距也会合并。<br><img src="margin2.jpg" alt="元素包含合并"></li>
+<li>外边距也可以和自身发生合并。当一个空元素有外边距但是没有边框或填充时，上下外边距会合并。<br><img src="margin3.jpg" alt="自身合并"></li>
+<li>在自身合并的这种情况下，如果遇到另一个元素的外边距，还是会发生合并。<br><img src="margin4.jpg" alt="外边距合并"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-怪异盒模型"><a href="#2-怪异盒模型" class="headerlink" title="2 怪异盒模型"></a>2 怪异盒模型</h2><p><img src="IE%E7%9B%92%E5%AD%90.png" alt="IE盒子模型"></p>
+<ul>
+<li><p>怪异盒模型与标准盒模型的区别：</p>
+<ul>
+<li>IE盒子模型的<code>content部分</code>包含了<code>border</code>和<code>padding</code>。</li>
+<li>在<code>标准盒子模型</code>中：<code>width</code> 和 <code>height</code> 指的是<strong>内容区域的宽度和高度</strong>。增加内边距、边框和外边距不会影响内容区域的尺寸，但是会增加元素框的总尺寸。</li>
+<li>在<code>IE盒子模型</code>中：<code>width</code> 和 <code>height</code> 指的是<code>内容区域 + border + padding</code>的<strong>宽度和高度</strong>。</li>
+</ul>
+</li>
+<li><p>IE盒模型使用设置：</p>
+<ul>
+<li><code>box-sizing: border-box;</code></li>
+<li>需要注意的是该样式存在浏览器兼容性问题，使用时需要添加浏览器内核前缀。</li>
+</ul>
+</li>
+<li><p>IE盒模型使用优势：</p>
+<ul>
+<li>IE盒模型对于百分比宽度布局有明显的便捷性，在布局时无需再去格外计算元素的内边距及边框。<br><img src="eg.jpg" alt="对比"></li>
+</ul>
+</li>
+</ul>
+<h2 id="3-flex盒模型"><a href="#3-flex盒模型" class="headerlink" title="3 flex盒模型"></a>3 flex盒模型</h2><h3 id="3-1-Flex布局是什么？"><a href="#3-1-Flex布局是什么？" class="headerlink" title="3.1 Flex布局是什么？"></a>3.1 Flex布局是什么？</h3><blockquote>
+<p>Flexible box，弹性布局，用来为盒子模型提供最大的灵活性。</p>
+</blockquote>
+<ul>
+<li>任何一个容器、行内元素都可以设置为flex布局。</li>
+<li><code>webkit内核</code>的浏览器，必须加<code>-webkit</code>前缀。</li>
+<li>注意，在设置flex布局之后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性都将<code>失效</code>。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-flex;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box2</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-flex; <span class="comment">/* Safari */</span></span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="flex%E7%9B%92%E5%AD%90.png" alt="flex盒子模型"></p>
+<h3 id="3-2-基本概念"><a href="#3-2-基本概念" class="headerlink" title="3.2 基本概念"></a>3.2 基本概念</h3><ul>
+<li><p>容器：采用 Flex 布局的元素，称为 Flex 容器</p>
+</li>
+<li><p>项目：它的所有子元素自动成为容器成员，称为 Flex 项目（flex item），简称”项目”。</p>
+</li>
+<li><p>容器存在两根轴：</p>
+<ul>
+<li>水平主轴：main axis </li>
+<li>垂直交叉轴： cross axis</li>
+</ul>
+</li>
+<li><p>容器中的项目默认沿主轴排列。</p>
+</li>
+</ul>
+<h3 id="3-3-容器的属性"><a href="#3-3-容器的属性" class="headerlink" title="3.3 容器的属性"></a>3.3 容器的属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>定义</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>flex-direction</code></td>
+<td>决定主轴方向</td>
+<td><code> row /row-reverse /column /column-reverse</code></td>
+</tr>
+<tr>
+<td><code>flex-wrap</code></td>
+<td>决定是否换行，如何换行</td>
+<td><code> nowrap /wrap /wrap-reverse</code></td>
+</tr>
+<tr>
+<td><code>flex-flow</code></td>
+<td><code>flex-direction</code>和<code>flex-wrap</code>的简写形式</td>
+<td><code>  &lt;flex-direction&gt; // &lt;flex-wrap&gt;</code></td>
+</tr>
+<tr>
+<td><code>justify-content</code></td>
+<td>项目在主轴上的对齐方式</td>
+<td><code>flex-start /flex-end / center / space-between / space-around</code></td>
+</tr>
+<tr>
+<td><code>align-items</code></td>
+<td>项目在交叉轴上的排列方式</td>
+<td><code>flex-start / flex-end / center / baseline / stretch</code></td>
+</tr>
+<tr>
+<td><code>align-content</code></td>
+<td>多根轴线的对齐方式</td>
+<td><code>flex-start /flex-end /center / space-between /space-around /stretch</code></td>
+</tr>
+</tbody></table>
+<h4 id="3-3-1-flex-direction"><a href="#3-3-1-flex-direction" class="headerlink" title="3.3.1 flex-direction"></a>3.3.1 <code>flex-direction</code></h4><ul>
+<li>该属性决定主轴的方向（即内容的排列方向）</li>
+<li>属性值：<ul>
+<li><code>row</code>（默认值）： 水平向右；</li>
+<li><code>row-reverse</code>： 水平向左；</li>
+<li><code>column</code>： 垂直向下；</li>
+<li><code>column-reverse</code>： 垂直向上。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-2-flex-wrap"><a href="#3-3-2-flex-wrap" class="headerlink" title="3.3.2 flex-wrap"></a>3.3.2 <code>flex-wrap</code></h4><ul>
+<li>该属性定义，当一行显示不下所有项目时是否换行，如何换行。(交叉轴方向决定项目换行方向)</li>
+<li>属性值：<ul>
+<li><code>nowrap</code>(默认值): <code>不换行</code> ；</li>
+<li><code>wrap</code>：换行，第一行在<code>上</code>方；</li>
+<li><code>wrap-reverse</code>： 换行，第一行在<code>下</code>方。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-3-flex-flow"><a href="#3-3-3-flex-flow" class="headerlink" title="3.3.3 flex-flow"></a>3.3.3 <code>flex-flow</code></h4><ul>
+<li>该属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code>row nowrap</code>。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">flex-flow</span>: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-4-justify-content"><a href="#3-3-4-justify-content" class="headerlink" title="3.3.4 justify-content"></a>3.3.4 <code>justify-content</code></h4><ul>
+<li>该属性定义了项目在主轴上的对齐方式。</li>
+<li>属性值（具体对齐方式与轴的方向有关，假设主轴的方向为从左到右）<ul>
+<li><code>flex-start</code>（默认值）：左对齐；</li>
+<li><code>flex-end</code>：右对齐；</li>
+<li><code>center</code>： 居中；</li>
+<li><code>space-between</code>：两端对齐，项目之间的间隔都相等；</li>
+<li><code>space-around</code>：每个项目两侧的间隔相等，所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-5-align-items"><a href="#3-3-5-align-items" class="headerlink" title="3.3.5 align-items"></a>3.3.5 <code>align-items</code></h4><ul>
+<li>该属性定义了项目在交叉轴上如何对齐。</li>
+<li>属性值（具体对齐方式与交叉轴方向有关，假设交叉轴从上到下）<ul>
+<li><code>flex-start</code>：交叉轴的起点对齐。</li>
+<li><code>flex-end</code>：交叉轴的终点对齐。</li>
+<li><code>center</code>：交叉轴的中点对齐。</li>
+<li><code>baseline</code>: 项目的第一行文字的基线对齐。</li>
+<li><code>stretch</code>（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-6-align-content"><a href="#3-3-6-align-content" class="headerlink" title="3.3.6 align-content"></a>3.3.6 <code>align-content</code></h4><ul>
+<li>该属性定义多根轴线的对齐方式，如果项目只有一根轴线，则不起作用。（沿着交叉轴方向的每一行，在容器中如何分布）</li>
+<li>属性值<ul>
+<li><code>flex-start</code>：与交叉轴的起点对齐。</li>
+<li><code>flex-end</code>：与交叉轴的终点对齐。</li>
+<li><code>center</code>：与交叉轴的中点对齐。</li>
+<li><code>space-between</code>：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
+<li><code>space-around</code>：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
+<li><code>stretch</code>（默认值）：轴线占满整个交叉轴。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-4-项目属性"><a href="#3-4-项目属性" class="headerlink" title="3.4 项目属性"></a>3.4 项目属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>定义</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>order</code></td>
+<td>定义项目的排列属性，数值越小，排列越靠前，默认为0</td>
+<td><code>order: &lt;integer&gt;;</code></td>
+</tr>
+<tr>
+<td><code>flex-grow</code></td>
+<td>定义项目放大比例，默认为0，即如果存在剩余空间也不放大</td>
+<td><code>flex-grow: &lt;number&gt;;</code></td>
+</tr>
+<tr>
+<td><code>flex-shrink</code></td>
+<td>定义项目的缩小比例，默认为1，即如果空间不足，项目缩小</td>
+<td><code>flex-shrink: &lt;number&gt;;</code></td>
+</tr>
+<tr>
+<td><code>flex-basis</code></td>
+<td>定义在分配多余空间之前，项目占据的主轴空间，默认为auto</td>
+<td><code>flex-basis: &lt;length&gt;/auto;</code></td>
+</tr>
+<tr>
+<td><code>flex</code></td>
+<td>放大，缩小和分配剩余空间的简写，默认值为<code> 0 1 auto</code></td>
+<td><code> flex: none / [ &lt;&#39;flex-grow&#39;&gt; &lt;&#39;flex-shrink&#39;&gt;? // &lt;&#39;flex-basis&#39;&gt; ]</code></td>
+</tr>
+<tr>
+<td><code>align-self</code></td>
+<td>设置某个单个项目的对齐方式</td>
+<td><code>align-self: auto /flex-start /flex-end /center /baseline /stretch;</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li><p><code>flex-grow属性</code>：如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）；如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p>
+</li>
+<li><p><code>flex-shrink属性</code>：如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。<strong>负值对该属性无效</strong>。</p>
+</li>
+<li><p><code>flex-basis属性</code>: 定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</p>
+</li>
+<li><p><code>flex属性</code>：该属性有两个快捷值：<code>auto</code> <code>(1 1 auto)</code> 和 <code>none</code> <code>(0 0 auto)</code>。建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</p>
+</li>
+<li><p><code>align-self属性</code>： 允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为<code>auto</code>，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html">CSS-Flex布局基础-阮一峰老师</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2015/07/flex-examples.html">CSS-Flex布局实例-阮一峰老师</a></p>
+</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">CSS-知识点</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+    
+</article>
+
+    
+    <article
   id="post-CSS-动画"
   class="article article-type-post"
   itemscope
@@ -1144,103 +1431,13 @@
 </article>
 
     
-    <article
-  id="post-CSS-实现元素居中方法"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2022/04/28/CSS-%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95/"
-    >CSS-实现元素居中方法</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2022/04/28/CSS-%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD%E6%96%B9%E6%B3%95/" class="article-date">
-  <time datetime="2022-04-28T10:00:05.000Z" itemprop="datePublished">2022-04-28</time>
-</a> 
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/CSS/">CSS</a>
-  </div>
-   
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h2 id="实现元素水平垂直居中的方法"><a href="#实现元素水平垂直居中的方法" class="headerlink" title="实现元素水平垂直居中的方法"></a>实现元素水平垂直居中的方法</h2><blockquote>
-<p>元素是<code>行内元素</code>、<code>块状元素</code>及<code>不定宽高的块状元素</code>适用的方法是不同的。</p>
-</blockquote>
-<h3 id="1-text-align和-line-height"><a href="#1-text-align和-line-height" class="headerlink" title="1 text-align和 line-height"></a>1 text-align和 line-height</h3><blockquote>
-<p>水平居中 : 给父元素设置文本center;</p>
-<p>垂直居中 ：让文字的行高等于盒子的高度</p>
-</blockquote>
-<ul>
-<li>只适用于行内元素。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.positions</span> &#123;</span><br><span class="line">     <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.positions</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">     <span class="attribute">line-height</span>:<span class="number">140px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="2-使用绝对定位和相对定位"><a href="#2-使用绝对定位和相对定位" class="headerlink" title="2 使用绝对定位和相对定位"></a>2 使用绝对定位和相对定位</h3><ul>
-<li>若想三者都实现，偏移量需要自己计算； </li>
-<li>已知宽高；<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 定位1：绝对定位和相对定位 */</span></span><br><span class="line"><span class="selector-class">.positions</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.positions</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">32px</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">10.5px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#block</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">25px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#b2</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">25px</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">25px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="3-绝对定位-translate"><a href="#3-绝对定位-translate" class="headerlink" title="3 绝对定位+translate"></a>3 绝对定位+translate</h3><ul>
-<li>行内元素,块元素,不定宽高的块状元素都可实现；</li>
-<li>不需要计算偏移量；</li>
-<li>有兼容性问题。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 定位2： */</span></span><br><span class="line"><span class="selector-class">.positions</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.positions</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>,-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#block</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>,-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#b2</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>,-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="4-设置top、left、right和bottom的值"><a href="#4-设置top、left、right和bottom的值" class="headerlink" title="4 设置top、left、right和bottom的值"></a>4 设置top、left、right和bottom的值</h3><ul>
-<li>只有块元素可以实现;</li>
-<li>必须知道具体的宽高；<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.positions</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.positions</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#block</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#b2</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="5-flex实现"><a href="#5-flex实现" class="headerlink" title="5 flex实现"></a>5 flex实现</h3><ul>
-<li>父容器使用flex布局，使用<code>justify-content</code>和<code>align-items</code>，三者均可实现；<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* flex属性 */</span></span><br><span class="line"><span class="selector-class">.positions</span> &#123; </span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>问题：这种写法会到导致父容器中所有子元素都垂直居中。</li>
-</ul>
-<h3 id="6-flex布局-margin-auto"><a href="#6-flex布局-margin-auto" class="headerlink" title="6 flex布局 + margin:auto"></a>6 flex布局 + margin:auto</h3><ul>
-<li>适用场景：指定父元素中的某个元素垂直居中，其他元素正常</li>
-<li>给父元素设置<code>display: flex</code>，再给指定的子元素设置<code>margin: auto</code>;<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* flex-某一子元素垂直居中 */</span></span><br><span class="line"><span class="selector-class">.positions</span> &#123; </span><br><span class="line">    <span class="attribute">display</span>: flex; </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.positions</span> <span class="selector-id">#block</span>&#123;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="7-display：table-cell实现"><a href="#7-display：table-cell实现" class="headerlink" title="7 display：table-cell实现"></a>7 display：table-cell实现</h3><ul>
-<li>父元素必须要有固定宽高，百分比不可以;</li>
-<li><code>display: table-cell;</code> : table布局；</li>
-<li><code>vertical-align: middle;</code> : 垂直居中；</li>
-<li><code>text-align: center;</code> : 水平居中。</li>
-<li>对于块级元素要设置为行内块元素。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* display：table-cell实现 */</span></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: table-cell;</span><br><span class="line">    <span class="attribute">vertical-align</span>: middle;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#block</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS-%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="tag">CSS-知识点</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-    
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
   </nav>
   
 </section>

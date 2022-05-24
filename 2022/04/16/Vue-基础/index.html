@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">315</span>
+            <span class="post-count">743</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -146,6 +146,55 @@
 </ul>
 </li>
 </ul>
+<h2 id="4-基于webpack的vue2项目构建"><a href="#4-基于webpack的vue2项目构建" class="headerlink" title="4 基于webpack的vue2项目构建"></a>4 基于webpack的vue2项目构建</h2><ul>
+<li>命令： <code>vue create proname</code></li>
+</ul>
+<h2 id="5-基于vite的Vue项目创建"><a href="#5-基于vite的Vue项目创建" class="headerlink" title="5 基于vite的Vue项目创建"></a>5 基于vite的Vue项目创建</h2><h3 id="5-1-Vue3项目创建"><a href="#5-1-Vue3项目创建" class="headerlink" title="5.1 Vue3项目创建"></a>5.1 Vue3项目创建</h3><ul>
+<li>命令： <code>npm init @vitejs/app proName</code></li>
+</ul>
+<h3 id="5-2-Vue2项目创建"><a href="#5-2-Vue2项目创建" class="headerlink" title="5.2 Vue2项目创建"></a>5.2 Vue2项目创建</h3><h4 id="5-2-1-原生JS框架构建"><a href="#5-2-1-原生JS框架构建" class="headerlink" title="5.2.1 原生JS框架构建"></a>5.2.1 原生JS框架构建</h4><ol>
+<li><p>初始化一个vite原生框架，并输入项目名称</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create vite@latest</span><br></pre></td></tr></table></figure></li>
+<li><p>选择框架<code>vanilla</code>(原生js)，并安装依赖</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line"></span><br><span class="line">npm install vite-plugin-vue2 -D </span><br></pre></td></tr></table></figure></li>
+<li><p>创建vite.config.js配置文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vite.config.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; createVuePlugin &#125; <span class="keyword">from</span> <span class="string">&#x27;vite-plugin-vue2&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="title function_">createVuePlugin</span>(<span class="comment">/* options */</span>)</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>安装vue</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue@<span class="number">2.6</span><span class="number">.14</span> -S</span><br></pre></td></tr></table></figure></li>
+<li><p>创建src文件夹，并将main.js文件放入,并修改;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&quot;./App.vue&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">   <span class="attr">el</span>: <span class="string">&quot;#app&quot;</span>,</span><br><span class="line">   <span class="attr">render</span>: <span class="function">(<span class="params">h</span>) =&gt;</span> <span class="title function_">h</span>(<span class="title class_">App</span>)</span><br><span class="line">&#125;).$mount();</span><br></pre></td></tr></table></figure></li>
+<li><p>更改index.html中引入main.js的路径；</p>
+</li>
+<li><p>创建App.vue文件并修改，与main.js文件同级;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div&gt;Vue 2&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>启动项目</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">进入项目：cd vue2</span><br><span class="line">安装依赖：npm install</span><br><span class="line">运行项目：npm run dev 或 npx vite</span><br><span class="line">打包项目：npm run build 或 npx vite build</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46264882/article/details/123225030">参考链接</a></li>
+</ul>
+<h4 id="5-2-2-将Vite-Vue3项目改造成Vue2项目"><a href="#5-2-2-将Vite-Vue3项目改造成Vue2项目" class="headerlink" title="5.2.2 将Vite+Vue3项目改造成Vue2项目"></a>5.2.2 将Vite+Vue3项目改造成Vue2项目</h4><ul>
+<li>前提： <code>vite+vue3</code>项目改成<code>vite+vue2</code>项目时，必须<code>npm install</code>之后再更换<code>package.json</code>中的内容。</li>
+</ul>
+<ol>
+<li>更换package.json中的内容(将vue2项目中package.json的内容复制到vue3项目中)<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;dependencies&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;core-js&quot;</span>: <span class="string">&quot;^3.8.3&quot;</span>,</span><br><span class="line">    <span class="string">&quot;vue&quot;</span>: <span class="string">&quot;^2.6.14&quot;</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
+<li>在vite项目中安装依赖</li>
+</ol>
+<p><code> npm install</code></p>
+<ol start="3">
+<li><p>把webpack的vue2项目的src目录，整个复制粘贴到vite项目中</p>
+</li>
+<li><p>安装插件</p>
+</li>
+</ol>
+<p><code>  npm install vite-plugin-vue2 -D</code></p>
+<ol start="5">
+<li><p>在vite.config.js配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineConfig &#125; <span class="keyword">from</span> <span class="string">&#x27;vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; createVuePlugin &#125; <span class="keyword">from</span> <span class="string">&#x27;vite-plugin-vue2&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="title function_">createVuePlugin</span>(<span class="comment">/* options */</span>)</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>安装插件</p>
+</li>
+</ol>
+<p><code> npm i vue-template-compiler -S</code></p>
  
       <!-- reward -->
       
