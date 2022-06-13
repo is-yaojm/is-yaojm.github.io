@@ -6,7 +6,7 @@
   <link href="http://is-yaojm.github.io/atom.xml" rel="self"/>
   
   <link href="http://is-yaojm.github.io/"/>
-  <updated>2022-05-24T09:17:29.847Z</updated>
+  <updated>2022-05-24T09:25:01.507Z</updated>
   <id>http://is-yaojm.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://is-yaojm.github.io/2022/05/24/Vue-%E9%9D%A2%E8%AF%95%E9%A2%982/"/>
     <id>http://is-yaojm.github.io/2022/05/24/Vue-%E9%9D%A2%E8%AF%95%E9%A2%982/</id>
     <published>2022-05-24T07:10:07.000Z</published>
-    <updated>2022-05-24T09:17:29.847Z</updated>
+    <updated>2022-05-24T09:25:01.507Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-key-39-index-39-在使用时有什么问题？"><a href="#1-key-39-index-39-在使用时有什么问题？" class="headerlink" title="1 :key=&#39;index&#39;在使用时有什么问题？"></a>1 <code>:key=&#39;index&#39;</code>在使用时有什么问题？</h2><ul><li><p>问题： 下标修改，后面的元素会重新创建，对性能有影响。</p></li><li><p>若对数据进行：逆序添加、逆序删除等破坏顺序操作:<br>  会产生没有必要的真实DOM更新 ==&gt; 界面效果没问题, 但效率低。</p></li><li><p>如果结构中还包含输入类的DOM：<br>  会产生错误DOM更新 ==&gt; 界面有问题。</p></li><li><p>注意！如果不存在对数据的逆序添加、逆序删除等破坏顺序操作，<br>  仅用于渲染列表用于展示，使用index作为key是没有问题的。</p></li><li><p>最好使用每条数据的唯一标识作为key, 比如id、手机号、身份证号、学号等唯一值。如果确定只是简单的展示数据，用index也是可以的。 </p></li><li><p><a href="https://juejin.cn/post/6999932053466644517">index作为key引发的事情</a></p></li></ul><h2 id="2-给你1000条数据，如何不用循环，找到想要的值？"><a href="#2-给你1000条数据，如何不用循环，找到想要的值？" class="headerlink" title="2 给你1000条数据，如何不用循环，找到想要的值？"></a>2 给你1000条数据，如何不用循环，找到想要的值？</h2><ul><li>不用for循环如何实现数组基本功能操作。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-key-39-index-39-在使用时有什么问题？"><a href="#1-key-39-index-39-在使用时有什么问题？" class="headerlink" title="1 :key=&#39;index&#39;在使用时有什么问题？"></a>1 <code>:key=&#39;index&#39;</code>在使用时有什么问题？</h2><ul><li><p>问题： 下标修改，后面的元素会重新创建，对性能有影响。</p></li><li><p>若对数据进行：逆序添加、逆序删除等破坏顺序操作:<br>  会产生没有必要的真实DOM更新 ==&gt; 界面效果没问题, 但效率低。</p></li><li><p>如果结构中还包含输入类的DOM：<br>  会产生错误DOM更新 ==&gt; 界面有问题。</p></li><li><p>注意！如果不存在对数据的逆序添加、逆序删除等破坏顺序操作，<br>  仅用于渲染列表用于展示，使用index作为key是没有问题的。</p></li><li><p>最好使用每条数据的唯一标识作为key, 比如id、手机号、身份证号、学号等唯一值。如果确定只是简单的展示数据，用index也是可以的。 </p></li><li><p><a href="https://juejin.cn/post/6999932053466644517">index作为key引发的事情</a></p></li></ul><h2 id="2-给你1000条数据，如何不用循环，找到想要的值？"><a href="#2-给你1000条数据，如何不用循环，找到想要的值？" class="headerlink" title="2 给你1000条数据，如何不用循环，找到想要的值？"></a>2 给你1000条数据，如何不用循环，找到想要的值？</h2><ul><li><p>不用for循环如何实现数组基本功能操作。</p></li><li><p><a href="https://blog.csdn.net/weixin_40073115/article/details/103608735">不用for循环实现数组基本功能</a></p></li><li><p>[使用JS实现哈希](<a href="https://blog.csdn.net/hulover/article/details/122899783">https://blog.csdn.net/hulover/article/details/122899783</a></p></li><li><p><a href="https://blog.csdn.net/xiayngbaidu12345/article/details/123698558">Js实现哈希表</a></p></li></ul>]]></content>
     
     
       
